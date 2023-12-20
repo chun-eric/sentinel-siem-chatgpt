@@ -1,4 +1,3 @@
-# 
 
 <h1>Microsoft Sentinel SIEM with ChatGPT Integration</h1>
 
