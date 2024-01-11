@@ -1,5 +1,5 @@
 
-<h1>The Blue Team Red Team Microsoft Sentinel SIEM lab. From Deployment, Configuration to Compromise and Remediation.</h1>
+<h1>The Blue Team Red Team Microsoft Sentinel SIEM lab. From Deployment, Configuration to Compromise, Threat Detection and Remediation.</h1>
 
 
 <h2>Description</h2>
@@ -17,7 +17,7 @@ The project began by spinning up a SIEM in Microsoft Sentinel, to initial config
 <br/>
 <h2>Project walk-through:</h2>
 
-<h3>Step 1 - Download Windows Image</h3>
+<h3>Step 1 - Getting Started </h3>
 <p>Why do we have to download a windows image? What is it even? </p>
 <p>A Windows image, in simple terms, is like a snapshot or a picture of the Windows operating system and the programs installed on it at a specific point in time.  </p>
 It's a complete package that contains all the files and settings needed to set up or restore a Windows computer to a particular state.
@@ -37,7 +37,7 @@ https://www.microsoft.com/en-us/software-download/windows10
 
 
 <br></br>
-<h3>Step 2 - Download and Install Windows ISO image on VirtualBox</h3>
+<h3>Step 2 - Deploying Sentinel to Azure</h3>
 First download VirtualBox
 <br />
 https://www.virtualbox.org/
