@@ -21,23 +21,26 @@ The project began by spinning up a SIEM in Microsoft Sentinel, to initial config
 To speed development we will use Sentinel All in One.
 Sentinel All in One is basically AI
 <br/>
+<br/>
 It also configures Content Hub solutions
+<br/>
 <br/>
 If you want to have a look at setting up SIME from beginning to end go to  Pavs other course which we bought
 <br/>
 If you look at some of the data connectors some are billed and some are free
 but don’t worry we wont need to spend anything 
 <br/>
+<br/>
 When we first deploy Sentinel we get 10gb ingestion per day for the first month
 That’s plenty of time to go through all the necessary tasks
 Then you will delete Sentinel
+<br/>
 <br/>
 Then whenever you want to spin up a fresh new Sentinel just Deploy to Azure the Sentinel All in One.
 <br/>
 <br/>
 <br/>
-[https://www.microsoft.com/en-us/software-download/windows10
-](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One#readme
+(https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One#readme
 )
 <a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="1" border="0" /></a>
 <br/>
