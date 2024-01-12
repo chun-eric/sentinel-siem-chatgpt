@@ -17,30 +17,52 @@ The project began by spinning up a SIEM in Microsoft Sentinel, to initial config
 <br/>
 <h2>Project walk-through:</h2>
 
-<h3>Step 1 - Getting Started </h3>
-<p>Why do we have to download a windows image? What is it even? </p>
-<p>A Windows image, in simple terms, is like a snapshot or a picture of the Windows operating system and the programs installed on it at a specific point in time.  </p>
-It's a complete package that contains all the files and settings needed to set up or restore a Windows computer to a particular state.
+<h3>Step 1 - Deploying Sentinel to Azure</h3>
+To speed development we will use Sentinel All in One.
+Sentinel All in One is basically AI
+<br/>
+It also configures Content Hub solutions
+<br/>
+If you want to have a look at setting up SIME from beginning to end go to  Pavs other course which we bought
+<br/>
+If you look at some of the data connectors some are billed and some are free
+but don’t worry we wont need to spend anything 
+<br/>
+When we first deploy Sentinel we get 10gb ingestion per day for the first month
+That’s plenty of time to go through all the necessary tasks
+Then you will delete Sentinel
+<br/>
+Then whenever you want to spin up a fresh new Sentinel just Deploy to Azure the Sentinel All in One.
 <br/>
 <br/>
-We want to use this windows so we can install it in VirtualBox which is a virtual machine. 
 <br/>
+[https://www.microsoft.com/en-us/software-download/windows10
+](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One#readme
+)
+<a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="1" border="0" /></a>
 <br/>
-Virtual machines if configured correctly are like another computer within our computer and wont affect the host machine.
-<br/>
-<br/>
-We need to download a windows image from this URL:
-<br/>
-https://www.microsoft.com/en-us/software-download/windows10
-
-
 
 
 <br></br>
 <h3>Step 2 - Deploying Sentinel to Azure</h3>
 First download VirtualBox
-<br />
-https://www.virtualbox.org/
+<br ![image](https://github.com/chun-eric/sentinel-siem-chatgpt/assets/102393871/06b34c7d-7e7f-406c-b6f4-7bb473b7d772)
+/>
+To speed development we will use Sentinel All in One.
+Sentinel All in One is basically AI
+
+It also configures Content Hub solutions
+
+If you want to have a look at setting up SIME from beginning to end go to  Pavs other course which we bought
+
+If you look at some of the data connectors some are billed and some are free
+but don’t worry we wont need to spend anything 
+
+When we first deploy Sentinel we get 10gb ingestion per day for the first month
+That’s plenty of time to go through all the necessary tasks
+Then you will delete Sentinel
+
+Then whenever you want to spin up a fresh new Sentinel just Deploy to Azure the Sentinel All in One.
 <br/>
 <br/>
 After downloading the program, go through the installation process.
@@ -54,7 +76,7 @@ Check --> Unattended Guest OS Install Setup.
 Complete Username and Password.
 <br/>
 <br/>
-<p>Add Hostname and Domain Name</p>
+
 <a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="1" border="0" /></a>
 <br/>
 
