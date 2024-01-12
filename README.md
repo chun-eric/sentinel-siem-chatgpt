@@ -353,213 +353,450 @@ Next video, our very first task in Microsoft Sentinel will be to fix this issue!
 The user and entity behavior analytics (UEBA) is an amazing feature that uses AI to detect and alert you to any unusual behavior happening within your system.
 <br/>
 To turn this feature we have to go to:
+<br/>
 Configuration --> Settings --> Settings --> Set UEBA 
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="28" border="0" /></a>
 <br/>
-You will come to a new screen called Entity behavior Configuration
+You will come to a new screen called Entity behavior Configuration.
+<br/>
 1. Turn on the UEBA feature --> On (click)
+<br/>
 2. Sync Microsoft Sentinel with at least one of the following directory services --> Microsoft Entra ID (select) --> Apply
+<br/>
 3. Select existing data sources you want to enable for entity behavior analytics --> Select Audit Logs, Azure Activity , Signin Logs --> Apply
 <br/>
 Now we have enabled AI Machine Learning in Microsoft Sentinel.
+<br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="29" border="0" /></a>
 <br/>
 <br/>
-As we are already in Sentinel  configuring lets use automation playbooks
-To do this we need to give MS permissions
+As we are already in Sentinel  configuring lets use automation playbooks.
+<br/>
+To do this we need to give MS permissions.
+<br/>
 Configuration --> Settings --> Settings --> Playbook permissions --> Configure permissions
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="30" border="0" /></a>
 <br/>
 Manage permissions panel will show up to the right.
+<br/>
 Select the correct resource group siem-training2 > Apply
 <br/>
 Now we are all set up and ready to create some amazing artifacts within Microsoft Sentinel.
 <br/>
 Next video we will be diving into watchlists!
+<br/>
 We will learn to create our own watchlist and how to leverage powerful capabilities to enhance security operations.
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="30" border="0" /></a>
 <br/>
+<br/>
+
+
+
+<br>
+</br>
+<h3>Step 6 - Creating Watchlists to Detect Threats</h3>
+<br/>
+This will be the first step in monitoring TOR exit nodes using Microsoft Sentinel.
+How?
+<br/>
+We will create a watchlist that checks all the TOR exit nodes IP addresses and use it with analytics rules.
+<br/>
+Go to the watchlist
+<br/>
+Configuration --> Watchlist --> Add new
+<br/>
+<a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="32" border="0" /></a>
+<br />
+<br />
+New window pops up Watchlist Wizard
+<br />
+There are three tabs, General, Source, Review and Create
+<br />
+In the General tab:
+<br />
+Name --> Tor-IP-Addresses
+<br />
+Description --> A watchlist that checks all the Tor Exit nodes IP Addresses
+<br />
+Alias --> Tor-IP-Addresses
+<br/>
+<a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="33" border="0" /></a>
+<br />
+<br />
+We can create watchlists from a local file or from Azure storage
+<br />
+Source tab (is it from a local file or from Azure storage)
+<br />
+Fill in the below fields:
+<br />
+Source type --> Local file
+<br />
+File type --> CSV file with a header
+<br />
+Number of lines before row with headings --> 0
+<br />
+Upload file --> Tor+Exit+Nodes.csv
+<br />
+File preview on right side to check for your validation
+<br />
+SearchKey --> IpAddress
+<br />
+Review and Create  tab --> Create
+<br />
+<br />
+<a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="34" border="0" /></a>
+<br />
+Our newly created watchlist.
+<br />
+<a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="35" border="0" /></a>
+<br />
+<br />
+Select the watchlist
+<br />
+On the right side panel --> click View in Logs
+<br />
+This is what the watchlist looks when you call it with KQL and Sentinel will present you with the results.
+<br />
+<a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="36" border="0" /></a>
+<br />
+<br />
+This is what it would look like in the Logs. You can see it has KQL queries.
+<br />
+A the top under the Run button you can see the KQL syntax, which will come in handy in our next step of creating an analytics rule to detect malicious login from Tor exit nodes.
+<br />
+<a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="37" border="0" /></a>
+<br />
+<br />
+Lets go back to our watchlist
+<br />
+One more really cool thing about watchlists is that they are easily modifiable
+<br />
+click --> Update watchlist --> Edit watchlist items
+<br />
+<a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="38" border="0" /></a>
+<br />
+<br />
+This is particularly useful if you have multiple analytics rules that use the same information
+Its easier to upodate the watch list in one place rather than going into each analytics rule and making changes there.
+<br />
+<br />
+<a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="39" border="0" /></a>
+<br />
+In the next step let's create our very first analytics rule to detect threats from Tor network.
+<br />
+<br />
+
 
 
 
 
 <br>
 </br>
-<h3>Step 6 - Our First Nessus Initial Scan (without Credentials) </h3>
+<h3>Step 7 - Creating a Detection Rule for our Threat</h3>
 <br/>
-<p>Okay you can press the launch button.</p>
-<p>Then click on the name of the scan you gave previously. For us its the Windows basic scan.</p>
-<p>Then you will be redirected to another window.</p>
-<p>You will see a Hosts tab with the scan running.</p>
-<p>The scan details will be shown on the right-hand side.</p>
-<p>As Vulnerabilities details will be shown below.</p>
-<br />
-<p>There will be 5 categories under vulnerabilities.</p>
-Critical
+In MS side bar
+Configuration --> Analytics --> Create --> Scheduled Query rule
 <br/>
-High
-<br/>
-Medium
-<br/>
-Low
-<br/>
-Info
-<br/>
-<p>Click on the bar in the middle of the screen to access more detailed information.</p>
-<p>There you will see the names of the vulnerabilities.</p>
-<a href="https://ibb.co/0tjHYHm"><img src="https://i.ibb.co/YZ7HfHP/39.png" alt="39" border="0" /></a>
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="40" border="0" /></a>
 <br />
 <br />
-<p>If you want to take it further you can keep clicking on each vulnerability.</p>
-<p>Lets take a closer look at one of them:</p>
-<p>Windows NetBIOS / SMB Remote Host Information Disclosure.</p>
-<br/>
-<p>Here you will receive very detailed information about the vulnerability.</p>
-<p>Description</p>
-<p>Output</p>
+General Tab
 <br />
-<p>Most cybercriminals often exploit vulnerabilities on Port 445 to spread wannacry.</p>
-<p>Wait for the scan to completely finish.</p>
-<br/>
-<a href="https://ibb.co/FqXKSX4"><img src="https://i.ibb.co/dJtrdt4/40.png" alt="40" border="0" /></a>
+Analytics rule details
 <br />
+Name --> Successful Sign-ins from Tor Network
 <br />
-<p>As you can see there is medium SMB Signing not required.</p>
-<p>Ours can be different as we are in 2023.</p>
-<p>Read the Description, Solution, See Also and Output.</p>
-<p>Again, its up to you remediate the steps.</p>
-<p>You can also view your previous scans in the History tab.</p>
-<p>We haven't found enough vulnerabilities, so let's change some settings to increase the vulnerabilities.</p>
+Description.
 <br />
-<a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="41" border="0" /></a>
+This rule detects successful sign-ins from the Tor Network, which is a popular tool used by threat actors to anonymize their activity. 
+The rule triggers when a successful sign-in event occurs on an account that has a Tor Network IP Address. This could indicate a potential security threat, as legitimate users typically do not use the Tor Network to sign in to an organization's resources.
+<br />
+Tactics and Techniques
+<br />
+Initial Access --> T1133 External Remote Access
+<br />
+Severity  --> High
+<br />
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="41" border="0" /></a>
 <br />
 <br />
-
-
-
-<br></br>
-<h3>Step 7 - Configuration of Credential Scan </h3>
-<br/>
-<p>We are going to add credentials to our saved window scan.</p>
-<p>First navigate to My Scans.</p>
-<p>Select your previous saved scan.</p>
-<p>Okay now in the top right corner there is configure button. Click it.</p>
+Set Logic Rule Tab
 <br />
-<a href="https://ibb.co/cNt6xwk"><img src="https://i.ibb.co/Jz2vCqm/42.png" alt="42" border="0" /></a>
+Rule query
 <br />
+let TorNodes = (_GetWatchlist('Tor-IP-Addresses') | project TorIP = IpAddress);
+SigninLogs
+| where IPAddress in (TorNodes)
+| where ResultType !=  50126
+| project 
+   TimeGenerated,
+   Location,
+IPAddress,
+UserDisplayName,
+UserPrincipalName,
+UserId,
+LocationDetails,
+RiskState,
+RiskLevelDuringSignIn,
+AuthenticationRequirement,
+ClientAppUsed, 
+ConditionalAccessPolicies
 <br />
-<p>Then go to the Credentials Tab.</p>
-<p>Select Windows as our VM is Windows based.</p>
-<p>A new box to the right will appear titled Windows.</p>
-<p>There are several authentication method we can choose from.</p>
-<p>The password method requires the admin or user password to be provided for authentication.</p>
-<p>Kerberos is used when the target system is joined to a domain.</p>
-<p>For now lets pick the Password option.</p>
-<p>Fill in your Username, Password, Domain.</p>
-<br/>
-<br/>
-<p>If you cant remember your Username, Password, Domain etc. We don’t have a domain name.</p>
-<p>Go to Command Prompt and type:</p>
-<p>whoami or echo %username%</p>
-<p>Once you have filled out the credentials click save.</p>
+Click > View query results
 <br />
-<a href="https://ibb.co/rpLjN5B"><img src="https://i.ibb.co/5jz0wsQ/43.png" alt="43" border="0" /></a>
+Clic > Test with current data (top right)
 <br />
 <br />
-<p>However you will receive a notification that the account user doesn’t have the necessary privileges if you try to run the scan.</p>
-<p>This is because the non-default administrator account isnt automatically added to the local group administrators and doesn’t have the appropriate rights to access all the system files and settings.</p>
-<p>To address this issue we need to perform a few additional steps.</p>
-<p>Its not complicated but it takes a bit of time. =(</p>
-<br/>
-<p>Go back to our Windows VM.</p>
-<p>Click Windows > search for "services".</p>
-<br/>
-<p>Find remote registry and double click.</p>
-<br />
-<a href="https://ibb.co/3Fb2zrv"><img src="https://i.ibb.co/Lgym5kr/44.png" alt="44" border="0" /></a>
-<br />
-<br/>
-<p>In General Tab go to Startup type:  and then change to Automatic > Apply > OK</p>
-<p>Make sure you click Start in Service Status to enable > Apply </p>
-<p>This will allow you to remotely connect to the system registry database and perform different operations such as viewing registry keys and values.</p>
-<p></p>
-<br />
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/Bccnbyz/45.png" alt="45" border="0" /></a>
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="42" border="0" /></a>
 <br />
 <br />
-<p>Search bar  'change User Account Control settings' and select.</p>
-<p>Under Choose when to be notified about changes to your computer >  slide down to Never notify > Click OK.</p>
-<p>This will prevent user account control prompts from interrupting our scan.</p>
+Alert enrichment
+Entity in MS are objects that represent important information about the environment such as host, users, IP addresses and many more
+Lets add two different entities.
 <br />
-<a href="https://ibb.co/rZFh8b6"><img src="https://i.ibb.co/wKBqGJW/46.png" alt="46" border="0" /></a>
+You can select an entity then you add key value pairs to it.
+<br />
+Entity Mapping --> Add new entity
+<br />
+Account (1st Entity)
+<br />
+Sid  --> UserId
+<br />
+click Add identifier
+<br />
+DisplayName -->  UserDisplayName
+<br />
+IP (2nd Entity)
+<br />
+Address --> Ipaddress
+<br />
+Custom details (we can surface any particular event parameters) we have to add key value pairs.
+<br />
+IPAddress --> IPAddress
+<br />
+User --> UserDisplayName
+<br />
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="43" border="0" /></a>
 <br />
 <br />
-<p>Type 'Registry Editor' in search bar.</p>
-<p>We need to create a new Dword Value in the Registry Editor.</p>
-<br/>
-<p>Click on HKEY_LOCAL_MACHINE > SOFTWARE > MICROSOFT > WINDOWS > CurrentVersion > Policies > System</p>
+Alert Details  (we can make adjustments to our alert detail).
 <br />
-<a href="https://ibb.co/vzxx0NL"><img src="https://i.ibb.co/LpzzVT9/47.png" alt="47" border="0" /></a>
+From the value pairs in our Custom details we can add that in our Alert Name Format and Alert Description Format
+<br />
+Alert Name Format --> Successful Sign-Ins from Tor Network IP {{IPAddress}}
+<br />
+Alert Description Format.
+<br />
+This rule detects successful sign-ins from the Tor Network, which is a popular tool used by threat actors to anonymize their activity. 
+The rule triggers when a successful sign-in event occurs on an account {{UserDisplayName}}  that has a Tor Network IP Address. This could indicate a potential security threat, as legitimate users typically do not use the Tor Network to sign in to an organization's resources.
+<br />
+Alert Property
+<br />
+ConfidenceScore --> RiskState
 <br />
 <br />
-<p>In the System folder with your mouse hovering on the right screen, right click , select New > DWORD 32 bit Value.</p>
-<p>This will create a new registry value that you can name exactly as below.</p>
-<p>LocalAccountTokenFilterPolicy</p>
-<br />
-<a href="https://ibb.co/z4W5nRb"><img src="https://i.ibb.co/S3Dxsn0/48.png" alt="48" border="0" /></a>
-<br />
-<a href="https://ibb.co/CP08jBT"><img src="https://i.ibb.co/dmKMNBz/49.png" alt="49" border="0" /></a>
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="44" border="0" /></a>
 <br />
 <br />
-<p>Double click on this newly created file.</p>
-<p>Change Value data to:</p>
-<p>1 Hexadecimal</p>
-<p>This will enable local account token filter policy which allows non-admin accounts to access admin resources on the system when using remote procedure call.</p>
+Query Scheduling
+Run query every
+5 minutes
 <br />
-<p>Restart computer to ensure changes take effect.</p>
-<br/>
-<p>Now Nessus will be able to use credential scanning to perform more comprehensive security scans of your system.</p>
-<p>Now we will be able to find more vulnerabilities.</p>
-<br/>
+Lookup data from the last 5 minutes.
+<br />
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="45" border="0" /></a>
+<br />
+<br />
+Leave everything else as is.
+<br />
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="46" border="0" /></a>
+<br />
+<br />
+Incident Tab > Incident settings > Enabled
+<br />
+Alert grouping
+Enabled
+<br />
+Limit the group to alerts created within the selected time frame leave as --> 5 hours
+<br />
+Group alerts triggered by this analytics rule into a single incident by leave as (recommended)
+<br />
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="47" border="0" /></a>
+<br />
+<br />
+Automated ResponseTab.
+<br />
+None here so we will move on.
+<br />
+Check out the advanced Sentinel Course we got from Pavel.
+<br />
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="48" border="0" /></a>
+<br />
+<br />
+Review and Create Tab
+<br />
+Validation passed --> Save
+<br />
+<a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="49" border="0" /></a>
+<br />
+<br />
+Our Analytics rule will be created.
+<br />
+To see our new analytics rule go to:
+<br />
+Microsoft Sentinel > Analytics > Successful Sign-Ins from Tor Network
+<br />
+Now what we need to do is impersonate as an attacker. 
+Act like a hacker that signed into to an Azure account from an Anonymous IP address.
+<br />
+This is the really hard part and will test your skills. It was very challenging.
+<br />
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="50" border="0" /></a>
 <br />
 <br />
 
 
-
-<br></br>
-<h3>Step 8 - Nessus Credential Scan </h3>
+<br>
+</br>
+<h3>Step 8 - Create a Compromised User Account in Azure for Incident Investigation </h3>
 <br/>
-<p>Click on the launch button again on the same scanner.</p>
-<br />
-<p>After you wait for the scan to finish check your findings.</p>
-<p>As you can see there is a lot more vulnerabilities.</p>
+We are going to prepare an environment and create a new account that will perform some unusual activity.
+We need to turn off security defaults in Azure AD to avoid any potential interruption.
 <br/>
-<p>Look at the high vulnerabilities.</p>
-<p>Click on each one to see more detailed information about the vulnerability.</p>
-<br />
-<a href="https://ibb.co/HqhVRzJ"><img src="https://i.ibb.co/rHdmq6W/51.png" alt="51" border="0" /></a>
-<br />
-<a href="https://ibb.co/7jT3K1R"><img src="https://i.ibb.co/n6VXjLn/52.png" alt="52" border="0" /></a>
-<br />
-<br />
-<p>In the video, teacher clicked on Security Updates for Microsoft .NET Framework December 2022 vulnerability.</p>
-<p>There are 2 vulnerabilities as shown by the CVE number.</p>
-<br />
-<p>If you want to know more about a particular CV.</p>
-<p>copy and paste CVE number into the browser.</p>
-<br />
-<p>Okay, great, let's start to install outdated software. </p>
+Microsoft turns on security as default as it provides crucial baseline level of protection for all users and accounts in organizations.
 <br/>
+This includes all MFA for all administrators blocking legacy authentications such as imap or smtp which helps reduce risk of attacks like password spray and brute force attacks.
+<br/>
+Security defaults also require strong passwords. To turn this feature off we will have to move to Entra ID
+<br/>
+In searchbar > Entra ID
+<br/>
+Default Directory look at side bar:
+<br/>
+Manage > Properties
+<br/>
+At the very bottom click > Manage security defaults
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="51" border="0" /></a>
+<br />
+<br />
+Change security defaults --> Disabled
+Give a reason
+other --> testing --> Save
+<br />
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="52" border="0" /></a>
+<br />
+Now we can create a new account.
+<br />
+Manage --> Users --> New user --> Create New User
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="53" border="0" /></a>
 <br />
+Create new User.
 <br />
+Basics Tab.
+<br />
+User principal name --> keysersoze@acloudcallednimbushotmail.onmicrosoft.com
+keysersoze@acloudcallednimbushotmail.onmicrosoft.com
+Mail nickname --> keysersoze
+Display name -->  keysersoze
+Password --> [add here]
+Account Enabled --> select
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="54" border="0" /></a>
+<br />
+Properties Tab
+Identity
+First name --> Keyser
+Last name --> Soze
+User type --> 
+<br />
+Job Information
+Job title --> CISO
+Company name --> Kobayashi
+Department --> C-Suite
+Employee ID --> 1010
+Employee type --> Executive
+Employee hire date --> Feb 1st 2020
+Office location --> Turkey
+Manager 
+<br />
+Contact Information
+Street Address
+City --> Instanbul
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="55" border="0" /></a>
+<br />
+Assignments Tab
+No need to add a role here
+Do it later
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="56" border="0" /></a>
+<br />
+Review + Create Tab
+remember to copy the User principal name and password!
+click > Create
+<br />
+keysersoze@acloudcallednimbushotmail.onmicrosoft.com
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="57" border="0" /></a>
+<br />
+After the account is created we now need to assign some roles to keyser. Maybe need to refresh.
+<br />
+So go one step back
+Home > Default Directory  | Users
+click on keyser soze user
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="58" border="0" /></a>
+<br />
+Now keyser soze details will show up
+Home > Default Directory  | Users > Users >
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="59" border="0" /></a>
+<br />
+on left side bar go to
+Manage --> Assigned roles --> Add assignments
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="60" border="0" /></a>
+<br />
+Add assignments window
+Membership tab
+Select role --> Security reader
+Scope type --> Directory (automatic)
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="61" border="0" /></a>
+<br />
+Setting tab
+Assignment type --> Eligible
+Permanently eligible --> selected
+Click Assign
+<br />
+The above didn’t show up in the new Azure Assigned Role
+I think Microsoft changed their layouts
+<br />
+So go to the next section
+<br />
+in searchbar go to the resource group attached to this project which is either siem-training2 or siem-training3
+in the left sidebar
+Overview --> Access control (IAM) --> Add --> Add role assignment 
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="62" border="0" /></a>
+Assignment type  --> privileged administrator roles
+Role --> Contributor --> Next
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="63" border="0" /></a>
 
 
-<br></br>
+
+
+
+
+
+
+
+<br>
+</br>
 <h3>Step 9 - Installation of Vulnerable Software </h3>
 <br/>
 <br />
