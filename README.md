@@ -17,7 +17,7 @@ The project began by spinning up a SIEM in Microsoft Sentinel, to initial config
 <br/>
 <h2>Project walk-through:</h2>
 
-<h3>Step 1 - Deploying Sentinel to Azure</h3>
+<h3>Step 1 - Introduction to Sentinel SIEM Deployment</h3>
 To speed development we will use Sentinel All in One.
 Sentinel All in One is basically AI
 <br/>
@@ -42,374 +42,352 @@ Then whenever you want to spin up a fresh new Sentinel just Deploy to Azure the 
 <br/>
 (https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One#readme
 )
+<br/>
 <a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="1" border="0" /></a>
 <br/>
 
 
 <br></br>
 <h3>Step 2 - Deploying Sentinel to Azure</h3>
-First download VirtualBox
-<br ![image](https://github.com/chun-eric/sentinel-siem-chatgpt/assets/102393871/06b34c7d-7e7f-406c-b6f4-7bb473b7d772)
-/>
-To speed development we will use Sentinel All in One.
-Sentinel All in One is basically AI
-
-It also configures Content Hub solutions
-
-If you want to have a look at setting up SIME from beginning to end go to  Pavs other course which we bought
-
-If you look at some of the data connectors some are billed and some are free
-but don’t worry we wont need to spend anything 
-
-When we first deploy Sentinel we get 10gb ingestion per day for the first month
-That’s plenty of time to go through all the necessary tasks
-Then you will delete Sentinel
-
-Then whenever you want to spin up a fresh new Sentinel just Deploy to Azure the Sentinel All in One.
+<br/>
+Click > Deploy to Azure
+<a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="2" border="0" /></a>
+<br/>
+Now that you in the custom deployment 
+<br/>
+Basic Tab
+<br/>
+Choose: 
+<br/>
+Subscription --> Azure 1
+<br/>
+Location --> East US  (this is important for costs purposes East US is the cheapest. However for this project, pick the closest one to where we are. Our 10gb daily limit will be more than enough)
+<br/>
+Resource Group Name:  (pick a name to reflect what the solution is about) --> Security-Monitoring-rg
+<br/>
+Workspace Name --> same as resource group name
+<br/>
+Daily ingestion limit in GBs. --> 10
+<br/>
+Number of days of retention --> 90  (this means its free for the first 90 days. After that we have to pay for every Gigabyte in data!)
+<br/>
+Select pricing tier for Log Analytics --> Pay-as-you-go (just leave it as is)
+<br/>
+Select pricing tier for Sentinel --> Pay-as-you-go (just leave it as is)
 <br/>
 <br/>
-After downloading the program, go through the installation process.
-<br/>
-<br/>
-Add your VM name, add folder and ISO image.
-<br/>
-<br/>
-Check --> Unattended Guest OS Install Setup.
-<br/>
-Complete Username and Password.
-<br/>
-<br/>
-
-<a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="1" border="0" /></a>
-<br/>
-
-<p>Click --> Next --> Choose your hardware, base memory, processors.
-</p>
-<p>Click --> Next --> Choose your virtual hard disk.</p>
-Click --> Next --> Install the computer.
-<br/>
-<br/>
-Voila! The installation is complete.
-<br/>
-<br/>
-Add guest additions because we can change screen resolution for our vm.
-<br/>
-<br/>
-In VirtualBox:
-<br/>
-Devices > Upgrade Guest Additions
-<br/>
-<br/>
-<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="2" border="0" /></a>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="3" border="0" /></a>
 <br />
 <br />
-Now that everything is installed, we are ready to start the project.
+Settings tab
 <br/>
-<a href="https://ibb.co/J7bN0M4"><img src="https://i.ibb.co/gTXGHBp/3.png" alt="3" border="0" /></a>
-<br />
-<br />
-
-
-
-
-<h3>Step 3 - Configure Initial Windows VM Setup</h3>
-<p>Before we begin scanning with Nessus, we actually need to make it more vulnerable!</p>
-<p>Say what?!</p>
-<br />
-<p>We want to actively seek to remediate these vulnerabilities.</p>
-<br />
-<p>A few things we must do are:</p>
-<p>1) Turn off security updates</p>
-<p>2) Turn off the firewall</p>
-<br />
-<p>This is very important to do as Nessus can accurately identify any vulnerabilities or
-weaknesses so we can improve our VM security.
-</p>
-<br />
-Go to:
-<p>Start > Settings > Update & Security > Pause Update for 7 days > Advance Options > Change to later date</p>
-<a href="https://ibb.co/qDsKNYN"><img src="https://i.ibb.co/rQ6Yx2x/4.png" alt="4" border="0" /></a>
-<br />
-<br />
-<p>Go back to:</p>
-<p>Update & Security > View update History > Uninstall updates</p>
-<a href="https://ibb.co/r3BVjwT"><img src="https://i.ibb.co/HCcjSH1/5.png" alt="5" border="0" /></a>
-<br />
-<p>Uninstall updates</p>
-<a href="https://ibb.co/RyXkbMS"><img src="https://i.ibb.co/rsBR0Lt/6.png" alt="6" border="0" /></a>
+Enable Sentinel Health Diagnostics --> Select
 <br/>
-<p>You can uninstall updates this way to:</p>
-<p>Control panel > Programs > Programs and Features > Installed Updates</p>
-<a href="https://ibb.co/6YNvgzp"><img src="https://i.ibb.co/5T2YBmz/7.png" alt="7" border="0" /></a>
+We will Enable User Entity Behavior Analytics (UEBA)  later together
 <br/>
-<p>Delete all Installed updates and restart the system.</p>
-<a href="https://ibb.co/kKRRf4H"><img src="https://i.ibb.co/7vww5nY/8.png" alt="8" border="0" /></a>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="4" border="0" /></a>
 <br/>
 <br/>
-Type: wf.msc
+Content Hub Solutions Tab
 <br/>
-<p>Next we need to turn off all Windows Firewall settings. This is because Nessus won't be able to reach its destination.</p>
-Do the following:
-<p>Go to Start > Windows Defender Firewall > Advanced settings > Windows Defender Firewall Properties  > Domain Profile > Firewall state > Off > Apply</p>
-<p>Go to Start > Windows Defender Firewall > Advanced settings > Windows Defender Firewall Properties  > Private Profile > Firewall state > Off > Apply</p>
-<p>Go to Start > Windows Defender Firewall > Advanced settings > Windows Defender Firewall Properties  > Public Profile > Firewall state > Off > Apply</p>
-<p>Restart System.</p>
-<a href="https://ibb.co/FJ8YHJ9"><img src="https://i.ibb.co/3WSFRWw/9.png" alt="9" border="0" /></a>
-<br/>
-<a href="https://ibb.co/0CNm4FG"><img src="https://i.ibb.co/6Hhr91W/10.png" alt="10" border="0" /></a>
-<br/>
-<a href="https://ibb.co/ryj3SCN"><img src="https://i.ibb.co/cTBwHGV/11.png" alt="11" border="0" /></a>
-<br/>
-<p>Last step we have to ensure that the VM is on the same network as the Nessus machine that will perform the scan.</p>
-<p>In VirtualBox click Devices > Network > Network Settings > Bridged Adapter </p>
-<p>Why a bridged adapter?</p>
-<p>With bridged networking, the virtual machine has direct access to an external Ethernet network.</p>
-<p>The virtual machine must have its own IP address on the external network.</p>
-<p>If your host system is on a network and you have a separate IP address for your virtual machine (or can get an IP address from a DHCP server), select this setting. </p>
-<p>Other computers on the network can communicate directly with the virtual machine.
-</p>
-<br/>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/5YQ7p2T/12.png" alt="12" border="0" /></a>
-<br/>
-<p>To confirm we are on the same network, we can try a simple ping test.</p>
-<p>Open a command prompt application or type cmd in the search box and run the command prompt as administrator.</p>
-<p>Type ipconfig --> IP address --> 192.168.0.105</p>
-<p>This will present you with a configuration of your network adapter, such as IP addresses of our VM, subnet mask, default gateway.</p>
-<p>What we are going to do now is ping our VM IP address from our local machine to see that we can connect to our VM from our local machine.</p>
-<p>Using Windows Powershell as Administrator:</p>
-<p>Type ping 192.168.0.105 (or your VM IP address)</p>
-<p>If we get a reply back that means the connection is good.</p>
-<br/>
-<a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="13" border="0" /></a>
-
-
-<br></br>
-<h3>Step 4 - Install Tenable Nessus </h3>
-<p>Now that our Windows machine is setup, we are ready to download and install Nessus a powerful network vulnerability scanner.</p>
-<p>Go to this website link to download the program. www.tenable.com/products/nessus/nessus-essentials</p>
-<br/>
-Fill out the registration form and enter your email address. Click the get started button.
-<br/>
-<p>Get your activation code in your email. </p>
-<p>Choose the appropriate version and plaftform, whether it is Mac, Linux or Windows. For me, I have chosen Windows 64 bit.</p>
-<p>Click > Download and then accept the license agreement.</p>
-<br/>
-<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="14" border="0" /></a>
-<br />
-<br />
-<p>Accept license agreement.</p>
-<p>Once downloaded execute and open executable file. The Nessus file will be downloaded onto your local host.</p>
-<p>Confirm OK > Click Next.</p>
-<p>Set your default destination.</p>
-<p>Once downloaded execute and open executable file. The Nessus file will be downloaded onto your local host.</p>
-Confirm OK > Click Next.
-<br/>
-<p>Set your default destination.</p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/Kyxq4mj/15.png" alt="15" border="0" /></a>
-<br />
-<br/>
-<p>Click > Next </p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/mNQP15G/16.png" alt="16" border="0" /></a>
+There are three content categories for solutions
 <br/>
 <br/>
-<p>Click > Next </p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/kcLFJ9w/17.png" alt="17" border="0" /></a>
+Select Microsoft Content Hub Solutions --> Select All
+<br/>
+Select Essential Content Hub Solutions --> Select All
+<br/>
+Select Training and Tutorials Content Hub Solutions --> Select All
+<br/>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="5" border="0" /></a>
 <br/>
 <br/>
-<p>Click > Finish </p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/0V0HtNd/18.png" alt="18" border="0" /></a>
-<br />
+Data Connectors Tab
 <br/>
-<p>Shortly after the initial installation, a new page in your private browser will open on localhost or port 8834 where you will finish installation process.</p>
-<p>Click > Connect via SSL</p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/SdCLZ6q/19.png" alt="19" border="0" /></a>
-<br />
+Select data connectors to onboard --> select all
 <br/>
-<p>You might be a warning on the browser stating:</p>
-<p>Warning: Potential Security Risk Ahead.</p>
-<p>Select Advanced > Accept the Risk and Continue.</p>
-<a href="https://ibb.co/LhPrL9K"><img src="https://i.ibb.co/zH5FyPd/20.png" alt="20" border="0" /></a>
+If we don’t have permissions for some data connectors it will simply fail so don’t worry.
+<br/>
+Select Azure Active Directory log types to enable --> Select all
 <br/>
 <br/>
-<p>A welcome to Nessus screen will appear.</p>
-<p>Select > Continue</p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/k2HrbMQ/21.png" alt="21" border="0" /></a>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="6" border="0" /></a>
 <br/>
 <br/>
-<p>Choose how you want to deploy Nessus. Select an option to get started. Select Register for Nessus Essentials.</p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/mGFWHDL/22.png" alt="22" border="0" /></a>
+Analytics Rules Tab
+<br/>
+Enable Scheduled alert rules for selected Content Hub solutions and Data Connectors --> Select
+<br/>
+we don’t want to enable hundreds of scheduled alert from the content hub manually
+<br/>
+Select the severity of the rules to enable --> Select all
+<br/>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="7" border="0" /></a>
 <br/>
 <br/>
-<p>We can skip the registration process since we already have the activation code.</p>
-<p>Click > Skip</p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/R6hMvwJ/23.png" alt="23" border="0" /></a>
-<br />
-<br />
-<p>Paste the activation code you received in your email.</p>
-<p>Click > Continue.</p>
-<br />
-<p>Next we need to create a Nessus administrator user account.Create a username and password.</p>
-<p>Click > Submit</p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/dPPn1qJ/25.png" alt="25" border="0" /></a>
-<br />
-<br />
-<p>We might have to wait for a few minutes.</p>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/6RBHC8R/26.png" alt="26" border="0" /></a>
-<br />
+Review + create Tab
 <br/>
-<p>Once installation is complete we will configure and initialize our first scan.</p>
-<a href="https://ibb.co/MSHNh5P"><img src="https://i.ibb.co/PjyCYz1/27.png" alt="27" border="0" /></a>
-<br />
-<br />
+Check all the details .
+<br/>
+Click > Create
+<br/>
+This will take 10-15 minutes to deploy
+<br/>
+During this process you may encounter some failures because you wont have the license for some.
+<br/>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="8" border="0" /></a>
+<br/>
+<br/>
+I am getting an authentication error.
+<br/>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="9" border="0" /></a>
+<br/>
+<br/>
+I think I need to change user write permissions to enable this deployment.
+<br/>
+In the Azure All in One readme in Github it states.
+<br/>
+Azure user account with enough permissions to enable the desired connectors. See table at the end of this page for additional permissions. 
+Write permissions to the workspace are always needed.
+<br/>
+I created the resource group siem-training and gave owner privileges.
+<br/>
+Click Role Assignment >  Add > Add role assignment.
+<br/>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="10" border="0" /></a>
+<br/>
+<br/>
+Role Tab
+Select role by clicking on View. We chose Privileged Admin role.
+<br/>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="11" border="0" /></a>
+<br/>
+<br/>
+Select members.
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="12" border="0" /></a>
+<br/>
+<br/>
+Select role assignments and members.
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="13" border="0" /></a>
+<br/>
+<br/>
+Role assignment I put it as constrained to owner.
+<br/>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="14" border="0" /></a>
+<br/>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="15" border="0" /></a>
+<br/>
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="16" border="0" /></a>
+<br/>
+Good seems like it all worked now.
+<a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="17" border="0" /></a>
+<br/>
+<br/>
 
 
-<br></br>
-<h3>Step 5 - Configure Nessus for Scanning </h3>
-<br/>
-Now that its installed its time to perform our first scan
-<br />
-As soon as you land on the Nessus page you will be greeted by a welcome message
-<br/>
-<p>It also presents a target box. However let's have a look at all the scanning options.</p>
-<p>Click > My Scans > Create a new scan</p>
-<a href="https://ibb.co/6B6ftf0"><img src="https://i.ibb.co/L542g2d/28.png" alt="28" border="0" /></a>
-<br />
-A basic network scan is a good starting point for the overall security posture of your network.
-<p>A basic network scan scans your network to identify open ports, running services and potential vulnerabilities on the hosts within the network.</p>
-<p>We also have the ability to perform a malware scan.
-</p>
-<br/>
-<p>A malware scan is designed to help you identify malware that may be present on your system.
-</p>
-<p>It scans for no malware signature as well as potentially unwanted programs and other suspicious activity.
-</p>
-<p>Running malware scan on a regular basis can help you detect and remove malware from your network.
-</p>
-<p>
-Wannacry ransomware scan is specifically designed to help you detect potential indicators of WannaCry ransomware on our network.
-Wannacray first appeared in May 2017 and spreads through a vulnerability in Microsoft Windows Systems.
-</p>
-<p>It encrypts users files and demands payment in exchange for the encryption key.
-Running this scan can help you take action to prevent its spread and protect your network from this type of attack.</p>
-<p>
-Shell scans can help you detect potential indicators of the log4 Shell vulnerability on your network.
-Log4 Shell was discovered in December 2021 and it affected the widely used Apache log4j logging library used by many applications and services.
-Attackers could use this vulnerability to execute arbitrary code remotely which could lead to complete compromise of affected systems.
-Running this scan can help you take action to protect your system from this critical vulnerability.
-</p>
-<a href="https://ibb.co/xLP1btR"><img src="https://i.ibb.co/RbZ3KkV/29.png" alt="29" border="0" /></a>
-<br />
-<br />
-Okay let's start with a basic network scan.
-<br/>
-<p>Click > Basic Network Scan</p>
-<br />
-<a href="https://ibb.co/wCnPLQ8"><img src="https://i.ibb.co/ft3ySNZ/30.png" alt="30" border="0" /></a>
-<br />
-<br />
-In the Settings tab we need to fill out two required fields: Name & Targets.
-<br/>
-Name = the name of your scan.
-<br />
-Targets = IP Address or subnet range you want to target (this is our VM IP address) 192.168.0.105
-<br/>
-Get creative with your scan name.
-<br/>
-Let's name our Name: Windows Basic Scan.
-<br/>
-Targets: VM IP Address. We can get that from Command Prompt by typing ipconfig.
-<br/>
-<a href="https://ibb.co/3SbhHd2"><img src="https://i.ibb.co/F817t32/31.png" alt="31" border="0" /></a>
-<br />
-<br />
-In the Settings Tab under BASIC > Schedule > We can schedule how often we get this scan.
-<br/>
-In the Settings Tab under BASIC > Notification > If you want to be notified that scan is done.
-<br />
-<a href="https://ibb.co/KmGZC4T"><img src="https://i.ibb.co/4JfyBvh/32.png" alt="32" border="0" /></a>
-<br />
-<br />
-<p>
-In Settings Tab under DISCOVER, we can change Port scan types to common ports, all ports or Custom.
-For now lets stick with the common ports.</p>
-<p>Port scan common ports use TCP, ARP, ICMP and uses SYN scanner if necessary.
-The most common ports are FTP, SSH, Telnet, SMTP.</p>
-<p>For now lets choose the Port Scan common.</p>
-<br/>
-<br />
-<p>
-In Settings Tab under ASSESSMENT allows you to configure how the scanner performs the scan and what types of vulnerabilities it looks for.
-There are two categories: General and Web Applications.
-</p>
-<br/>
-<br/>
-<p>Under general settings avoiding potential false alarms reduces the number alarms however it does miss legitimate vulnerabilities.
-In general settings you can also disable common gateway interface CGI scripts which could also miss legit vulnerabilities.</p>
-<p>CGI scripts are like little programs that help your web browser communicate with a web server.
-CGI scripts often used to process data like forms you fill out online, process search query.</p>
-<br/>
-<p>Under Web applications you can also disable web application scanning altogether
-Web applications can be exploited and targeted.</p>
-<p>For now lets keep our Assessment setting to Default.
-</p>
-<br/>
-<a href="https://ibb.co/gyFW8kB"><img src="https://i.ibb.co/NxnNqcH/33.png" alt="33" border="0" /></a>
-<br />
-<br />
-<p>
-In Settings tab under REPORT, we can control how the scan results are processed and presented to user.
-We can adjust the level of detail to our specific needs and requirements.
-Lets just keep this as it is, for now.
-</p>
-<br/>
-<a href="https://ibb.co/3fqhyLV"><img src="https://i.ibb.co/ZHPT6kv/34.png" alt="34" border="0" /></a>
-<br />
-<br />
-<p>Lastly in Settings tab under ADVANCED in the performance options we can control the number of hosts that will 
-be scanned at the same time and the network read timeout.</p>
-<p>Lets leave it as it is.</p>
-<br/>
-<br />
-<a href="https://ibb.co/CK94qHg"><img src="https://i.ibb.co/SwmH23b/35.png" alt="35" border="0" /></a>
-<br />
-<br />
-<p>
-Under the Credentials tab we can provide credentials and perform a scan with those credentials.
-Performing a credential scan with Nessus can provide several advantages over non credential scan.
-</p>
-<p>This can be information about installed software patch levels and system configurations that might be critical for detecting vulnerabilities and risk
-We will explore the difference scans with and without credentials later on.</p>
-<br/>
-<br />
-<a href="https://ibb.co/QdM9WVX"><img src="https://i.ibb.co/PQgx2yt/36.png" alt="36" border="0" /></a>
-<br />
-<br />
-<p>In the Plugins tab we have a lot of plugins or tools we can add different plugins for different types of vulnerabilities and risk.
-There is a huge library of plugins.
-</p>
-<p>Plugins are organized by families based on their function or type of vulnerability they target.
-</p>
-<br/>
-<br />
-<p>We want to focus on detecting web application vulnerabilities, we can use the web application family of plugins.
-We want to focus on database vulnerabilties, we can use the database family of plugins.</p>
-<br/>
-<a href="https://ibb.co/KWwrH1D"><img src="https://i.ibb.co/njCLSWB/37.png" alt="37" border="0" /></a>
-<br />
-<br />
-<p>
-Now that we have a basic understanding, we can go back and save our scan.
-We have saved our first basic scan. Woohoo!
-All we have to do is click the Launch play button
-</p>
-<br/>
-<br />
-<a href="https://ibb.co/bHKJSxN"><img src="https://i.ibb.co/LQZ5LM9/38.png" alt="38" border="0" /></a>
-<br />
-<br />
 
 
-<br></br>
+<h3>Step 3 - Exploring Artifacts Installed</h3>
+<br />
+There will be some errors for enableDataConnectors. For Status Message look for InvalidLicense.
+We can ignore it for now.
+<br/>
+Now lets go to the resource group associated with this Sentinel. Type in search bar siem-training2.
+<br/>
+Click on Overview.
+<br/>
+There should be over 390 records but I only have 9 records. Is this right?
+So I made a new deployment called siem-training3 and will compare
+<br/>
+I created siem-training3 and it is exactly the same as siem-training2.
+Don’t worry about the 9 records. 
+<br />
+<br/>
+<a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="18" border="0" /></a>
+<br/>
+<br/>
+This is where all the data is stored
+However most of them are just templates
+<br/>
+For instance if you want to deploy a package from the  Content Hub in Sentinel, for example includes 50 analytics rules, it will create a separate template for each.
+<br/>
+Lets choose one to see whats inside (ignore this section - its not applicable in the recent deployment)
+<br/>
+In a template you can see Display Name and Description on the right side. So that’s basically how the solution looks in the background
+<br/>
+Microsoft Sentinel is built on top of the log analytics workspace where all the data is stored.
+We want to monitor Sentinel as well as the log analytics workspace.
+Why?
+<br/>
+Because we want to be aware of situations where our queries don’t perform as they should, or maybe it takes too long and ends up in error
+so lets go back to our resource group and find the log analytics workspace for us it should be:
+<br/>
+siem-training2 (type Log Analytics workspace) > Click
+<br/>
+<a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="19" border="0" /></a>
+<br/>
+<br/>
+On the Monitoring blade --> Diagnostic settings --> Add diagnostic setting
+<br/>
+<a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="20" border="0" /></a>
+<br/>
+<br/>
+What is Diagnostic settings?
+<br/>
+Diagnostic settings are used to configure streaming export of platform logs and metrics for a resource to the destination of your choice. 
+You may create up to five different diagnostic settings to send different logs and metrics to independent destinations.
+<br/>
+Diagnostic setting name -->  Sentinel
+<br/>
+Logs --> Category groups --> allLogs (select)
+<br/>
+Metrics --> AllMetrics (select)
+<br/>
+Destination details --> Send to Log Analytics workspace --> Subscription (choose) --> Log Analytics workspace --> security-monitoring (japanwest)
+<br/>
+Click Save
+<br/>
+<a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="21" border="0" /></a>
+<br/>
+Now we are all setup! We can move on to Sentinel itself.
+
+
+<br>
+</br>
+<h3>Step 4 - Exploring Sentinel </h3>
+<br/>
+Search for Sentinel in the search bar --> choose your resource group > siem-training2
+<br/>
+<br/>
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="22" border="0" /></a>
+<br/>
+<br/>
+Click on Microsoft Sentinel (MS)
+<br/>
+Overview gives you a dashboard overview
+<br/>
+On the left side MS is divided into 4 sections
+<br/>
+General
+<br/>
+Threat Management
+<br/>
+Content Management
+<br/>
+Configuration
+<br/>
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="23" border="0" /></a>
+<br/>
+<br/>
+Lets focus on some of the most interesting tabs in Sentinel.
+<br/>
+General --> Logs
+<br/>
+Here we can search for you data using Kusto Query Language or KQL
+You can see all the tables by click on the all the triangle icons.
+<br/>
+e.g   LogManagement, Microsoft Sentinel, Custom Logs
+<br/>
+One of the tables we need to use are signin log, which is currently missing.
+<br/>
+For now lets check AzureActivity.
+This table provides information actions inside your portal and provides information about who performed the action and other properties important for investigation.
+<br/>
+Lets also check AADNonInteractiveUserSignInLogs (we don’t have that now siem-training2 which is v2 but in siem-training3 v1 it has)
+this provides information about authentication requirements, client usage and location details
+location details will be particulary useful for us.
+<br/>
+<br/>
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="24" border="0" /></a>
+<br/>
+<br/>
+Lets have a look at the Configuration Section.
+<br/>
+Configuration --> Data Connectors.
+<br/>
+We should have around 9-10 Connected.
+<br/>
+We can filter by Status: Connected.
+<br/>
+This lets us see the type of data being collected, number of logs received and tables that are being populated.
+<br/>
+<br/>
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="25" border="0" /></a>
+<br/>
+<br/>
+Configuration --> Analytics
+<br/>
+Do you remember the hundreds of templates inside your resource group?
+<br/>
+Most of them were for analytics rules that were automatically deployed and enabled for you
+There are already roughly around a staggering detection rules already built and provided by Microsoft, this is great to get started with monitoring threats.
+<br/>
+Lets have a look at some  high severity just to see what rules have been broken?
+<br/>
+<br/>
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="26" border="0" /></a>
+<br/>
+<br/>
+Lets also have a look at Anomalies > Click.
+<br/>
+There are anomalies templates developed to be robust by using thousands of data sources and millions of events
+<br/>
+Microsoft allows you to change the thresholds for them in case they generate a lot of false positives.
+Right now I don’t even know what a false positive looks like! 
+<br/>
+Note that the  Anomalies template works with the User and Entity Behavior Analytics which is currently not working
+<br/>
+Next video, our very first task in Microsoft Sentinel will be to fix this issue!
+<br/>
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="27" border="0" /></a>
+<br/>
+<br/>
+
+
+
+
+<br>
+</br>
+<h3>Step 5 - Enabling User Entity Behavior Analytics and Playbooks  </h3>
+<br/>
+The user and entity behavior analytics (UEBA) is an amazing feature that uses AI to detect and alert you to any unusual behavior happening within your system.
+<br/>
+To turn this feature we have to go to:
+Configuration --> Settings --> Settings --> Set UEBA 
+<br/>
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="28" border="0" /></a>
+<br/>
+You will come to a new screen called Entity behavior Configuration
+1. Turn on the UEBA feature --> On (click)
+2. Sync Microsoft Sentinel with at least one of the following directory services --> Microsoft Entra ID (select) --> Apply
+3. Select existing data sources you want to enable for entity behavior analytics --> Select Audit Logs, Azure Activity , Signin Logs --> Apply
+<br/>
+Now we have enabled AI Machine Learning in Microsoft Sentinel.
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="29" border="0" /></a>
+<br/>
+<br/>
+As we are already in Sentinel  configuring lets use automation playbooks
+To do this we need to give MS permissions
+Configuration --> Settings --> Settings --> Playbook permissions --> Configure permissions
+<br/>
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="30" border="0" /></a>
+<br/>
+Manage permissions panel will show up to the right.
+Select the correct resource group siem-training2 > Apply
+<br/>
+Now we are all set up and ready to create some amazing artifacts within Microsoft Sentinel.
+<br/>
+Next video we will be diving into watchlists!
+We will learn to create our own watchlist and how to leverage powerful capabilities to enhance security operations.
+<br/>
+<a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="30" border="0" /></a>
+<br/>
+
+
+
+
+<br>
+</br>
 <h3>Step 6 - Our First Nessus Initial Scan (without Credentials) </h3>
 <br/>
 <p>Okay you can press the launch button.</p>
