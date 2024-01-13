@@ -786,8 +786,56 @@ Assignment type  --> privileged administrator roles
 Role --> Contributor --> Next
 <br />
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="63" border="0" /></a>
+<br />
+Members --> Select members --> Choose keysersoze --> Select --> Review + Assign
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="64" border="0" /></a>
+<br />
+Click > Review + assign
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="65" border="0" /></a>
+<br />
+Lets check if it worked, go back to the resource group we are working with.
+<br />
+Overview --> Access control (IAM) --> Role assignments --> Check Contributor [keysersozai]
+<br />
+If its all there now we can log into this account
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="66" border="0" /></a>
+<br />
+lets use a different browser for this use brave. Sign into Microsoft Azure.
+<br />
 
-
+Enter the username and password we created for keyser soze
+<br />
+keysersoze@acloudcallednimbushotmail.onmicrosoft.com
+<br />
+Before we login with the correct credentials we need to create a new password as Microsoft will ask you to change it.
+Try to use a password that’s been used for brute force attackes like password. You will notice Microsoft trying to prevent us from using commonly used passwords. 
+<br />
+Next try an alphanumeric combination and login:
+<br />
+keysersoze@acloudcallednimbushotmail.onmicrosoft.com
+<br />
+Go to the Azure portal to sign in and voila we are in!
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="67" border="0" /></a>
+Go to Microsoft Entra ID with our new account
+<br />
+Click Overview to see everything is in order.
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="68" border="0" /></a>
+<br />
+Next check out our resource group. 
+<br />
+Search resource group in search bar. Click on our resource group to confirm.
+<br />
+Okay we are in the portal and it looks like everything is in order.
+<br />
+MFA is disabled for this account,  lets see if MS will catch this. Lets have some fun!
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="69" border="0" /></a>
+<br />
 
 
 
@@ -797,216 +845,754 @@ Role --> Contributor --> Next
 
 <br>
 </br>
-<h3>Step 9 - Installation of Vulnerable Software </h3>
+<h3>Step 9 - Generating an Incident from the Compromised Account </h3>
 <br/>
-<br />
-<p>Older Chrome browser versions Link
-![image](https://github.com/chun-eric/nessus-scanner/assets/102393871/6af7e9d6-1e0a-4c86-86e3-3d59e58edc8a)
-</p>
-<p>https://www.slimjet.com/chrome/google-chrome-old-version.php
-![image](https://github.com/chun-eric/nessus-scanner/assets/102393871/7f7a6766-3269-45e2-8d27-893944a58285)
-</p>
+I found this video and the next video to be the most challenging use Brave browser and Tor network right side menu view brave browser in private window with TOR.
 <br/>
-<p>We will download a version from 2020.</p>
-<p>Lets add an outdated google chrome.</p>
-<p>Why?</p>
-<p>Because people keep passwords in google chrome and this could be a huge vulnerability.</p>
-<p>An attacker might gain access to our password.</p>
+Time to put on our red hat.
+<br />
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="70" border="0" /></a>
 <br/>
-<p>Go to the above link I added.</p>
+Go to portual.azure.com.
 <br/>
-<p>Lets download version:</p>
-<p>61.0.3163.79</p>
-<br />
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/Jx60P2j/54.png" alt="54" border="0" /></a>
-<br />
-<br />
-<p>In order to get vulnerable software in the VM we need to change adapter setting again and put it back later.</p>
-<p>Its annoying but necessary.</p>
-<p>In the VM go to Devices > Network > Network Settings > Bridged Adapter.</p>
-<p>Bridged Adapter will give you internet connectivity.</p>
-<br />
-<p>Open installation wizard and install software.</p>
-<p>We don’t want Chrome to automatically update we need to do a few things.</p>
-<p>In Searchbar search for System Configuration.</p>
-<p>In the  Services Tab disable Google Update Service (gupdate and gupadatem).</p>
+Use your credentials of Keyser Soze to login:
 <br/>
-<p>Click OK > Restart Computer.</p>
-<p>Now Chrome updates will be disabled.</p>
-<br />
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/5KGrsXm/55.png" alt="55" border="0" /></a>
-<br />
-<br />
-<p>Lets also make advanced sharing settings in Network and Sharing Center  in control panel to :</p>
-<p>Network Discovery > Turn on</p>
-<p>File and printer sharing > Turn on</p>
-<br />
-<a href="https://ibb.co/HdXC9m3"><img src="https://i.ibb.co/vYDhM2R/56.png" alt="56" border="0" /></a>
-<br />
-<br />
-<p>If you check Chrome updates it wont be able to perform any updates.</p>
-<br />
-<p>To make our windows even more vulnerable.</p>
-<p>We will download an older version of minecraft with the log4j vulnerability.</p>
-<p>What was log4j?</p>
-<p>Individuals learned that games chat was being logged using log4j and if they entered malicious code into the chat, it led to remote code execution to be set.</p>
-<p>Above 50% of orgs use the Log4j library ---> HOLY SH*****T!</p>
-<br />
-<p>Older Minecraft Server.</p>
-<p>https://mcversions.net/download/1.18.1</p>
-<p>It was a huge vulnerability that shook the entire cybersecurity.</p>
+keysersoze@acloudcallednimbushotmail.onmicrosoft.com
 <br/>
-<p>So what we will do is download an older version of Minecraft server affected by this vulnerability.</p>
+We are logged in with the TOR Relay in Brave Browser
 <br/>
-<p>Check out the link for the minecraft net to download older versions of minecraft.</p>
-<p>https://mcversions.net</p>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="71" border="0" /></a>
 <br/>
-<p>Filter by year 2021.</p>
-<p>Choose Minecraft 1.18.1 Server Hosting.</p>
-<p>Server Jar > Download Server Jar.</p>
-<br />
-<a href="https://ibb.co/jZDNXb5"><img src="https://i.ibb.co/7NKfmjz/57.png" alt="57" border="0" /></a>
-<br />
-<br />
-<p>Because we don’t have a program to extract we will download an older zip extract vulnerable software.</p>
-<p>Its an older version of 7zip.</p>
-<br />
-<p>Link to older 7zip below.</p>
-<p>https://7-zip.en.uptodown.com/windows/versions</p>
-<p>lets get a 2019 version.</p>
-<br />
-<p>Choose version 19.00.</p>
-<p>Download and Install.</p>
+Once we are logged in, the very first thing a hacker would most likely do is establish persistence
 <br/>
-<br />
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/k5XMqv6/58.png" alt="58" border="0" /></a>
-<br />
-<br />
-<p>Now extract Minecraft server file with 7zip.</p>
-<p>Very IMPORTANT!</p>
-<p>We must change our network adapter again back to Host-only Adapter!</p>
-<p>This is because we don’t want the VM having access to the outside Internet. Hmm maybe we don’t have to change it.</p>
-<p>Now we can find a lot of vulnerabilities if we scan again</p>
-<br />
-<br />
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/txTNWK5/59.png" alt="59" border="0" /></a>
-<br />
-<br />
+Change Account Password:
+<br/>
+Top right click your account details and change your password from Overview.
+<br/>
+old password -->   
+<br/>
+new password -->  make the new password really long and complex
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="72" border="0" /></a>
+<br/>
+Change MFA settings (however we are not doing that here)
+<br/>
+Change resource group diagnostic settings. This is another thing a hacker might do. This is because the hacker doesn’t want activities logged.
+<br/>
+Go to our resource group --> Monitoring --> Diagnostic settings
+<br/>
+Click on the resource group log analytics workspace name.
+<br/>
+Click Edit setting.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="73" border="0" /></a>
+<br/>
+Click > Delete
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="74" border="0" /></a>
+<br/>
+Confirm there is no diagnostic settings.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="75" border="0" /></a>
+<br/>
+Turn off Diagnostic settings in microsoft sentinel in searchbar type microsoft sentinel since we changed our password we might have to sign in again.
+<br/>
+In left side bar:
+<br/>
+Configuration --> Settings --> Settings --> Auditing and health monitoring --> Configure Diagnostic settings --> Edit settings --> Delete
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="76" border="0" /></a>
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="77" border="0" /></a>
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="78" border="0" /></a>
+<br/>
+Confirm there is no diagnostic settings.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="79" border="0" /></a>
+<br/>
+An attacker might also escalate privileges and gain additional access to the environment by using Azure Portals Web shell interface to run scripts and different tools like Microburst or Azure Hound to search for sensitive information.
+<br/>
+Attackers might also perform crypto mining they will spin up expensive resources resulting in a large bill
+We can follow along with the tutorial or not Lets create a VM within the same resource group. This is very sneaky. 
+<br/>
+Lets give the VM a very generic name.
+<br/>
+Dev-Temporary-VM
+<br/>
+This time I changed Admin account authentication type to Password. This might help me get validation to create a VM. 
+<br/>
+Select> Password
+<br/>
+Username > azureuser
+<br/>
+Password > [Add yours here]
+<br/>
+Inbound port rules
+<br/>
+Allow selected ports
+<br/>
+SSH (22)
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="80" border="0" /></a>
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="81a" border="0" /></a>
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="81b" border="0" /></a>
+<br/>
+Leave everything as is with Disks.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="82" border="0" /></a>
+<br/>
+Networking credentials.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="83" border="0" /></a>
+<br/>
+Click > Review + Create
+<br/>
+Click > Create
+<br/>
+After all that I found out I don’t have authorization to perform this action. 
+<br/>
+However after I changed to Adminstrator Authentication with username and password when setting up the VM, validation passed and I could create our VM!
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="84" border="0" /></a>
+<br/>
+Our VM has been created! Now the VM is created lets try running Cloud Shells as an attacker.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="85" border="0" /></a>
+<br/>
+Click on the Cloud Shell button next to the bell Icon top right, then select Powershell.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="86" border="0" /></a>
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="87" border="0" /></a>
+<br/>
+Click > Create Storage
+<br/>
+You might get a message saying: "You have no storage mounted".
+<br/>
+We need  to have a storage account which is used to store all users files and scripts as well as other data such as session history and environment settings and preferences.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="88" border="0" /></a>
+<br/>
+Because we didn’t run Cloud shell in the past, we will need to create a new storage.
+<br/>
+If we click Create Storage we will get a failure "Storage creation failed".
+<br/>
+This is because we don’t have privileges to create a new resource group.
+<br/>
+However there is another way.
+<br/>
+Click Show advanced settings.
+<br/>
+Then we get some options.
+<br/>
+Resource group --> Use existing.
+<br/>
+Storage account --> storage1849756184.
+<br/>
+File share  account --> storage1849756184.
+<br/>
+Click > Create Storage
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="89" border="0" /></a>
+<br/>
+After a minute or so the terminal window will load up. We have succesfully launched a cloud shell!
+<br/>
+Now we have to wait for MS to detect threats.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="90" border="0" /></a>
+<br/>
+Our detection rule will run every 5 minutes
+<br/>
+In the next step, we will explore the newly created incidents in Sentinel and how to respond to these threats
+<br/>
+I have been trying to add a new assigned role to keyser.
+<br/>
+I went to our storage account and created a new container.
+<br/>
+Containers > first-container
+<br/>
+Click > Upload
+<br/>
+Technically if you were a real hacker you could upload anything. 
+<br/>
+Like a bad script, jpg, malware I suppose etc..
+<br/>
+I made two text files: log5j.txt and wannasleep.txt.
+<br/>
+<a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="91" border="0" /></a>
+<br/>
+Lets see if sentinel picked up on these actions. We will wait 24 hours. 
+<br/>
 
 
-<br></br>
-<h3>Step 10 - Advanced Nessus Scanning for Vulnerable Software </h3>
-<br />
-<p>Ok now lets run another scan.</p>
-<p>After the scan you can see a tonne of vulnerabilities!</p>
-<br />
-<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="60" border="0" /></a>
-<br />
-<br />
-<p>We have Google critical vulnerabilities.</p>
-<br />
-<a href="https://ibb.co/ChBsMnC"><img src="https://i.ibb.co/t8BPxbj/61.png" alt="61" border="0" /></a>
-<br />
-<br />
-<p>One of the vulnerabilities is Apache Log4j.</p>
-<p>We can see that this vulnerability could be a huge issue.</p>
-<p>The Apache log4j if you click on it one of the vulnerability scores a CVSS score of 10.0!</p>
-<br />
-<a href="https://ibb.co/vZPnV3T"><img src="https://i.ibb.co/Ch7GmbY/62.png" alt="62" border="0" /></a>
-<br />
-<br />
-<p>if you click on the link we can see more in depth description , solutions and output.</p>
-<p>Lets take a look at another example.</p>
-<p>If you click on the Google Chrome Vulnerability you can see there are many critical vulnerabilities.</p>
-<p>Take a note of the CVE number.</p>
-<br />
-<a href="https://ibb.co/Lr3dnLy"><img src="https://i.ibb.co/68k0g3S/63.png" alt="63" border="0" /></a>
-<br />
-<br />
-<p>Now its up to you to dig in and use the solution guide from Nessus to fix all the vulnerabilities.</p>
-<p>Okay another good thing about Nessus is that it can generate.</p>
-<p>REPORTS!</p>
-<p>Creating a report is very easy to do!</p>
-<p>Click Report button on top right.</p>
-<p>We can then share this report to our dev team for instance.</p>
-<br />
-<a href="https://ibb.co/ZKKjrRr"><img src="https://i.ibb.co/1KKgNYN/64.png" alt="64" border="0" /></a>
-<br />
-<br />
-<p>Now will update our system and enable automatic updates for applications. Also any malicious files that could potentially cause issues in the future will be removed.</p>
 
 
 
 
-<br></br>
-<h3>Step 11 - Remediation of Vulnerabilities </h3>
-<br />
-<p>Remediation is actually quite boring but its an absolutely necessary in cybersecurity.</p>
-<p>Make sure you are on bridge network adapter or NAT to connect to the internet.</p>
-<p>Lets tackle each vulnerability from highest to lowest.</p>
-<p>First we need to ensure that our system is receiving the latest security patches.</p>
-<p>Go to Settings > Windows Update > Resume Updates.</p>
-<br />
-<a href="https://ibb.co/Wnj4vR6"><img src="https://i.ibb.co/F6CL4dK/65.png" alt="65" border="0" /></a>
-<br />
-<br />
-<p>Next turn on the updates for Google Chrome.</p>
-<p>System Configuration >  Services > Turn on both Google Update Service > Apply > OK</p>
-<br />
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/sb7c76M/66.png" alt="66" border="0" /></a>
-<br />
-<br />
-<p>Check that the firewall is on. We are also receiving firewall message saying to turn it on.</p>
-<p>Go to wf.msc</p>
-<p>turn on firewall properties for Domain, Private, Public.
-</p>
-<p>*NOTE* -- Best to do this process at the end as it will affect the scanner.</p>
-<br />
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/DR4qC83/67.png" alt="67" border="0" /></a>
-<br />
-<br />
-<p>Next remove any threats.</p>
-<p>In our case remove Minecraft server file and old outdate zip files from the Downloads folder.</p>
-<br />
-<a href="https://ibb.co/Sy6ZLnc"><img src="https://i.ibb.co/MSgJXVf/68.png" alt="68" border="0" /></a>
-<br />
-<br />
-<p>Look at the Remediation tab. This will give you a high level overview of what to do.</p>
-<br />
-<a href="https://ibb.co/HqbnZRj"><img src="https://i.ibb.co/VTz26bs/69.png" alt="69" border="0" /></a>
-<br />
-<br />
-<p>Confirm all updates are completed.</p>
-<p>Settings > Windows Update > Retry.</p>
-<p>Windows Update Patches should be downloading.</p>
-<br />
-<a href="https://ibb.co/BgW72YN"><img src="https://i.ibb.co/THjnMNL/70.png" alt="70" border="0" /></a>
-<br />
-<br />
-<p>Reboot the system.</p>
-<p>Run one more scan to see if vulnerabilities are fixed.</p>
-<p>Delete 7-zip or update it to the latest version.</p>
-<br />
-<br />
-<a href="https://ibb.co/NVjxGKT"><img src="https://i.ibb.co/tmsB1DL/71.png" alt="71" border="0" /></a>
-<br />
-<br />
+
 
 
 
 
 <br></br>
+<h3>Step 10 - Analysing the Security Incident in Sentinel </h3>
+<br />
+Okay now go back to your original Azure account.
+<br />
+Go to the Microsoft Sentinel Dashboard. Look at the incidents.
+<br />
+Okay so how do we get started?
+<br />
+Go to Threat management > Incidents  > Manage Incidents
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="92" border="0" /></a>
+<br />
+We can see all the incidents (note pics can be either siem-trainin2 or siem-training3).
+<br />
+One of the SOC Analysts questions you might be asked is:
+<br />
+How would you prioritize incidents that are currently open and present?
+<br />
+The answer is complicated…
+<br />
+Well it depends on the situation but most of the time we would prioritize incidents based on the highest severity
+<br />
+For us the highest severity would be successful Sign-in from Tor Network. Look at all the IP addresses. We can see it because of the analytics rule we specified. One thing we are noticing is that a certain IP address is showing up twice and within close time proximity.
+<br />
+This could already indicate a flaw in our analytic rule that we created. Below is from siem-training2.
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="93" border="0" /></a>
+<br />
+Click > View Full Details (bottom right) to get more detailed information.
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="94" border="0" /></a>
+<br />
+If you look at our incident in the high severity, we can already see there is a flaw in our analytics.
+The Tor Network IP address is the same on two different days.
+<br />
+We should probably have to fix that later.
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="95" border="0" /></a>
+<br />
+Lets check the other incidents quickly before jumping into the high severity cases. You can sort incidents by Incident ID or Created time.
+<br />
+** Below can probably be seen from siem-training3 not siem-training2 **
+<br />
+Some of incidents are:
+<br />
+Under low severity there was a title: User account created without expected attributes defined
+<br />
+Under low severity there was a title: Anomolous Single Factor Signin
+<br />
+Under medium there was a title: Service Principal Authentication Attempt from New Country
+<br />
+Under medium there was a title: Insider Risk Risky User Access by Application
+<br />
+Under medium there was a title: Anomalous Sign-in location by user account and authenticating application
+<br />
+Under high there was a title: Successful Sign-Ins from Tor Network [ip address]
+<br />
+** Below is shown in siem-training2 ** 
+Another incident is:
+<br />
+Under low there is a title: Suspicious Resource Deployment.
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="96" border="0" /></a>
+<br />
+So if we looked at all these incidents it could mean all the incidents are related together right? Why do we have so many?
+<br />
+Why doesn’t Sentinel take them all and create one with all of the information presented?
+<br />
+Answer is very simple:
+<br />
+The analytics rules are not correctly created to show you. If you click on any incidents on the right side panel under Entities = 0
+<br />
+Why is this important?
+<br />
+If the entities are not correctly setup, it wont be able to perform such correlation.
+<br />
+It seems like for siem-training2 the entities are correctly setup.
+<br />
+I am still confused on this section, the most.
+<br />
+What are entities, and why do we need to correctly set them up?
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="97" border="0" /></a>
+<br />
+Lets move on for the time being.
+<br />
+Lets say you want to start the investigation. You want to investigate the high severity incidents.
+<br />
+Click on all high severity incidents.
+<br />
+At the very top middle --> click Actions.
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="98" border="0" /></a>
+<br />
+Actions side panel to the right will show up. We have three boxes.
+<br />
+Severity > High
+<br />
+Owner --> Assign to me
+<br />
+Status --> Active
+<br />
+Click > Apply
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="99" border="0" /></a>
+<br />
+Now if you go back to all the incidents, the owner of all the high incidents have been changed to me as well the status of the incident being changed to Active.
+<br />
+This is very important step especially if you are part of security operations team. All team members are aware of who is handling the incident
+<br />
+Now the incidents are assigned to you, we can start the investigation process.
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="100" border="0" /></a>
+<br />
+The easiest way is to just click on any of the incidents. See the right side panel pop out.
+<br />
+Click  >  View full details > This will show you more detailed information about the incident.
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="101" border="0" /></a>
+<br />
+
+
+
+
+
+
+
+
+
+<br></br>
+<h3>Step 11 - Further Analysis and Investigation of the Security Incident </h3>
+<br />
+
+you will get a full screen panel
+
+The incident window is divided into three parts:
+left, middle, right
+
+
+Left side -- essential details about the incident
+like username, Ipaddress, evidence (events), alerts, bookmarks
+Click on events --> a new Logs window will pop out
+The above doesn’t work there is a new button called Logs on the Top left > Click
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="102" border="0" /></a>
+<br />
+In Logs window --> Results tab --> we can get a lot of information
+Run the Query  in the Logs
+let TorNodes = (_GetWatchlist('Tor-IP-Addresses')
+    | project TorIP = IpAddress);
+SigninLogs
+// | where IPAddress in (TorNodes)
+// | where ResultType != 50126
+| project 
+    TimeGenerated,
+    Location,
+    IPAddress,
+    UserDisplayName,
+    UserPrincipalName,
+    UserId,
+    LocationDetails,
+    RiskState,
+    RiskLevelDuringSignIn,
+    AuthenticationRequirement,
+    ClientAppUsed,
+    ConditionalAccessPolicies
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="103" border="0" /></a>
+<br />
+Click on any file/line to see for more information
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="104" border="0" /></a>
+<br />
+First thing we need to do is grab this IP address and check if its related to any malicious activity
+We can check websites like abuseipdb
+insert the ip address into this abuseipdb.com
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="105" border="0" /></a>
+<br />
+We checked the IP Address and its shown to be an abused IP
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="106" border="0" /></a>
+<br />
+Go back to the Logs window --> result
+
+There is no indication in our logs that this log was a successful login. Where does it show it?
+This is because we forgot to include the result type column name in our query for project argument
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="107" border="0" /></a>
+<br />
+What do we have to do?
+in the KQL just remove the project argument and the column names + uncomment the ResultType
+Run the below query: 
+
+let TorNodes = (_GetWatchlist('Tor-IP-Addresses')
+    | project TorIP = IpAddress);
+SigninLogs
+ | where IPAddress in (TorNodes)
+ | where ResultType != 50126
+
+
+Now we can see the ResultType = 0
+This means the login was successful
+We can make it easier by replacing the fieldvalue of 0 to successful
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="108" border="0" /></a>
+<br />
+The next thing is to figure out what was the login pattern for this user?
+
+Are there any other IP addresses that have been used for the past week or month related to keyser?
+If you check the user department or country details we can corroborate if the user is logging in from his country or another country
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="109" border="0" /></a>
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="110" border="0" /></a>
+<br />
+
+Lets make the adjustment to our query one more time to check for all logins in the past
+First we will find the UserPrincipalName and use it in our next query
+If we right click on the UserPrincipalName we can include it in our query from a little drop down menu
+You will see this populate in the KQL
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="111" border="0" /></a>
+<br />
+Next remove all query lines except:
+SigninLogs and UserPrincipleName
+Specify the time range > Last 3 days  > Run
+
+We will provided with a sign in history for the past 3 days
+This will be sorted by TimeGenerated
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="112" border="0" /></a>
+<br />
+
+We can sort the results by time generated, and if we scroll to the right location will be presented with the location column
+Notice the different countries that person logged in
+Scroll down to confirm that this user has been logging in from different locations
+You can see locations from NL, DE, IT
+From our user details in Entra ID > Users we know that keysersozai is based in Turkey is TR
+
+This should be a sign that this user is suspicious and you should be concerned
+This is enough information to start a remediation process
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="113" border="0" /></a>
+<br />
+
+But maybe you want more evidence before you disable the account
+Then lets dig deeper and investigate further into this IP address and this user
+
+
+We can stay on the investigation page then  open a new window with MS
+
+Go to main MS page
+Then go to:
+Threat management --> Entity Behavior
+This gives us the option to search and select the user
+We can see all of the user activities in one place
+This can help us identify and pattern or anomalies that could be relevant to our investigation
+
+Enrichment widgets:
+We can also add and customize widgets that will help us gather information from
+Virus Total, Recorded Future, Anomali, AbuseIPDB (DO THIS LATER!!)
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="114" border="0" /></a>
+<br />
+
+If you look closely, you will see the user keyser also has the most alerts. Well d26369b24 has the most alerts. Who da eff is this?
+We also see keyser and d26369b24 .
+This is because an analytics rule wrongly linked an entity
+This is a perfect example of why need to correctly setup the functionality
+Im confused here. 
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="115" border="0" /></a>
+<br />
+
+In the Entity behavior page go to the search box and input keyser email
+A new window will pop up displaying a graph with all relevent alerts, anomalies and activities
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="116" border="0" /></a>
+<br />
+In the Alerts, anomalies and activities timeline will give us every single alert generated for this user providing a nice timeline
+
+Now lets go to the middle graph
+Click on AzureActivity label in the middle upper graph
+A new Logs window will open up > run
+If you see the KQL its super complex,,,nanja kore!!!
+
+Somehow for keyser running the KQL didn’t work for Azure Activity Logs because there isnt any. The user deleted it.
+but for d26369b24 it worked.
+Hmm…I wonder why?
+Ah! We have to click on the other keyser 
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="117" border="0" /></a>
+<br />
+
+Click on the below keysersoze
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="118" border="0" /></a>
+<br />
+
+Then we will see a lot of Azure Activity logs
+Yay!
+Click on it
+and run the KQL query
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="119" border="0" /></a>
+<br />
+
+As you can see there is a lot of Azure Activity logs
+
+The query combines different queries together
+That is super complicated to create on my own
+The result of this query are sorted from oldest to newest
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="120" border="0" /></a>
+<br />
+
+
+If you check the next Azure activity log
+ActivityStatus = Suceeded
+ActivitySubstatus = OK (status code: 200)
+which means it succeeded
+Lets check the first log from Azure activity
+The OperationName field tells us about an attempt to delete resource diagnostic settings
+![image](https://github.com/chun-eric/sentinel-siem-chatgpt/assets/102393871/9a99b380-1b21-44e1-a921-e64f6a03bce5)
+
+
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="121" border="0" /></a>
+<br />
+
+Check out the other Azure activity logs
+ResourceProvider column
+Resource column
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="122" border="0" /></a>
+<br />
+If you scroll further down you will see many Azure activity logs on Information level
+If you scroll right you can see the OperationName column and ActivityStatus
+this will give you even more detailed information about the activity that took place and whether it was successful or not
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="123" border="0" /></a>
+<br />
+
+You can see that SSH key pairs were made, including VMs, etc.. All from a single deployment.  I didn’t create any SSH keys. Maybe Pavel did. 
+Scroll down further to see all the different activities
+CONFUSED NOT SHOWING UP
+
+At the bottom of our logs we can see more sign ins
+Was it successful sign ins?  You should see error code 0
+CONFUSED NOT SHOWING UP
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="124" border="0" /></a>
+<br />
+
+
+In AppDisplayName there was on item called AzurePortal Console App
+This is the cloud shell login that was successful
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="125" border="0" /></a>
+<br />
+
+Now with all this evidence, what do you do next?
+Whats the next action?
+
+We could check the department and role and responsibilities of keyser
+Is keyser still working at the company or are his daily responsibilities to sales or development?
+
+
+The correct next step would be to disable the account and stop the attacker from moving laterally through the web shell access they gained
+Next lesson lets take the necessary steps to secure our system
+<br />
+<br />
+
+
+
+
+
+<br>
+</br>
 <h3>Step 12 - Conclusion and Final Scan Check </h3>
 <br />
-<p>Run the scan again to check for any vulnerabilities.</p>
-<p>If no vulnerabilities, great!</p>
-<p>Turn on firewall and everything should be remediated.
-![image](https://github.com/chun-eric/nessus-scanner/assets/102393871/816fc07b-d40a-425c-939b-d522ccc83d6b)
-</p>
+We will need to take quick and effective actions to secure your Azure environment from potential threats
+
+In our Logs Window
+
+The first thing to do is
+Disable the compromised account
+why? To prevent further damage
+How do we do this?
+
+Go to Entra ID (put it in the search bar)
+Once inside Entra ID
+left side panel
+Manage --> Users
+Select our user keyser --> click
+Bottom left Account status --> Edit --> uncheck Account enabled --> Save
+Now the Account status --> Disabled
+
+
+A quick question. Does disabling the user, disable all the resources this user provisioned as well?
+
 <br />
-<a href="https://ibb.co/hXSFNwM"><img src="https://i.ibb.co/TKsMGdT/72.png" alt="72" border="0" /></a>
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="126" border="0" /></a>
+<br />
+Delete the Virtual Machine associated with keyser
+in search box type virtual machines
+select the vm associated with keyser
+delete the resources
+I would delete all resources associated with this vm
+check --> Apply force delete --> Delete
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="127" border="0" /></a>
+<br />
+
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="128" border="0" /></a>
+<br />
+Turn on Diagnostic settings for Log Analytics workspace. Why? Helps us log all movements in the resource group
+type in Log analytics workspace in search bar
+click on the correct resource group instance
+On left side bar
+Monitoring --> Diagnostic settings --> Add diagnostic setting
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="129" border="0" /></a>
+<br />
+In Diagnostic setting window
+check Logs --> both audit and allLogs
+check Metrics --> AllMetrics
+Add Diagnostic setting name --> Microsoft Sentinel
+Destination details --> check Send to Log Analytics workspace
+Log Analytics workspace --> choose correct resource group
+Click > Save
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="130" border="0" /></a>
+<br />
+Turn on Diagnostic settings for Microsoft Sentinel. Why? We want to track all logs in Microsoft Sentinel.
+type in ms in search bar
+choose the correct resource group
+Left side bar
+Configuration --> Settings
+
+In Settings window
+settings tab --> Auditing and health monitoring --> click enable
+click Configure diagnostic settings
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="131" border="0" /></a>
+<br />
+Diagnostic settings have been enabled
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="132" border="0" /></a>
+<br />
+We have now remediated all the issues, we can close all other windows and move back to our incident investigation window 
+
+One more thing throughout investigations, its essential to add comments to your incidents
+All evidence and findings should be collected and present in your incident
+
+How you do that??
+The instructor didn’t clarify
+Maybe I should ask him
+How do you add comments to incidents? How do you collect evidence and findings in your incident. Is there a separate incident worksheet that we can add to?
+My answer has been given below
+
+
+Go back to main MS --> Threat management --> Incidents
+Select all the high severity incidents --> click Actions --> Status changed to Close
+A new drop down menu will pop down
+Classification reason --> true positive
+Add to comment section --- this is very important
+We need to summarize:
+what happened
+what we found
+what was done
+Comment example below
+
+
+what happened
+User performed unusual login from Tor exit node. Based on user login history and performed action, account was most likely breached.
+
+what we found
+Log files show user keyser used an Ipaddress that is known for malicious activity originating from multiple locations.
+User had removed diagnostics settings from Log Analytics Workspace and Microsoft Sentinel and also created a new VM
+User had also changed passwords. 
+
+what was done
+User was contacted. Account status is currently disabled.
+Diagnostic Settings for Sentinel and Log File workspaces were put back to the previous state and the associated VM deleted from Azure.
+
+
+We have successful identified and remediated high threat inside the cloud environment
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="133" border="0" /></a>
+<br />
+
+For the other low incident (siem-training2) we do the same thing. 
+Click > Actions 
+
+Fill out details
+
+Severity > Low
+Status > Closed
+Classification reason --> true positive suspicious activity
+Add to comment section --- this is very important
+
+We need to summarize:
+what happened
+The user account was breached as the User IP address was originating from multiple locations. 
+
+what we found
+The user then provisioned a VM in the resource group. 
+
+what was done
+The user account is currently disabled and the deployed VM has since been deleted. 
+
+<br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="134" border="0" /></a>
 <br />
 <br />
+<a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="135" border="0" /></a>
+<br />
+
+
+
+
+
+
 
 <!--
  ```diff
