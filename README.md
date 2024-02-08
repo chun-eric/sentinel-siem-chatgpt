@@ -31,13 +31,12 @@ If you look at some of the data connectors some are billed and some are free
 but don’t worry we wont need to spend anything 
 <br/>
 <br/>
-When we first deploy Sentinel we get 10gb ingestion per day for the first month
-That’s plenty of time to go through all the necessary tasks
+When we first deploy Sentinel, we get 10gb ingestion per day for the first month.
+That’s plenty to go through all the necessary tasks. 
 Then you will delete Sentinel
 <br/>
 <br/>
 Then whenever you want to spin up a fresh new Sentinel just Deploy to Azure the Sentinel All in One.
-<br/>
 <br/>
 <br/>
 (https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One#readme
@@ -45,11 +44,13 @@ Then whenever you want to spin up a fresh new Sentinel just Deploy to Azure the 
 <br/>
 <a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="1" border="0" /></a>
 <br/>
+<br/>
+
 
 
 <br></br>
 <h3>Step 2 - Deploying Sentinel to Azure</h3>
-<br/>
+
 Click > Deploy to Azure
 <a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="2" border="0" /></a>
 <br/>
