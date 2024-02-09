@@ -19,24 +19,21 @@ The project began by spinning up a SIEM in Microsoft Sentinel, to initial config
 
 <h3>Step 1 - Introduction to Sentinel SIEM Deployment</h3>
 To speed development we will use Sentinel All in One.
-Sentinel All in One is basically AI
 <br/>
 <br/>
-It also configures Content Hub solutions
+It also configures Content Hub solutions.
 <br/>
-<br/>
-If you want to have a look at setting up SIME from beginning to end go to  Pavs other course which we bought
-<br/>
-If you look at some of the data connectors some are billed and some are free
-but don’t worry we wont need to spend anything 
+If you look at some of the data connectors some are billed and some are free. 
+We don’t need to worry about spending anything. 
 <br/>
 <br/>
 When we first deploy Sentinel, we get 10gb ingestion per day for the first month.
 That’s plenty to go through all the necessary tasks. 
-Then you will delete Sentinel
+All we need to do is make sure to delete Sentinel and the entire resource group,
+so we don't rack up a huge bill!
 <br/>
 <br/>
-Then whenever you want to spin up a fresh new Sentinel just Deploy to Azure the Sentinel All in One.
+Whenever we want to spin up a fresh new Sentinel just Deploy to Azure the Sentinel All in One.
 <br/>
 <br/>
 (https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One#readme
@@ -51,128 +48,189 @@ Then whenever you want to spin up a fresh new Sentinel just Deploy to Azure the 
 <br></br>
 <h3>Step 2 - Deploying Sentinel to Azure</h3>
 
+```
 Click > Deploy to Azure
+```
 <a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="2" border="0" /></a>
 <br/>
-Now that you in the custom deployment 
+Now that we are in the custom deployment. Go to:
 <br/>
-Basic Tab
+Basic Tab and choose:
 <br/>
-Choose: 
-<br/>
+
+```
 Subscription --> Azure 1
+```
 <br/>
-Location --> East US  (this is important for costs purposes East US is the cheapest. However for this project, pick the closest one to where we are. Our 10gb daily limit will be more than enough)
+
+```
+Location --> East US
+```
+Usually East US is the cheapest. However for this project, we will choose the closest one to our current location -- Japan.
 <br/>
+
+```
 Resource Group Name:  (pick a name to reflect what the solution is about) --> Security-Monitoring-rg
+```
 <br/>
+
+```
 Workspace Name --> same as resource group name
+```
 <br/>
+
+```
 Daily ingestion limit in GBs. --> 10
+```
 <br/>
-Number of days of retention --> 90  (this means its free for the first 90 days. After that we have to pay for every Gigabyte in data!)
+
+```
+Number of days of retention --> 90
+```
+This means it's free for the first 90 days. After that we have to pay for every Gigabyte of data! Yikes!
 <br/>
-Select pricing tier for Log Analytics --> Pay-as-you-go (just leave it as is)
+
+```
+Select pricing tier for Log Analytics --> Pay-as-you-go (leave it as is)
+```
 <br/>
-Select pricing tier for Sentinel --> Pay-as-you-go (just leave it as is)
-<br/>
-<br/>
+
+```
+Select pricing tier for Sentinel --> Pay-as-you-go (leave it as is)
+```
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="3" border="0" /></a>
 <br />
 <br />
-Settings tab
+In the settings tab:
 <br/>
+
+```
 Enable Sentinel Health Diagnostics --> Select
+```
 <br/>
-We will Enable User Entity Behavior Analytics (UEBA)  later together
-<br/>
+We will Enable User Entity Behavior Analytics (UEBA) later together.
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="4" border="0" /></a>
 <br/>
 <br/>
-Content Hub Solutions Tab
+In the Content Hub Solutions Tab.
 <br/>
-There are three content categories for solutions
+There are three content categories for solutions.
 <br/>
 <br/>
+
+```
 Select Microsoft Content Hub Solutions --> Select All
+```
 <br/>
+
+```
 Select Essential Content Hub Solutions --> Select All
+```
 <br/>
+
+```
 Select Training and Tutorials Content Hub Solutions --> Select All
-<br/>
+```
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="5" border="0" /></a>
 <br/>
 <br/>
-Data Connectors Tab
+In the Data Connectors Tab:
 <br/>
+
+```
 Select data connectors to onboard --> select all
+```
 <br/>
-If we don’t have permissions for some data connectors it will simply fail so don’t worry.
+If we don’t have permissions for some data connectors, it will simply fail, so don’t worry.
 <br/>
+
+```
 Select Azure Active Directory log types to enable --> Select all
-<br/>
+```
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="6" border="0" /></a>
 <br/>
 <br/>
-Analytics Rules Tab
+In the Analytics Rules Tab:
 <br/>
+
+```
 Enable Scheduled alert rules for selected Content Hub solutions and Data Connectors --> Select
+```
 <br/>
-we don’t want to enable hundreds of scheduled alert from the content hub manually
+we don’t want to enable hundreds of scheduled alert from the content hub manually.
 <br/>
+
+```
 Select the severity of the rules to enable --> Select all
-<br/>
+```
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="7" border="0" /></a>
 <br/>
 <br/>
+
+```
 Review + create Tab
+```
 <br/>
-Check all the details .
+Check all the details.
 <br/>
+
+```
 Click > Create
+```
 <br/>
-This will take 10-15 minutes to deploy
+This will take 10-15 minutes to deploy, so grab a cup of coffee.
 <br/>
 During this process you may encounter some failures because you wont have the license for some.
-<br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="8" border="0" /></a>
 <br/>
 <br/>
-I am getting an authentication error.
+We are getting an authentication error.
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="9" border="0" /></a>
 <br/>
 <br/>
-I think I need to change user write permissions to enable this deployment.
+It's stating, we need to change user write permissions to enable this deployment.
 <br/>
-In the Azure All in One readme in Github it states.
+In the Azure All in One readme file in Github, it states:
 <br/>
-Azure user account with enough permissions to enable the desired connectors. See table at the end of this page for additional permissions. 
+
+```
+Azure user account with enough permissions to enable the desired connectors. See table at the end of this page for additional permissions.
+```
+
 Write permissions to the workspace are always needed.
 <br/>
-I created the resource group siem-training and gave owner privileges.
+After a while of researching,  I created the resource group siem-training and gave owner privileges.
 <br/>
+
+```
 Click Role Assignment >  Add > Add role assignment.
-<br/>
+```
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="10" border="0" /></a>
 <br/>
 <br/>
-Role Tab
-Select role by clicking on View. We chose Privileged Admin role.
+In the Role Tab:
+Select role by clicking on View. We chose the Privileged Admin role.
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="11" border="0" /></a>
 <br/>
 <br/>
+
+```
 Select members.
+```
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="12" border="0" /></a>
 <br/>
 <br/>
+
+```
 Select role assignments and members.
+```
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="13" border="0" /></a>
 <br/>
 <br/>
-Role assignment I put it as constrained to owner.
+The role assignment we set is constrained to the owner.
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="14" border="0" /></a>
 <br/>
@@ -180,7 +238,7 @@ Role assignment I put it as constrained to owner.
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="16" border="0" /></a>
 <br/>
-Good seems like it all worked now.
+Good seems like it all worked now. Issue solved. Yes!
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="17" border="0" /></a>
 <br/>
 <br/>
