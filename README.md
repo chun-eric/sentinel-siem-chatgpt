@@ -254,11 +254,10 @@ We can ignore it for now.
 <br/>
 Now lets go to the resource group associated with this Sentinel. Type in search bar siem-training2.
 <br/>
-
+<br/>
 ```
 Click on Overview.
 ```
-<br/>
 There should be over 390 records but I only have 9 records. Is this right?
 So I made a new deployment called siem-training3 and will compare between the two.
 <br/>
@@ -292,18 +291,18 @@ This is because we want to be aware of situations where our queries don’t perf
 <br/>
 Let's go back to our resource group and find the log analytics workspace. For us it should be:
 <br/>
+<br/>
 
 ```
 siem-training2 (type Log Analytics workspace) > Click
 ```
-<br/>
 <a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="19" border="0" /></a>
 <br/>
 <br/>
 On the Monitoring blade:
 
 ```
-Diagnostic settings --> Add diagnostic setting
+Click Diagnostic settings --> Add diagnostic setting
 ```
 <a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="20" border="0" /></a>
 <br/>
@@ -320,27 +319,25 @@ You may create up to five different diagnostic settings to send different logs a
 ```
 Diagnostic setting name -->  Sentinel
 ```
-<br/>
 
 ```
 Logs --> Category groups --> allLogs (select)
 ```
-<br/>
+
 
 ```
 Metrics --> AllMetrics (select)
 ```
-<br/>
+
 
 ```
 Destination details --> Send to Log Analytics workspace --> Subscription (choose) --> Log Analytics workspace --> security-monitoring (japanwest)
 ```
-<br/>
+
 
 ```
 Click > Save
 ```
-<br/>
 <a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="21" border="0" /></a>
 <br/>
 <br/>
