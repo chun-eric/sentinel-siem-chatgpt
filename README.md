@@ -255,6 +255,7 @@ We can ignore it for now.
 Now lets go to the resource group associated with this Sentinel. Type in search bar siem-training2.
 <br/>
 <br/>
+
 ```
 Click on Overview.
 ```
@@ -347,46 +348,69 @@ Now we are all setup! We can move on to Sentinel itself.
 <br>
 </br>
 <h3>Step 4 - Exploring Sentinel </h3>
+Okay, let's start exploring Microsoft Sentinel.
+Search for Sentinel in the search bar. 
 <br/>
-Search for Sentinel in the search bar --> choose your resource group > siem-training2
+Choose your resource group > siem-training2
 <br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="22" border="0" /></a>
 <br/>
 <br/>
-Click on Microsoft Sentinel (MS)
+
+```
+Click > Microsoft Sentinel (MS)
+```
+<br/>
 <br/>
 Overview gives you a dashboard overview
 <br/>
 On the left side MS is divided into 4 sections
 <br/>
+
+```
 General
+```
 <br/>
+
+```
 Threat Management
+```
 <br/>
+
+```
 Content Management
+```
 <br/>
+
+```
 Configuration
+```
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="23" border="0" /></a>
 <br/>
 <br/>
 Lets focus on some of the most interesting tabs in Sentinel.
 <br/>
-General --> Logs
+
+```
+Click General > Logs
+```
 <br/>
 Here we can search for you data using Kusto Query Language or KQL
 You can see all the tables by click on the all the triangle icons.
 <br/>
 e.g   LogManagement, Microsoft Sentinel, Custom Logs
 <br/>
+<br/>
 One of the tables we need to use are signin log, which is currently missing.
+<br/>
 <br/>
 For now lets check AzureActivity.
 This table provides information actions inside your portal and provides information about who performed the action and other properties important for investigation.
 <br/>
-Lets also check AADNonInteractiveUserSignInLogs (we don’t have that now siem-training2 which is v2 but in siem-training3 v1 it has)
-this provides information about authentication requirements, client usage and location details
+<br/>
+Let's also check AADNonInteractiveUserSignInLogs (we don’t have that now siem-training2 which is v2 but in siem-training3 v1 it has) this provides information about authentication requirements, client usage and location details
 location details will be particulary useful for us.
 <br/>
 <br/>
@@ -395,24 +419,32 @@ location details will be particulary useful for us.
 <br/>
 Lets have a look at the Configuration Section.
 <br/>
+
+```
 Configuration --> Data Connectors.
+```
 <br/>
 We should have around 9-10 Connected.
 <br/>
+<br/>
 We can filter by Status: Connected.
 <br/>
-This lets us see the type of data being collected, number of logs received and tables that are being populated.
 <br/>
+This lets us see the type of data being collected, number of logs received and tables that are being populated.
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="25" border="0" /></a>
 <br/>
 <br/>
+
+```
 Configuration --> Analytics
-<br/>
+```
 Do you remember the hundreds of templates inside your resource group?
 <br/>
-Most of them were for analytics rules that were automatically deployed and enabled for you
+<br/>
+Most of them were for analytics rules that were automatically deployed and enabled for you.
 There are already roughly around a staggering detection rules already built and provided by Microsoft, this is great to get started with monitoring threats.
+<br/>
 <br/>
 Lets have a look at some  high severity just to see what rules have been broken?
 <br/>
@@ -420,14 +452,18 @@ Lets have a look at some  high severity just to see what rules have been broken?
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="26" border="0" /></a>
 <br/>
 <br/>
-Lets also have a look at Anomalies > Click.
+Lets also have a look at Anomalies.
 <br/>
-There are anomalies templates developed to be robust by using thousands of data sources and millions of events
+<br/>
+There are anomalies templates developed to be robust by using thousands of data sources and millions of events.
+<br/>
 <br/>
 Microsoft allows you to change the thresholds for them in case they generate a lot of false positives.
 Right now I don’t even know what a false positive looks like! 
 <br/>
+<br/>
 Note that the  Anomalies template works with the User and Entity Behavior Analytics which is currently not working
+<br/>
 <br/>
 Next video, our very first task in Microsoft Sentinel will be to fix this issue!
 <br/>
