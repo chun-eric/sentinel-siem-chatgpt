@@ -362,10 +362,9 @@ Choose your resource group > siem-training2
 ```
 Click > Microsoft Sentinel (MS)
 ```
-<br/>
 Overview gives you a dashboard overview. On the left side MS is divided into 4 sections.
 <br/>
-
+<br/>
 ```
 General
 ```
@@ -389,12 +388,10 @@ Configuration
 <br/>
 Lets focus on some of the most interesting tabs in Sentinel.
 <br/>
-<br/>
 
 ```
 Click General > Logs
 ```
-<br/>
 Here we can search for you data using Kusto Query Language or KQL
 You can see all the tables by click on the all the triangle icons.
 <br/>
@@ -473,12 +470,15 @@ In the next step, our very first task in Microsoft Sentinel will be to fix this 
 <br>
 </br>
 <h3>Step 5 - Enabling User Entity Behavior Analytics and Playbooks  </h3>
-<br/>
 The user and entity behavior analytics (UEBA) is an amazing feature that uses AI to detect and alert you to any unusual behavior happening within your system.
 <br/>
 To turn this feature we have to go to:
 <br/>
-Configuration --> Settings --> Settings --> Set UEBA 
+
+```
+Configuration --> Settings --> Settings --> Set UEBA
+```
+<br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="28" border="0" /></a>
 <br/>
