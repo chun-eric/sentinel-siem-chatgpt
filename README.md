@@ -245,68 +245,104 @@ Good seems like it all worked now. Issue solved. Yes!
 
 
 
-
+<br/>
+<br/>
 <h3>Step 3 - Exploring Artifacts Installed</h3>
-<br />
 There will be some errors for enableDataConnectors. For Status Message look for InvalidLicense.
 We can ignore it for now.
 <br/>
+<br/>
 Now lets go to the resource group associated with this Sentinel. Type in search bar siem-training2.
 <br/>
+
+```
 Click on Overview.
+```
 <br/>
 There should be over 390 records but I only have 9 records. Is this right?
-So I made a new deployment called siem-training3 and will compare
+So I made a new deployment called siem-training3 and will compare between the two.
+<br/>
 <br/>
 I created siem-training3 and it is exactly the same as siem-training2.
-Don’t worry about the 9 records. 
+We can ignore the 9 records. 
 <br />
 <br/>
 <a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="18" border="0" /></a>
 <br/>
 <br/>
-This is where all the data is stored
-However most of them are just templates
+This is where all the data is stored. However most of them are just templates.
 <br/>
-For instance if you want to deploy a package from the  Content Hub in Sentinel, for example includes 50 analytics rules, it will create a separate template for each.
+<br/>
+For instance if you want to deploy a package from the Content Hub in Sentinel, it includes 50 analytics rules and it will create a separate template for each.
+<br/>
 <br/>
 Lets choose one to see whats inside (ignore this section - its not applicable in the recent deployment)
 <br/>
+<br/>
 In a template you can see Display Name and Description on the right side. So that’s basically how the solution looks in the background
+<br/>
 <br/>
 Microsoft Sentinel is built on top of the log analytics workspace where all the data is stored.
 We want to monitor Sentinel as well as the log analytics workspace.
-Why?
+But why?
 <br/>
-Because we want to be aware of situations where our queries don’t perform as they should, or maybe it takes too long and ends up in error
-so lets go back to our resource group and find the log analytics workspace for us it should be:
 <br/>
+This is because we want to be aware of situations where our queries don’t perform as they should, or maybe it takes too long and ends up in error.
+<br/>
+<br/>
+Let's go back to our resource group and find the log analytics workspace. For us it should be:
+<br/>
+
+```
 siem-training2 (type Log Analytics workspace) > Click
+```
 <br/>
 <a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="19" border="0" /></a>
 <br/>
 <br/>
-On the Monitoring blade --> Diagnostic settings --> Add diagnostic setting
-<br/>
+On the Monitoring blade:
+
+```
+Diagnostic settings --> Add diagnostic setting
+```
 <a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="20" border="0" /></a>
 <br/>
 <br/>
 What is Diagnostic settings?
 <br/>
+<br/>
 Diagnostic settings are used to configure streaming export of platform logs and metrics for a resource to the destination of your choice. 
+<br/>
+<br/>
 You may create up to five different diagnostic settings to send different logs and metrics to independent destinations.
 <br/>
+
+```
 Diagnostic setting name -->  Sentinel
+```
 <br/>
+
+```
 Logs --> Category groups --> allLogs (select)
+```
 <br/>
+
+```
 Metrics --> AllMetrics (select)
+```
 <br/>
+
+```
 Destination details --> Send to Log Analytics workspace --> Subscription (choose) --> Log Analytics workspace --> security-monitoring (japanwest)
+```
 <br/>
-Click Save
+
+```
+Click > Save
+```
 <br/>
 <a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="21" border="0" /></a>
+<br/>
 <br/>
 Now we are all setup! We can move on to Sentinel itself.
 
