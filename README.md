@@ -351,6 +351,7 @@ Now we are all setup! We can move on to Sentinel itself.
 Okay, let's start exploring Microsoft Sentinel.
 Search for Sentinel in the search bar. 
 <br/>
+<br/>
 Choose your resource group > siem-training2
 <br/>
 <br/>
@@ -362,35 +363,32 @@ Choose your resource group > siem-training2
 Click > Microsoft Sentinel (MS)
 ```
 <br/>
-<br/>
-Overview gives you a dashboard overview
-<br/>
-On the left side MS is divided into 4 sections
+Overview gives you a dashboard overview. On the left side MS is divided into 4 sections.
 <br/>
 
 ```
 General
 ```
-<br/>
 
 ```
 Threat Management
 ```
-<br/>
+
 
 ```
 Content Management
 ```
-<br/>
+
 
 ```
 Configuration
 ```
-<br/>
+
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="23" border="0" /></a>
 <br/>
 <br/>
 Lets focus on some of the most interesting tabs in Sentinel.
+<br/>
 <br/>
 
 ```
@@ -419,18 +417,15 @@ location details will be particulary useful for us.
 <br/>
 Lets have a look at the Configuration Section.
 <br/>
+<br/>
 
 ```
 Configuration --> Data Connectors.
 ```
-<br/>
-We should have around 9-10 Connected.
-<br/>
-<br/>
-We can filter by Status: Connected.
-<br/>
+We should have around 9-10 Connected. We can filter by Status: Connected.
 <br/>
 This lets us see the type of data being collected, number of logs received and tables that are being populated.
+<br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="25" border="0" /></a>
 <br/>
@@ -465,11 +460,12 @@ Right now I don’t even know what a false positive looks like!
 Note that the  Anomalies template works with the User and Entity Behavior Analytics which is currently not working
 <br/>
 <br/>
-Next video, our very first task in Microsoft Sentinel will be to fix this issue!
+In the next step, our very first task in Microsoft Sentinel will be to fix this very issue!
+<br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="27" border="0" /></a>
 <br/>
-<br/>
+
 
 
 
