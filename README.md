@@ -693,18 +693,15 @@ In the next step, let's create our very first analytics rule to detect threats f
 </br>
 <h3>Step 7 - Creating a Detection Rule for our Threat</h3>
 In Microsoft Sentinel side bar:
+<br/>
 
 ```
 Configuration > Analytics > Create > Scheduled Query rule
 ```
-<br/>
-<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="40" border="0" /></a>
 <br />
 <br />
-In the General Tab:
-<br />
-Go to Analytics rule details. Fill in the below details.
+In the General Tab - Go to Analytics rule details. Fill in the below details.
 <br />
 
 ```
@@ -715,7 +712,11 @@ In the Description fill in the below details.
 <br />
 
 ```
-This rule detects successful sign-ins from the Tor Network, which is a popular tool used by threat actors to anonymize their activity. The rule triggers when a successful sign-in event occurs on an account that has a Tor Network IP Address. This could indicate a potential security threat, as legitimate users typically do not use the Tor Network to sign in to an organization's resources.
+This rule detects successful sign-ins from the Tor Network,
+which is a popular tool used by threat actors to anonymize their activity.
+The rule triggers when a successful sign-in event occurs on an account that has a Tor Network IP Address.
+This could indicate a potential security threat, as legitimate users typically do not use the Tor Network
+to sign in to an organization's resources.
 ```
 <br />
 Under Tactics and Techniques: 
@@ -729,14 +730,12 @@ Initial Access > T1133 External Remote Access
 ```
 Severity  > High
 ```
-<br />
-<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="41" border="0" /></a>
 <br />
 <br />
 In the Set Logic Rule Tab.
 <br />
-Add the Rule query
+Add the below Rule query.
 <br />
 
 ```
@@ -766,8 +765,6 @@ Click > View query results
 ```
 Click > Test with current data (top right)
 ```
-<br />
-<br />
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="42" border="0" /></a>
 <br />
 <br />
@@ -780,12 +777,12 @@ You can select an entity then you add key value pairs to it.
 ```
 Entity Mapping > Add new entity
 ```
-<br />
+
 
 ```
 Account (1st Entity)
 ```
-<br />
+
 
 ```
 Sid > UserId
@@ -807,7 +804,7 @@ IP (2nd Entity)
 ```
 Address > Ipaddress
 ```
-
+<br/>
 Custom details (we can surface any particular event parameters). We have to add key value pairs.
 <br />
 
@@ -818,8 +815,6 @@ IPAddress > IPAddress
 ```
 User > UserDisplayName
 ```
-<br />
-<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="43" border="0" /></a>
 <br />
 <br />
@@ -833,7 +828,6 @@ From the value pairs in our Custom details we can add that in our Alert Name For
 Alert Name Format > Successful Sign-Ins from Tor Network IP {{IPAddress}}
 ```
 <br />
-<br/>
 Alert Description Format.
 <br />
 <br/>
@@ -849,8 +843,6 @@ Alert Property
 ```
 ConfidenceScore > RiskState
 ```
-<br />
-<br />
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="44" border="0" /></a>
 <br />
 <br />
@@ -860,11 +852,11 @@ Run query every
 <br />
 Lookup data from the last 5 minutes.
 <br />
+<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="45" border="0" /></a>
 <br />
 <br />
 Leave everything else as is.
-<br />
 <br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="46" border="0" /></a>
 <br />
@@ -900,8 +892,6 @@ In the Review and Create Tab
 ```
 Validation passed > Save
 ```
-<br />
-<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="49" border="0" /></a>
 <br />
 <br />
@@ -918,7 +908,7 @@ Microsoft Sentinel > Analytics > Successful Sign-Ins from Tor Network
 Now what we need to do is impersonate as an attacker. Time to act like a hacker that signed into an Azure account from an Anonymous IP address.
 <br />
 <br/>
-This will be the hard part and will test our skills. 
+This section was very challenging. The next section will be challenging as well. 
 <br />
 <br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="50" border="0" /></a>
