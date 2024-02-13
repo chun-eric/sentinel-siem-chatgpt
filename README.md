@@ -490,20 +490,21 @@ Turn on the UEBA feature.
 ```
 Click > On
 ```
-<br/>
+
 Sync Microsoft Sentinel with at least one of the following directory services.
 
 ```
 Microsoft Entra ID (select) > Apply
 ```
-<br/>
+
 Select existing data sources you want to enable for entity behavior analytics. 
 
 ```
 Select Audit Logs, Azure Activity , Signin Logs > Apply
 ```
-<br/>
+
 Now we have enabled AI Machine Learning in Microsoft Sentinel.
+<br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="29" border="0" /></a>
 <br/>
@@ -517,18 +518,17 @@ To do this we need to give MS permissions.
 ```
 Configuration > Settings > Settings > Playbook permissions > Configure permissions
 ```
-<br/>
+
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="30" border="0" /></a>
 <br/>
 <br/>
 Manage permissions panel will show up to the right.
 <br/>
+<br/>
 
 ```
 Select resource group siem-training2 > Apply
 ```
-<br/>
-<br/>
 Now we are all set up and ready to create some amazing artifacts within Microsoft Sentinel.
 <br/>
 <br/>
@@ -536,6 +536,7 @@ In the next step let's dive into watchlists.
 <br/>
 <br/>
 We will learn to create our own watchlist and how to leverage powerful capabilities to enhance security operations.
+<br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="30" border="0" /></a>
 <br/>
@@ -546,84 +547,130 @@ We will learn to create our own watchlist and how to leverage powerful capabilit
 <br>
 </br>
 <h3>Step 6 - Creating Watchlists to Detect Threats</h3>
-<br/>
 This will be the first step in monitoring TOR exit nodes using Microsoft Sentinel.
-How?
+How do we approach this?
 <br/>
-We will create a watchlist that checks all the TOR exit nodes IP addresses and use it with analytics rules.
 <br/>
-Go to the watchlist
+We will first create a watchlist that checks all the TOR exit nodes IP addresses and use it with analytics rules.
 <br/>
-Configuration --> Watchlist --> Add new
+Go to the watchlist.
+<br/>
+<br/>
+
+```
+Configuration > Watchlist > Add new
+```
+<br/>
 <br/>
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="32" border="0" /></a>
 <br />
 <br />
-New window pops up Watchlist Wizard
+A new window pops up -- Watchlist Wizard.
 <br />
-There are three tabs, General, Source, Review and Create
+<br/>
+There are three tabs, General, Source, Review and Create.
+<br/>
 <br />
 In the General tab:
 <br />
-Name --> Tor-IP-Addresses
-<br />
-Description --> A watchlist that checks all the Tor Exit nodes IP Addresses
-<br />
-Alias --> Tor-IP-Addresses
+
+```
+Name > Tor-IP-Addresses
+```
+
+```
+Description > A watchlist that checks all the Tor Exit nodes IP Addresses
+```
+
+```
+Alias > Tor-IP-Addresses
+```
+<br/>
 <br/>
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="33" border="0" /></a>
 <br />
 <br />
-We can create watchlists from a local file or from Azure storage
+We can create watchlists from a local file or from Azure storage.
 <br />
-Source tab (is it from a local file or from Azure storage)
+<br/>
+Source tab (is it from a local file or from Azure storage).
 <br />
+<br/>
 Fill in the below fields:
 <br />
-Source type --> Local file
+
+```
+Source type > Local file
+```
+
+```
+File type > CSV file with a header
+```
+
+```
+Number of lines before row with headings > 0
+```
+
+```
+Upload file > Tor+Exit+Nodes.csv
+```
 <br />
-File type --> CSV file with a header
+File preview on right side to check for your validation.
 <br />
-Number of lines before row with headings --> 0
-<br />
-Upload file --> Tor+Exit+Nodes.csv
-<br />
-File preview on right side to check for your validation
-<br />
+
+```
 SearchKey --> IpAddress
+```
 <br />
-Review and Create  tab --> Create
+
+```
+Review and Create  tab > Create
+```
 <br />
 <br />
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="34" border="0" /></a>
 <br />
+<br/>
 Our newly created watchlist.
 <br />
+<br/>
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="35" border="0" /></a>
 <br />
 <br />
-Select the watchlist
+Select the watchlist.
+<br/>
 <br />
-On the right side panel --> click View in Logs
+
+```
+On the right side panel > Click View in Logs
+```
 <br />
+<br/>
 This is what the watchlist looks when you call it with KQL and Sentinel will present you with the results.
 <br />
+<br/>
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="36" border="0" /></a>
 <br />
 <br />
 This is what it would look like in the Logs. You can see it has KQL queries.
 <br />
-A the top under the Run button you can see the KQL syntax, which will come in handy in our next step of creating an analytics rule to detect malicious login from Tor exit nodes.
+At the top, under the Run button you can see the KQL syntax, which will come in handy in our next step of creating an analytics rule to detect malicious login from Tor exit nodes.
 <br />
+<br/>
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="37" border="0" /></a>
 <br />
 <br />
-Lets go back to our watchlist
+Lets go back to our watchlist.
+<br/>
 <br />
-One more really cool thing about watchlists is that they are easily modifiable
+One more really cool thing about watchlists is that they are easily modifiable.
 <br />
-click --> Update watchlist --> Edit watchlist items
+
+```
+Click Update watchlist > Edit watchlist items
+```
 <br />
+<br/>
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="38" border="0" /></a>
 <br />
 <br />
@@ -633,7 +680,8 @@ Its easier to upodate the watch list in one place rather than going into each an
 <br />
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="39" border="0" /></a>
 <br />
-In the next step let's create our very first analytics rule to detect threats from Tor network.
+<br/>
+In the next step, let's create our very first analytics rule to detect threats from the Tor network.
 <br />
 <br />
 
@@ -644,37 +692,54 @@ In the next step let's create our very first analytics rule to detect threats fr
 <br>
 </br>
 <h3>Step 7 - Creating a Detection Rule for our Threat</h3>
+In Microsoft Sentinel side bar:
+
+```
+Configuration > Analytics > Create > Scheduled Query rule
+```
 <br/>
-In MS side bar
-Configuration --> Analytics --> Create --> Scheduled Query rule
 <br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="40" border="0" /></a>
 <br />
 <br />
-General Tab
+In the General Tab:
 <br />
-Analytics rule details
+Go to Analytics rule details. Fill in the below details.
 <br />
-Name --> Successful Sign-ins from Tor Network
+
+```
+Name > Successful Sign-ins from Tor Network
+```
 <br />
-Description.
+In the Description fill in the below details.
 <br />
-This rule detects successful sign-ins from the Tor Network, which is a popular tool used by threat actors to anonymize their activity. 
-The rule triggers when a successful sign-in event occurs on an account that has a Tor Network IP Address. This could indicate a potential security threat, as legitimate users typically do not use the Tor Network to sign in to an organization's resources.
+
+```
+This rule detects successful sign-ins from the Tor Network, which is a popular tool used by threat actors to anonymize their activity. The rule triggers when a successful sign-in event occurs on an account that has a Tor Network IP Address. This could indicate a potential security threat, as legitimate users typically do not use the Tor Network to sign in to an organization's resources.
+```
 <br />
-Tactics and Techniques
+Under Tactics and Techniques: 
 <br />
-Initial Access --> T1133 External Remote Access
+
+```
+Initial Access > T1133 External Remote Access
+```
+
+
+```
+Severity  > High
+```
 <br />
-Severity  --> High
-<br />
+<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="41" border="0" /></a>
 <br />
 <br />
-Set Logic Rule Tab
+In the Set Logic Rule Tab.
 <br />
-Rule query
+Add the Rule query
 <br />
+
+```
 let TorNodes = (_GetWatchlist('Tor-IP-Addresses') | project TorIP = IpAddress);
 SigninLogs
 | where IPAddress in (TorNodes)
@@ -692,58 +757,98 @@ RiskLevelDuringSignIn,
 AuthenticationRequirement,
 ClientAppUsed, 
 ConditionalAccessPolicies
-<br />
+```
+
+```
 Click > View query results
-<br />
-Clic > Test with current data (top right)
+```
+
+```
+Click > Test with current data (top right)
+```
 <br />
 <br />
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="42" border="0" /></a>
 <br />
 <br />
-Alert enrichment
-Entity in MS are objects that represent important information about the environment such as host, users, IP addresses and many more
-Lets add two different entities.
+Alert enrichment Entity in Sentinel are objects that represent important information about the environment such as host, users, IP addresses and many more. Lets add two different entities.
 <br />
+<br/>
 You can select an entity then you add key value pairs to it.
 <br />
-Entity Mapping --> Add new entity
+
+```
+Entity Mapping > Add new entity
+```
 <br />
+
+```
 Account (1st Entity)
+```
 <br />
-Sid  --> UserId
-<br />
-click Add identifier
-<br />
-DisplayName -->  UserDisplayName
-<br />
+
+```
+Sid > UserId
+```
+
+
+```
+Click > Add identifier
+```
+
+```
+DisplayName >  UserDisplayName
+```
+
+```
 IP (2nd Entity)
+```
+
+```
+Address > Ipaddress
+```
+
+Custom details (we can surface any particular event parameters). We have to add key value pairs.
 <br />
-Address --> Ipaddress
+
+```
+IPAddress > IPAddress
+```
+
+```
+User > UserDisplayName
+```
 <br />
-Custom details (we can surface any particular event parameters) we have to add key value pairs.
-<br />
-IPAddress --> IPAddress
-<br />
-User --> UserDisplayName
-<br />
+<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="43" border="0" /></a>
 <br />
 <br />
 Alert Details  (we can make adjustments to our alert detail).
 <br />
+<br/>
 From the value pairs in our Custom details we can add that in our Alert Name Format and Alert Description Format
 <br />
-Alert Name Format --> Successful Sign-Ins from Tor Network IP {{IPAddress}}
+
+```
+Alert Name Format > Successful Sign-Ins from Tor Network IP {{IPAddress}}
+```
 <br />
+<br/>
 Alert Description Format.
 <br />
+<br/>
 This rule detects successful sign-ins from the Tor Network, which is a popular tool used by threat actors to anonymize their activity. 
-The rule triggers when a successful sign-in event occurs on an account {{UserDisplayName}}  that has a Tor Network IP Address. This could indicate a potential security threat, as legitimate users typically do not use the Tor Network to sign in to an organization's resources.
+
+<br/>
+The rule triggers when a successful sign-in event occurs on an account {{UserDisplayName}} that has a Tor Network IP Address. This could indicate a potential security threat, as legitimate users typically do not use the Tor Network to sign in to an organization's resources.
 <br />
+<br/>
 Alert Property
 <br />
-ConfidenceScore --> RiskState
+
+```
+ConfidenceScore > RiskState
+```
 <br />
 <br />
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="44" border="0" /></a>
@@ -760,48 +865,62 @@ Lookup data from the last 5 minutes.
 <br />
 Leave everything else as is.
 <br />
+<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="46" border="0" /></a>
 <br />
 <br />
+
+```
 Incident Tab > Incident settings > Enabled
+```
+
+```
+Alert grouping > Enabled
+```
+
+```
+Limit the group to alerts created within the selected time frame leave as > 5 hours
+```
 <br />
-Alert grouping
-Enabled
+Group alerts triggered by this analytics rule into a single incident by leave as (recommended).
 <br />
-Limit the group to alerts created within the selected time frame leave as --> 5 hours
-<br />
-Group alerts triggered by this analytics rule into a single incident by leave as (recommended)
-<br />
+<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="47" border="0" /></a>
 <br />
 <br />
-Automated ResponseTab.
+In the Automated Response Tab. None here so we will move on.
 <br />
-None here so we will move on.
-<br />
-Check out the advanced Sentinel Course we got from Pavel.
 <br />
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="48" border="0" /></a>
 <br />
 <br />
-Review and Create Tab
+In the Review and Create Tab
 <br />
-Validation passed --> Save
+
+```
+Validation passed > Save
+```
 <br />
+<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="49" border="0" /></a>
 <br />
 <br />
 Our Analytics rule will be created.
 <br />
+<br/>
 To see our new analytics rule go to:
 <br />
+
+```
 Microsoft Sentinel > Analytics > Successful Sign-Ins from Tor Network
+```
 <br />
-Now what we need to do is impersonate as an attacker. 
-Act like a hacker that signed into to an Azure account from an Anonymous IP address.
+Now what we need to do is impersonate as an attacker. Time to act like a hacker that signed into an Azure account from an Anonymous IP address.
 <br />
-This is the really hard part and will test your skills. It was very challenging.
+<br/>
+This will be the hard part and will test our skills. 
 <br />
+<br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="50" border="0" /></a>
 <br />
 <br />
