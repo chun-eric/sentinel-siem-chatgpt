@@ -472,23 +472,36 @@ In the next step, our very first task in Microsoft Sentinel will be to fix this 
 <h3>Step 5 - Enabling User Entity Behavior Analytics and Playbooks  </h3>
 The user and entity behavior analytics (UEBA) is an amazing feature that uses AI to detect and alert you to any unusual behavior happening within your system.
 <br/>
+<br/>
 To turn this feature we have to go to:
 <br/>
 
 ```
 Configuration --> Settings --> Settings --> Set UEBA
 ```
-<br/>
-<br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="28" border="0" /></a>
+<br/>
 <br/>
 You will come to a new screen called Entity behavior Configuration.
 <br/>
-1. Turn on the UEBA feature --> On (click)
 <br/>
-2. Sync Microsoft Sentinel with at least one of the following directory services --> Microsoft Entra ID (select) --> Apply
+Turn on the UEBA feature.
+
+```
+Click > On
+```
 <br/>
-3. Select existing data sources you want to enable for entity behavior analytics --> Select Audit Logs, Azure Activity , Signin Logs --> Apply
+Sync Microsoft Sentinel with at least one of the following directory services.
+
+```
+Microsoft Entra ID (select) > Apply
+```
+<br/>
+Select existing data sources you want to enable for entity behavior analytics. 
+
+```
+Select Audit Logs, Azure Activity , Signin Logs > Apply
+```
 <br/>
 Now we have enabled AI Machine Learning in Microsoft Sentinel.
 <br/>
@@ -499,17 +512,28 @@ As we are already in Sentinel  configuring lets use automation playbooks.
 <br/>
 To do this we need to give MS permissions.
 <br/>
-Configuration --> Settings --> Settings --> Playbook permissions --> Configure permissions
+<br/>
+
+```
+Configuration > Settings > Settings > Playbook permissions > Configure permissions
+```
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="30" border="0" /></a>
 <br/>
+<br/>
 Manage permissions panel will show up to the right.
 <br/>
-Select the correct resource group siem-training2 > Apply
+
+```
+Select resource group siem-training2 > Apply
+```
+<br/>
 <br/>
 Now we are all set up and ready to create some amazing artifacts within Microsoft Sentinel.
 <br/>
-Next video we will be diving into watchlists!
+<br/>
+In the next step let's dive into watchlists.
+<br/>
 <br/>
 We will learn to create our own watchlist and how to leverage powerful capabilities to enhance security operations.
 <br/>
