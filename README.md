@@ -1487,6 +1487,7 @@ Go to the Microsoft Sentinel Dashboard. Look at the incidents.
 <br/>
 Okay so how do we get started?
 <br />
+<br/>
 
 ```
 Go to Threat management > Incidents  > Manage Incidents
@@ -1512,6 +1513,7 @@ For us the highest severity would be successful Sign-in from Tor Network. Look a
 <br/>
 This could already indicate a flaw in our analytic rule that we created. Below is from siem-training2.
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="93" border="0" /></a>
 <br />
 
@@ -1534,6 +1536,7 @@ We should probably have to fix that later.
 <br/>
 Lets check the other incidents quickly before jumping into the high severity cases. You can sort incidents by Incident ID or Created time.
 <br />
+<br/>
 ** Below can probably be seen from siem-training3 not siem-training2 **
 <br />
 <br/>
@@ -1564,6 +1567,7 @@ Another incident is:
 <br/>
 Under low there is a title: Suspicious Resource Deployment.
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="96" border="0" /></a>
 <br />
 <br/>
@@ -1575,7 +1579,7 @@ Why doesn’t Sentinel take them all and create one with all of the information 
 Answer is very simple:
 <br />
 <br/>
-The analytics rules are not correctly created to show you. If you click on any incidents on the right side panel under Entities = 0
+The analytics rules are not correctly created to show you. If you click on any incidents on the right side panel under Entities = 0.
 <br />
 <br/>
 Why is this important?
@@ -1592,6 +1596,7 @@ I am still confused on this section, the most.
 <br/>
 What are entities, and why do we need to correctly set them up?
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="97" border="0" /></a>
 <br />
 <br/>
@@ -1644,6 +1649,7 @@ This is very important step especially if you are part of security operations te
 <br/>
 Now the incidents are assigned to you, we can start the investigation process.
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="100" border="0" /></a>
 <br />
 <br/>
@@ -1667,22 +1673,31 @@ Click  >  View full details > This will show you more detailed information about
 
 <br></br>
 <h3>Step 11 - Further Analysis and Investigation of the Security Incident </h3>
-<br />
-
-you will get a full screen panel
-
+Let's dive deeper into the analysis of the incident. You will get a full screen panel showing the security incdient.
+<br/>
+<br/>
 The incident window is divided into three parts:
-left, middle, right
+left, middle, right.
 
+<br/>
+<br/>
+Left side -- shows essential details about the incident like username, Ipaddress, evidence (events), alerts, bookmarks
 
-Left side -- essential details about the incident
-like username, Ipaddress, evidence (events), alerts, bookmarks
-Click on events --> a new Logs window will pop out
-The above doesn’t work there is a new button called Logs on the Top left > Click
+```
+Click on events > a new Logs > a window will pop out
+```
+
+If the above doesn’t work, there is a new button called Logs on the Top left which you can click.
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="102" border="0" /></a>
 <br />
-In Logs window --> Results tab --> we can get a lot of information
-Run the Query  in the Logs
+<br/>
+In Logs window > Results tab > we can get a lot of information.
+
+<br/>
+<br/>
+Run this Kusto Query in the Logs:
+
+```
 let TorNodes = (_GetWatchlist('Tor-IP-Addresses')
     | project TorIP = IpAddress);
 SigninLogs
@@ -1701,179 +1716,232 @@ SigninLogs
     AuthenticationRequirement,
     ClientAppUsed,
     ConditionalAccessPolicies
-<br />
+```
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="103" border="0" /></a>
 <br />
+<br/>
 Click on any file/line to see for more information
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="104" border="0" /></a>
 <br />
-First thing we need to do is grab this IP address and check if its related to any malicious activity
-We can check websites like abuseipdb
-insert the ip address into this abuseipdb.com
+<br/>
+First thing we need to do is grab this IP address and check if its related to any malicious activity.
+We can check websites like abuseipdb and insert the ip address into abuseipdb.com
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="105" border="0" /></a>
 <br />
-We checked the IP Address and its shown to be an abused IP
+<br/>
+We have checked the IP Address and its shown to be an abused IP.
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="106" border="0" /></a>
 <br />
-Go back to the Logs window --> result
+<br/>
+
+```
+Go back to Logs window > result
+```
 
 There is no indication in our logs that this log was a successful login. Where does it show it?
-This is because we forgot to include the result type column name in our query for project argument
+This is because we forgot to include the result type column name in our query for project argument.
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="107" border="0" /></a>
 <br />
-What do we have to do?
-in the KQL just remove the project argument and the column names + uncomment the ResultType
-Run the below query: 
-
+<br/>
+What do we have to do? In the KQL just remove the project argument and the column names + uncomment the ResultType.
+Run the below query again: 
+<br/>
+<br/>
+```
 let TorNodes = (_GetWatchlist('Tor-IP-Addresses')
     | project TorIP = IpAddress);
 SigninLogs
  | where IPAddress in (TorNodes)
  | where ResultType != 50126
-
-
-Now we can see the ResultType = 0
-This means the login was successful
-We can make it easier by replacing the fieldvalue of 0 to successful
+```
+<br/>
+Now we can see the ResultType = 0.
+This means the login was successful.
+We can make it easier by replacing the fieldvalue of 0 to successful.
 
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="108" border="0" /></a>
 <br />
+<br/>
 The next thing is to figure out what was the login pattern for this user?
-
+<br/>
+<br/>
 Are there any other IP addresses that have been used for the past week or month related to keyser?
-If you check the user department or country details we can corroborate if the user is logging in from his country or another country
+If you check the user department or country details, we can corroborate if the user is logging in from his country or another country.
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="109" border="0" /></a>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="110" border="0" /></a>
 <br />
-
-Lets make the adjustment to our query one more time to check for all logins in the past
-First we will find the UserPrincipalName and use it in our next query
-If we right click on the UserPrincipalName we can include it in our query from a little drop down menu
-You will see this populate in the KQL
-
+<br/>
+Lets make the adjustment to our query one more time to check for all logins in the past.
+<br/>
+<br/>
+First, we will find the UserPrincipalName and use it in our next query.
+<br/>
+<br/>
+If we right click on the UserPrincipalName we can include it in our query from a little drop down menu.
+You will see this populate in the KQL.
 
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="111" border="0" /></a>
 <br />
+<br/>
 Next remove all query lines except:
-SigninLogs and UserPrincipleName
+<br/>
+SigninLogs and UserPrincipleName.
+<br/>
+
+```
 Specify the time range > Last 3 days  > Run
-
-We will provided with a sign in history for the past 3 days
+```
+<br/>
+<br/>
+We will provided with a sign in history for the past 3 days.
 This will be sorted by TimeGenerated
-
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="112" border="0" /></a>
 <br />
-
-We can sort the results by time generated, and if we scroll to the right location will be presented with the location column
-Notice the different countries that person logged in
-Scroll down to confirm that this user has been logging in from different locations
-You can see locations from NL, DE, IT
-From our user details in Entra ID > Users we know that keysersozai is based in Turkey is TR
-
-This should be a sign that this user is suspicious and you should be concerned
-This is enough information to start a remediation process
+<br/>
+We can sort the results by time generated, and if we scroll to the right location will be presented with the location column.
+Notice the different countries that person logged in.
+<br/>
+<br/>
+Scroll down to confirm that this user has been logging in from different locations.
+You can see locations from NL, DE, IT.
+<br/>
+<br/>
+From our user details in Entra ID > Users we know that keysersozai is based in Turkey is TR.
+<br/>
+<br/>
+This should be a sign that this user is suspicious and you should be concerned.
+This is enough information to start a remediation process.
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="113" border="0" /></a>
 <br />
-
-But maybe you want more evidence before you disable the account
-Then lets dig deeper and investigate further into this IP address and this user
-
-
-We can stay on the investigation page then  open a new window with MS
-
-Go to main MS page
+<br/>
+But maybe you want more evidence before you disable the account.
+Then lets dig deeper and investigate further into this IP address and this user.
+<br/>
+<br/>
+We can stay on the investigation page then open a new window with MS.
+<br/>
+<br/>
+Go to main MS page.
 Then go to:
-Threat management --> Entity Behavior
-This gives us the option to search and select the user
-We can see all of the user activities in one place
-This can help us identify and pattern or anomalies that could be relevant to our investigation
 
+```
+Threat management > Entity Behavior
+```
+<br/>
+<br/>
+This gives us the option to search and select the user.
+We can see all of the user activities in one place.
+This can help us identify and pattern or anomalies that could be relevant to our investigation.
+<br/>
+<br/>
 Enrichment widgets:
 We can also add and customize widgets that will help us gather information from
-Virus Total, Recorded Future, Anomali, AbuseIPDB (DO THIS LATER!!)
-
-
+Virus Total, Recorded Future, Anomali, AbuseIPDB (MAKE SURE TO DO THIS LATER!!)
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="114" border="0" /></a>
 <br />
+<br/>
+If you look closely, you will see the user keyser also has the most alerts. Well d26369b24 has the most alerts. Who the hell is this?
+We also see keyser and d26369b24. This got me really confused.
+<br/>
+<br/>
+This is because an analytics rule wrongly linked an entity.
+This is a perfect example of why need to correctly setup the functionality.
+I am still confused here.
+<br/>
+<br/>
 
-If you look closely, you will see the user keyser also has the most alerts. Well d26369b24 has the most alerts. Who da eff is this?
-We also see keyser and d26369b24 .
-This is because an analytics rule wrongly linked an entity
-This is a perfect example of why need to correctly setup the functionality
-Im confused here. 
-
-
-<br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="115" border="0" /></a>
 <br />
-
-In the Entity behavior page go to the search box and input keyser email
-A new window will pop up displaying a graph with all relevent alerts, anomalies and activities
-
-
+<br/>
+In the Entity behavior page go to the search box and input keyser email.
+A new window will pop up displaying a graph with all relevent alerts, anomalies and activities.
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="116" border="0" /></a>
 <br />
-In the Alerts, anomalies and activities timeline will give us every single alert generated for this user providing a nice timeline
+<br/>
+In the Alerts, anomalies and activities timeline will give us every single alert generated for this user providing a nice timeline.
+<br/>
+<br/>
+Now lets go to the middle graph.
+<br/>
+<br/>
+Click on AzureActivity label in the middle upper graph.
+A new Logs window will open up. 
 
-Now lets go to the middle graph
-Click on AzureActivity label in the middle upper graph
-A new Logs window will open up > run
-If you see the KQL its super complex,,,nanja kore!!!
+```
+Click > Run
+```
 
-Somehow for keyser running the KQL didn’t work for Azure Activity Logs because there isnt any. The user deleted it.
+If you see the KQL its super complex. It looks like an alien language to me. 
+<br/>
+<br/>
+Somehow for keyser running the KQL didn’t work for Azure Activity Logs because there isn't any. The user deleted it.
 but for d26369b24 it worked.
+<br/>
+<br/>
 Hmm…I wonder why?
-Ah! We have to click on the other keyser 
-
+<br/>
+Ah! We have to click on the other keyser! 
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="117" border="0" /></a>
 <br />
-
+<br/>
 Click on the below keysersoze
-
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="118" border="0" /></a>
 <br />
-
+<br/>
 Then we will see a lot of Azure Activity logs
-Yay!
-Click on it
-and run the KQL query
+Yes! Now we are getting somewhere.
+Click on it and run the KQL query again.
 
-
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="119" border="0" /></a>
 <br />
+<br/>
+As you can see there are a lot of Azure Activity logs.
+<br/>
+<br/>
+The query combines different queries together. It is super complicated to create on my own.
+The result of this query are sorted from oldest to newest.
 
-As you can see there is a lot of Azure Activity logs
-
-The query combines different queries together
-That is super complicated to create on my own
-The result of this query are sorted from oldest to newest
-
-
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="120" border="0" /></a>
 <br />
+<br/>
 
+If you check the next Azure activity log:
 
-If you check the next Azure activity log
+```
 ActivityStatus = Suceeded
 ActivitySubstatus = OK (status code: 200)
-which means it succeeded
-Lets check the first log from Azure activity
-The OperationName field tells us about an attempt to delete resource diagnostic settings
+```
+
+This means means it succeeded. Lets check the first log from Azure activity.
+The OperationName field tells us about an attempt to delete resource diagnostic settings.
 ![image](https://github.com/chun-eric/sentinel-siem-chatgpt/assets/102393871/9a99b380-1b21-44e1-a921-e64f6a03bce5)
 
 
@@ -1882,53 +1950,58 @@ The OperationName field tells us about an attempt to delete resource diagnostic 
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="121" border="0" /></a>
 <br />
-
-Check out the other Azure activity logs
+<br/>
+Check out the other Azure activity logs.
+<br/>
 ResourceProvider column
+<br/>
 Resource column
-
-
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="122" border="0" /></a>
 <br />
-If you scroll further down you will see many Azure activity logs on Information level
-If you scroll right you can see the OperationName column and ActivityStatus
-this will give you even more detailed information about the activity that took place and whether it was successful or not
+<br/>
+If you scroll further down you will see many Azure activity logs on Information level.
+If you scroll right you can see the OperationName column and ActivityStatus.
+this will give you even more detailed information about the activity that took place and whether it was successful or not.
 
-
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="123" border="0" /></a>
 <br />
-
-You can see that SSH key pairs were made, including VMs, etc.. All from a single deployment.  I didn’t create any SSH keys. Maybe Pavel did. 
-Scroll down further to see all the different activities
-CONFUSED NOT SHOWING UP
-
-At the bottom of our logs we can see more sign ins
-Was it successful sign ins?  You should see error code 0
-CONFUSED NOT SHOWING UP
-
+<br/>
+You can see that SSH key pairs were made, including VMs, etc.. All from a single deployment.  
+<br/>
+<br/>
+Hmmm...hold on. I didn’t create any SSH keys.
+Scroll down further to see all the different activities.
+CONFUSED NOT SHOWING UP!
+<br/>
+<br/>
+At the bottom of our logs we can see more sign ins.
+Was it successful sign ins?  You should see error code 0.
+CONFUSED NOT SHOWING UP.
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="124" border="0" /></a>
 <br />
-
-
-In AppDisplayName there was on item called AzurePortal Console App
-This is the cloud shell login that was successful
-
-
+<br/>
+In AppDisplayName there was on item called AzurePortal Console App.
+This is the cloud shell login that was successful.
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="125" border="0" /></a>
 <br />
-
+<br/>
 Now with all this evidence, what do you do next?
 Whats the next action?
-
-We could check the department and role and responsibilities of keyser
+<br/>
+<br/>
+We could check the department and role and responsibilities of keyser.
 Is keyser still working at the company or are his daily responsibilities to sales or development?
-
-
-The correct next step would be to disable the account and stop the attacker from moving laterally through the web shell access they gained
+<br/>
+<br/>
+The correct next step would be to disable the account and stop the attacker from moving laterally through the web shell access they gained.
 Next lesson lets take the necessary steps to secure our system
 <br />
 <br />
@@ -1940,14 +2013,16 @@ Next lesson lets take the necessary steps to secure our system
 <br>
 </br>
 <h3>Step 12 - Conclusion and Final Scan Check </h3>
-<br />
-We will need to take quick and effective actions to secure your Azure environment from potential threats
+We will need to take quick and effective actions to secure your Azure environment from potential threats.
+<br/>
+<br/>
+In our Logs Window, the first thing to do is:
 
-In our Logs Window
-
-The first thing to do is
+```
 Disable the compromised account
-why? To prevent further damage
+```
+
+Why? To prevent further damage
 How do we do this?
 
 Go to Entra ID (put it in the search bar)
