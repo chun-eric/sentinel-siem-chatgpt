@@ -966,12 +966,12 @@ Give a reason.
 ```
 Other --> testing --> Save
 ```
-<br />
-<br />
+
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="52" border="0" /></a>
 <br />
 Now we can create a new account.
 <br />
+<br/>
 
 ```
 Manage > Users > New user > Create New User
@@ -1014,20 +1014,20 @@ Identity
 First name > Keyser
 Last name > Soze
 User type > 
-<br />
+
 Job Information
 Job title > CISO
+
 Company name > Kobayashi
+
 Department > C-Suite
 Employee ID > 1010
 Employee type > Executive
 Employee hire date > Feb 1st 2020
 Office location > Turkey
 Manager
-
-
-<br />
 City > Instanbul
+
 ```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="55" border="0" /></a>
 <br />
@@ -1049,7 +1049,9 @@ After the account is created we now need to assign some roles to keyser. Maybe n
 <br />
 So go one step back.
 <br/>
+<br/>
 Home > Default Directory  | Users
+<br/>
 <br/>
 Click on keyser soze user.
 <br />
@@ -1087,7 +1089,6 @@ Assignment type > Eligible
 Permanently eligible > selected
 Click > Assign
 ```
-<br/>
 The above didn’t show up in the new Azure Assigned Role.
 I think Microsoft changed their layouts.
 <br />
@@ -1096,7 +1097,7 @@ Go to the next section.
 <br/>
 In the searchbar go to the resource group attached to this project which is either siem-training2 or siem-training3
 in the left sidebar.
-
+<br/>
 ```
 Overview > Access control (IAM) > Add > Add role assignment
 ```
@@ -1116,11 +1117,13 @@ Members > Select members > Choose keysersoze > Select > Review + Assign
 ```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="64" border="0" /></a>
 <br />
+
+```
 Click > Review + assign
-<br />
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="65" border="0" /></a>
 <br />
-Lets check if it worked, go back to the resource group we are working with.
+Let's check if it worked, go back to the resource group we are working with.
 <br />
 
 ```
@@ -1132,11 +1135,12 @@ If its all there, we can log into this account.
 <br />
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="66" border="0" /></a>
 <br />
-lets use a different browser for this use brave. Sign into Microsoft Azure.
+Let's use a different browser for this use brave. Sign into Microsoft Azure.
 <br />
 <br/>
 Enter the username and password we created for keyser soze.
 <br />
+<br/>
 keysersoze@acloudcallednimbushotmail.onmicrosoft.com
 <br />
 <br/>
@@ -1186,8 +1190,8 @@ MFA is disabled for this account,  lets see if MS will catch this. Lets have som
 <br>
 </br>
 <h3>Step 9 - Generating an Incident from the Compromised Account </h3>
-<br/>
 I found this video and the next video to be the most challenging use Brave browser and Tor network right side menu view brave browser in private window with TOR.
+<br/>
 <br/>
 Time to put on our red hat.
 <br />
@@ -1195,52 +1199,82 @@ Time to put on our red hat.
 <br/>
 Go to portual.azure.com.
 <br/>
+<br/>
 Use your credentials of Keyser Soze to login:
+<br/>
 <br/>
 keysersoze@acloudcallednimbushotmail.onmicrosoft.com
 <br/>
-We are logged in with the TOR Relay in Brave Browser
+<br/>
+We are logged in with the TOR Relay in Brave Browser.
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="71" border="0" /></a>
 <br/>
-Once we are logged in, the very first thing a hacker would most likely do is establish persistence
+<br/>
+Once we are logged in, the very first thing a hacker would most likely do is establish persistence.
+<br/>
 <br/>
 Change Account Password:
 <br/>
+<br/>
 Top right click your account details and change your password from Overview.
 <br/>
+<br/>
 old password -->   
+<br/>
 <br/>
 new password -->  make the new password really long and complex
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="72" border="0" /></a>
 <br/>
+<br/>
 Change MFA settings (however we are not doing that here)
+<br/>
 <br/>
 Change resource group diagnostic settings. This is another thing a hacker might do. This is because the hacker doesn’t want activities logged.
 <br/>
-Go to our resource group --> Monitoring --> Diagnostic settings
 <br/>
+
+```
+Go to our resource group > Monitoring > Diagnostic settings
+```
+<br/>
+
+```
 Click on the resource group log analytics workspace name.
-<br/>
-Click Edit setting.
-<br/>
+```
+
+
+```
+Click > Edit setting.
+```
+
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="73" border="0" /></a>
 <br/>
+
+```
 Click > Delete
-<br/>
+```
+
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="74" border="0" /></a>
 <br/>
+<br/>
 Confirm there is no diagnostic settings.
+<br/>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="75" border="0" /></a>
 <br/>
 Turn off Diagnostic settings in microsoft sentinel in searchbar type microsoft sentinel since we changed our password we might have to sign in again.
 <br/>
+<br/>
 In left side bar:
 <br/>
-Configuration --> Settings --> Settings --> Auditing and health monitoring --> Configure Diagnostic settings --> Edit settings --> Delete
 <br/>
+
+```
+Configuration > Settings > Settings > Auditing and health monitoring > Configure Diagnostic settings > Edit settings > Delete
+```
+
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="76" border="0" /></a>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="77" border="0" /></a>
@@ -1251,29 +1285,41 @@ Confirm there is no diagnostic settings.
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="79" border="0" /></a>
 <br/>
+<br/>
 An attacker might also escalate privileges and gain additional access to the environment by using Azure Portals Web shell interface to run scripts and different tools like Microburst or Azure Hound to search for sensitive information.
+<br/>
 <br/>
 Attackers might also perform crypto mining they will spin up expensive resources resulting in a large bill
 We can follow along with the tutorial or not Lets create a VM within the same resource group. This is very sneaky. 
 <br/>
+<br/>
 Lets give the VM a very generic name.
 <br/>
+
+```
 Dev-Temporary-VM
+```
 <br/>
 This time I changed Admin account authentication type to Password. This might help me get validation to create a VM. 
 <br/>
+<br/>
+
+```
 Select> Password
-<br/>
+```
+
+```
 Username > azureuser
-<br/>
+```
+
+```
 Password > [Add yours here]
-<br/>
-Inbound port rules
-<br/>
-Allow selected ports
-<br/>
-SSH (22)
-<br/>
+```
+
+```
+Inbound port rules > Allow selected ports > SSH (22)
+```
+
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="80" border="0" /></a>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="81a" border="0" /></a>
@@ -1288,9 +1334,16 @@ Networking credentials.
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="83" border="0" /></a>
 <br/>
-Click > Review + Create
 <br/>
+
+```
+Click > Review + Create
+```
+
+```
 Click > Create
+```
+<br/>
 <br/>
 After all that I found out I don’t have authorization to perform this action. 
 <br/>
@@ -1298,9 +1351,11 @@ However after I changed to Adminstrator Authentication with username and passwor
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="84" border="0" /></a>
 <br/>
+<br/>
 Our VM has been created! Now the VM is created lets try running Cloud Shells as an attacker.
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="85" border="0" /></a>
+<br/>
 <br/>
 Click on the Cloud Shell button next to the bell Icon top right, then select Powershell.
 <br/>
@@ -1308,63 +1363,102 @@ Click on the Cloud Shell button next to the bell Icon top right, then select Pow
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="87" border="0" /></a>
 <br/>
+
+```
 Click > Create Storage
+```
+<br/>
 <br/>
 You might get a message saying: "You have no storage mounted".
+<br/>
 <br/>
 We need  to have a storage account which is used to store all users files and scripts as well as other data such as session history and environment settings and preferences.
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="88" border="0" /></a>
 <br/>
+<br/>
 Because we didn’t run Cloud shell in the past, we will need to create a new storage.
+<br/>
 <br/>
 If we click Create Storage we will get a failure "Storage creation failed".
 <br/>
+<br/>
 This is because we don’t have privileges to create a new resource group.
+<br/>
 <br/>
 However there is another way.
 <br/>
-Click Show advanced settings.
+
+```
+Click > Show advanced settings.
+```
 <br/>
 Then we get some options.
 <br/>
-Resource group --> Use existing.
 <br/>
-Storage account --> storage1849756184.
-<br/>
-File share  account --> storage1849756184.
-<br/>
+
+```
+Resource group > Use existing
+```
+
+```
+Storage account > storage1849756184
+```
+
+```
+File share  account > storage1849756184
+```
+
+```
 Click > Create Storage
-<br/>
+```
+
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="89" border="0" /></a>
 <br/>
+<br/>
 After a minute or so the terminal window will load up. We have succesfully launched a cloud shell!
+<br/>
 <br/>
 Now we have to wait for MS to detect threats.
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="90" border="0" /></a>
 <br/>
-Our detection rule will run every 5 minutes
 <br/>
-In the next step, we will explore the newly created incidents in Sentinel and how to respond to these threats
+Our detection rule will run every 5 minutes.
+<br/>
+<br/>
+In the next step, we will explore the newly created incidents in Sentinel and how to respond to these threats.
+<br/>
 <br/>
 I have been trying to add a new assigned role to keyser.
 <br/>
+<br/>
 I went to our storage account and created a new container.
 <br/>
+
+```
 Containers > first-container
-<br/>
+```
+
+```
 Click > Upload
+```
+<br/>
 <br/>
 Technically if you were a real hacker you could upload anything. 
 <br/>
+<br/>
 Like a bad script, jpg, malware I suppose etc..
+<br/>
 <br/>
 I made two text files: log5j.txt and wannasleep.txt.
 <br/>
+<br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="91" border="0" /></a>
 <br/>
+<br/>
 Lets see if sentinel picked up on these actions. We will wait 24 hours. 
+<br/>
 <br/>
 
 
