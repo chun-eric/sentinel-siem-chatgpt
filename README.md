@@ -1479,122 +1479,180 @@ Lets see if sentinel picked up on these actions. We will wait 24 hours.
 
 <br></br>
 <h3>Step 10 - Analysing the Security Incident in Sentinel </h3>
-<br />
 Okay now go back to your original Azure account.
 <br />
+<br/>
 Go to the Microsoft Sentinel Dashboard. Look at the incidents.
 <br />
+<br/>
 Okay so how do we get started?
 <br />
+
+```
 Go to Threat management > Incidents  > Manage Incidents
+```
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="92" border="0" /></a>
 <br />
+<br/>
 We can see all the incidents (note pics can be either siem-trainin2 or siem-training3).
 <br />
-One of the SOC Analysts questions you might be asked is:
+<br/>
+How would we prioritize incidents that are currently open and present?
 <br />
-How would you prioritize incidents that are currently open and present?
+<br/>
+The answer is a little complicated…
 <br />
-The answer is complicated…
-<br />
-Well it depends on the situation but most of the time we would prioritize incidents based on the highest severity
+<br/>
+Well it depends on the situation but most of the time we would prioritize incidents based on the highest severity.
+<br/>
 <br />
 For us the highest severity would be successful Sign-in from Tor Network. Look at all the IP addresses. We can see it because of the analytics rule we specified. One thing we are noticing is that a certain IP address is showing up twice and within close time proximity.
 <br />
+<br/>
 This could already indicate a flaw in our analytic rule that we created. Below is from siem-training2.
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="93" border="0" /></a>
 <br />
+
+```
 Click > View Full Details (bottom right) to get more detailed information.
+```
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="94" border="0" /></a>
 <br />
+<br/>
 If you look at our incident in the high severity, we can already see there is a flaw in our analytics.
 The Tor Network IP address is the same on two different days.
 <br />
+<br/>
 We should probably have to fix that later.
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="95" border="0" /></a>
 <br />
+<br/>
 Lets check the other incidents quickly before jumping into the high severity cases. You can sort incidents by Incident ID or Created time.
 <br />
 ** Below can probably be seen from siem-training3 not siem-training2 **
 <br />
+<br/>
 Some of incidents are:
 <br />
+<br/>
 Under low severity there was a title: User account created without expected attributes defined
 <br />
+<br/>
 Under low severity there was a title: Anomolous Single Factor Signin
 <br />
+<br/>
 Under medium there was a title: Service Principal Authentication Attempt from New Country
 <br />
+<br/>
 Under medium there was a title: Insider Risk Risky User Access by Application
 <br />
+<br/>
 Under medium there was a title: Anomalous Sign-in location by user account and authenticating application
 <br />
+<br/>
 Under high there was a title: Successful Sign-Ins from Tor Network [ip address]
 <br />
+<br/>
 ** Below is shown in siem-training2 ** 
 Another incident is:
 <br />
+<br/>
 Under low there is a title: Suspicious Resource Deployment.
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="96" border="0" /></a>
 <br />
+<br/>
 So if we looked at all these incidents it could mean all the incidents are related together right? Why do we have so many?
 <br />
+<br/>
 Why doesn’t Sentinel take them all and create one with all of the information presented?
 <br />
 Answer is very simple:
 <br />
+<br/>
 The analytics rules are not correctly created to show you. If you click on any incidents on the right side panel under Entities = 0
 <br />
+<br/>
 Why is this important?
 <br />
+<br/>
 If the entities are not correctly setup, it wont be able to perform such correlation.
 <br />
+<br/>
 It seems like for siem-training2 the entities are correctly setup.
 <br />
+<br/>
 I am still confused on this section, the most.
 <br />
+<br/>
 What are entities, and why do we need to correctly set them up?
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="97" border="0" /></a>
 <br />
+<br/>
 Lets move on for the time being.
 <br />
+<br/>
 Lets say you want to start the investigation. You want to investigate the high severity incidents.
 <br />
-Click on all high severity incidents.
-<br />
-At the very top middle --> click Actions.
+<br/>
+
+```
+Click > all high severity incidents
+```
+
+
+```
+At the very top middle > click Actions
+```
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="98" border="0" /></a>
 <br />
+<br/>
 Actions side panel to the right will show up. We have three boxes.
 <br />
+
+```
 Severity > High
-<br />
-Owner --> Assign to me
-<br />
-Status --> Active
-<br />
+```
+
+```
+Owner > Assign to me
+```
+
+```
+Status > Active
+```
+
+```
 Click > Apply
-<br />
+```
+
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="99" border="0" /></a>
 <br />
+<br/>
 Now if you go back to all the incidents, the owner of all the high incidents have been changed to me as well the status of the incident being changed to Active.
 <br />
+<br/>
 This is very important step especially if you are part of security operations team. All team members are aware of who is handling the incident
 <br />
+<br/>
 Now the incidents are assigned to you, we can start the investigation process.
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="100" border="0" /></a>
 <br />
+<br/>
 The easiest way is to just click on any of the incidents. See the right side panel pop out.
 <br />
+
+```
 Click  >  View full details > This will show you more detailed information about the incident.
+```
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="101" border="0" /></a>
 <br />
