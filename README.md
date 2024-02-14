@@ -560,8 +560,7 @@ Go to the watchlist.
 ```
 Configuration > Watchlist > Add new
 ```
-<br/>
-<br/>
+
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="32" border="0" /></a>
 <br />
 <br />
@@ -573,6 +572,7 @@ There are three tabs, General, Source, Review and Create.
 <br />
 In the General tab:
 <br />
+<br/>
 
 ```
 Name > Tor-IP-Addresses
@@ -585,8 +585,6 @@ Description > A watchlist that checks all the Tor Exit nodes IP Addresses
 ```
 Alias > Tor-IP-Addresses
 ```
-<br/>
-<br/>
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="33" border="0" /></a>
 <br />
 <br />
@@ -598,6 +596,7 @@ Source tab (is it from a local file or from Azure storage).
 <br/>
 Fill in the below fields:
 <br />
+<br/>
 
 ```
 Source type > Local file
@@ -616,7 +615,6 @@ Upload file > Tor+Exit+Nodes.csv
 ```
 <br />
 File preview on right side to check for your validation.
-<br />
 
 ```
 SearchKey --> IpAddress
@@ -638,14 +636,12 @@ Our newly created watchlist.
 <br />
 <br />
 Select the watchlist.
-<br/>
 <br />
 
 ```
 On the right side panel > Click View in Logs
 ```
 <br />
-<br/>
 This is what the watchlist looks when you call it with KQL and Sentinel will present you with the results.
 <br />
 <br/>
@@ -654,6 +650,7 @@ This is what the watchlist looks when you call it with KQL and Sentinel will pre
 <br />
 This is what it would look like in the Logs. You can see it has KQL queries.
 <br />
+<br/>
 At the top, under the Run button you can see the KQL syntax, which will come in handy in our next step of creating an analytics rule to detect malicious login from Tor exit nodes.
 <br />
 <br/>
@@ -665,6 +662,7 @@ Lets go back to our watchlist.
 <br />
 One more really cool thing about watchlists is that they are easily modifiable.
 <br />
+<br/>
 
 ```
 Click Update watchlist > Edit watchlist items
@@ -694,6 +692,7 @@ In the next step, let's create our very first analytics rule to detect threats f
 <h3>Step 7 - Creating a Detection Rule for our Threat</h3>
 In Microsoft Sentinel side bar:
 <br/>
+<br/>
 
 ```
 Configuration > Analytics > Create > Scheduled Query rule
@@ -710,6 +709,7 @@ Name > Successful Sign-ins from Tor Network
 <br />
 In the Description fill in the below details.
 <br />
+<br/>
 
 ```
 This rule detects successful sign-ins from the Tor Network,
@@ -721,6 +721,7 @@ to sign in to an organization's resources.
 <br />
 Under Tactics and Techniques: 
 <br />
+<br/>
 
 ```
 Initial Access > T1133 External Remote Access
@@ -807,6 +808,7 @@ Address > Ipaddress
 <br/>
 Custom details (we can surface any particular event parameters). We have to add key value pairs.
 <br />
+<br/>
 
 ```
 IPAddress > IPAddress
@@ -834,6 +836,7 @@ Alert Description Format.
 This rule detects successful sign-ins from the Tor Network, which is a popular tool used by threat actors to anonymize their activity. 
 
 <br/>
+<br/>
 The rule triggers when a successful sign-in event occurs on an account {{UserDisplayName}} that has a Tor Network IP Address. This could indicate a potential security threat, as legitimate users typically do not use the Tor Network to sign in to an organization's resources.
 <br />
 <br/>
@@ -857,6 +860,7 @@ Lookup data from the last 5 minutes.
 <br />
 <br />
 Leave everything else as is.
+<br/>
 <br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="46" border="0" /></a>
 <br />
@@ -888,6 +892,7 @@ In the Automated Response Tab. None here so we will move on.
 <br />
 In the Review and Create Tab
 <br />
+<br/>
 
 ```
 Validation passed > Save
@@ -908,7 +913,7 @@ Microsoft Sentinel > Analytics > Successful Sign-Ins from Tor Network
 Now what we need to do is impersonate as an attacker. Time to act like a hacker that signed into an Azure account from an Anonymous IP address.
 <br />
 <br/>
-This section was very challenging. The next section will be challenging as well. 
+This section was very challenging. Let's move on to the next section.
 <br />
 <br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="50" border="0" /></a>
@@ -919,82 +924,122 @@ This section was very challenging. The next section will be challenging as well.
 <br>
 </br>
 <h3>Step 8 - Create a Compromised User Account in Azure for Incident Investigation </h3>
-<br/>
 We are going to prepare an environment and create a new account that will perform some unusual activity.
 We need to turn off security defaults in Azure AD to avoid any potential interruption.
 <br/>
+<br/>
 Microsoft turns on security as default as it provides crucial baseline level of protection for all users and accounts in organizations.
+<br/>
 <br/>
 This includes all MFA for all administrators blocking legacy authentications such as imap or smtp which helps reduce risk of attacks like password spray and brute force attacks.
 <br/>
-Security defaults also require strong passwords. To turn this feature off we will have to move to Entra ID
 <br/>
-In searchbar > Entra ID
+Security defaults also require strong passwords. To turn this feature off we will have to move to Entra ID.
+<br/>
+<br/>
+
+In searchbar type Entra ID.
+<br/>
 <br/>
 Default Directory look at side bar:
 <br/>
+
+```
 Manage > Properties
+```
 <br/>
-At the very bottom click > Manage security defaults
-<br/>
+At the very bottom:
+
+```
+Click > Manage security defaults
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="51" border="0" /></a>
 <br />
 <br />
+
+```
 Change security defaults --> Disabled
-Give a reason
-other --> testing --> Save
+```
+
+Give a reason.
+
+```
+Other --> testing --> Save
+```
 <br />
 <br />
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="52" border="0" /></a>
 <br />
 Now we can create a new account.
 <br />
-Manage --> Users --> New user --> Create New User
+
+```
+Manage > Users > New user > Create New User
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="53" border="0" /></a>
 <br />
-Create new User.
+Create a new User.
 <br />
-Basics Tab.
+Under Basics Tab.
 <br />
-User principal name --> keysersoze@acloudcallednimbushotmail.onmicrosoft.com
+```
+User principal name > keysersoze@acloudcallednimbushotmail.onmicrosoft.com
+```
+
+```
 keysersoze@acloudcallednimbushotmail.onmicrosoft.com
-Mail nickname --> keysersoze
-Display name -->  keysersoze
-Password --> [add here]
-Account Enabled --> select
+```
+
+```
+Mail nickname > keysersoze
+```
+
+```
+Display name >  keysersoze
+```
+
+```
+Password > [add here]
+```
+
+```
+Account Enabled > Select
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="54" border="0" /></a>
 <br />
-Properties Tab
+In the Properties Tab
+
+```
 Identity
-First name --> Keyser
-Last name --> Soze
-User type --> 
+First name > Keyser
+Last name > Soze
+User type > 
 <br />
 Job Information
-Job title --> CISO
-Company name --> Kobayashi
-Department --> C-Suite
-Employee ID --> 1010
-Employee type --> Executive
-Employee hire date --> Feb 1st 2020
-Office location --> Turkey
-Manager 
+Job title > CISO
+Company name > Kobayashi
+Department > C-Suite
+Employee ID > 1010
+Employee type > Executive
+Employee hire date > Feb 1st 2020
+Office location > Turkey
+Manager
+
+
 <br />
-Contact Information
-Street Address
-City --> Instanbul
-<br />
+City > Instanbul
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="55" border="0" /></a>
 <br />
-Assignments Tab
-No need to add a role here
-Do it later
+Under the Assignments Tab. No need to add a role here. We can do this later
 <br />
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="56" border="0" /></a>
 <br />
-Review + Create Tab
-remember to copy the User principal name and password!
-click > Create
+In the Review + Create Tab remember to copy the User principal name and password.
+
+```
+Click > Create
+```
 <br />
 keysersoze@acloudcallednimbushotmail.onmicrosoft.com
 <br />
@@ -1002,50 +1047,73 @@ keysersoze@acloudcallednimbushotmail.onmicrosoft.com
 <br />
 After the account is created we now need to assign some roles to keyser. Maybe need to refresh.
 <br />
-So go one step back
+So go one step back.
+<br/>
 Home > Default Directory  | Users
-click on keyser soze user
+<br/>
+Click on keyser soze user.
 <br />
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="58" border="0" /></a>
 <br />
-Now keyser soze details will show up
-Home > Default Directory  | Users > Users >
+Now keyser soze details will show up.
+
+```
+Home > Default Directory  | Users > Users
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="59" border="0" /></a>
 <br />
-on left side bar go to
-Manage --> Assigned roles --> Add assignments
-<br />
+On the left side bar go to:
+
+```
+Manage > Assigned roles > Add assignments
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="60" border="0" /></a>
 <br />
-Add assignments window
+Add assignments window.
+<br/>
 Membership tab
-Select role --> Security reader
-Scope type --> Directory (automatic)
-<br />
+<br/>
+
+```
+Select role > Security reader
+Scope type > Directory (automatic)
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="61" border="0" /></a>
 <br />
-Setting tab
-Assignment type --> Eligible
-Permanently eligible --> selected
-Click Assign
+
+```
+Under Setting tab:
+Assignment type > Eligible
+Permanently eligible > selected
+Click > Assign
+```
+<br/>
+The above didn’t show up in the new Azure Assigned Role.
+I think Microsoft changed their layouts.
 <br />
-The above didn’t show up in the new Azure Assigned Role
-I think Microsoft changed their layouts
+Go to the next section.
 <br />
-So go to the next section
-<br />
-in searchbar go to the resource group attached to this project which is either siem-training2 or siem-training3
-in the left sidebar
-Overview --> Access control (IAM) --> Add --> Add role assignment 
-<br />
+<br/>
+In the searchbar go to the resource group attached to this project which is either siem-training2 or siem-training3
+in the left sidebar.
+
+```
+Overview > Access control (IAM) > Add > Add role assignment
+```
+
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="62" border="0" /></a>
-Assignment type  --> privileged administrator roles
-Role --> Contributor --> Next
-<br />
+<br/>
+
+```
+Assignment type  > privileged administrator roles
+Role > Contributor > Next
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="63" border="0" /></a>
 <br />
-Members --> Select members --> Choose keysersoze --> Select --> Review + Assign
-<br />
+
+```
+Members > Select members > Choose keysersoze > Select > Review + Assign
+```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="64" border="0" /></a>
 <br />
 Click > Review + assign
@@ -1054,41 +1122,56 @@ Click > Review + assign
 <br />
 Lets check if it worked, go back to the resource group we are working with.
 <br />
-Overview --> Access control (IAM) --> Role assignments --> Check Contributor [keysersozai]
+
+```
+Overview > Access control (IAM) > Role assignments > Check Contributor [keysersozai]
+```
 <br />
-If its all there now we can log into this account
+<br/>
+If its all there, we can log into this account.
 <br />
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="66" border="0" /></a>
 <br />
 lets use a different browser for this use brave. Sign into Microsoft Azure.
 <br />
-
-Enter the username and password we created for keyser soze
+<br/>
+Enter the username and password we created for keyser soze.
 <br />
 keysersoze@acloudcallednimbushotmail.onmicrosoft.com
 <br />
+<br/>
 Before we login with the correct credentials we need to create a new password as Microsoft will ask you to change it.
 Try to use a password that’s been used for brute force attackes like password. You will notice Microsoft trying to prevent us from using commonly used passwords. 
 <br />
+<br/>
 Next try an alphanumeric combination and login:
 <br />
+<br/>
 keysersoze@acloudcallednimbushotmail.onmicrosoft.com
 <br />
+<br/>
 Go to the Azure portal to sign in and voila we are in!
 <br />
+<br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="67" border="0" /></a>
-Go to Microsoft Entra ID with our new account
+<br/>
+Go to Microsoft Entra ID with our new account.
 <br />
+<br/>
 Click Overview to see everything is in order.
 <br />
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="68" border="0" /></a>
 <br />
+<br/>
 Next check out our resource group. 
 <br />
+<br/>
 Search resource group in search bar. Click on our resource group to confirm.
 <br />
+<br/>
 Okay we are in the portal and it looks like everything is in order.
 <br />
+<br/>
 MFA is disabled for this account,  lets see if MS will catch this. Lets have some fun!
 <br />
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="69" border="0" /></a>
