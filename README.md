@@ -1195,7 +1195,9 @@ I found this video and the next video to be the most challenging use Brave brows
 <br/>
 Time to put on our red hat.
 <br />
+<br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="70" border="0" /></a>
+<br/>
 <br/>
 Go to portual.azure.com.
 <br/>
@@ -1208,22 +1210,23 @@ keysersoze@acloudcallednimbushotmail.onmicrosoft.com
 <br/>
 We are logged in with the TOR Relay in Brave Browser.
 <br/>
+<br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="71" border="0" /></a>
 <br/>
 <br/>
 Once we are logged in, the very first thing a hacker would most likely do is establish persistence.
 <br/>
 <br/>
-Change Account Password:
+Change Account Password.
 <br/>
 <br/>
 Top right click your account details and change your password from Overview.
 <br/>
 <br/>
-old password -->   
-<br/>
-<br/>
-new password -->  make the new password really long and complex
+
+```
+old password >  new password -->  make the new password really long and complex
+```
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="72" border="0" /></a>
 <br/>
@@ -1238,7 +1241,7 @@ Change resource group diagnostic settings. This is another thing a hacker might 
 ```
 Go to our resource group > Monitoring > Diagnostic settings
 ```
-<br/>
+
 
 ```
 Click on the resource group log analytics workspace name.
@@ -1264,8 +1267,8 @@ Confirm there is no diagnostic settings.
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="75" border="0" /></a>
 <br/>
-Turn off Diagnostic settings in microsoft sentinel in searchbar type microsoft sentinel since we changed our password we might have to sign in again.
 <br/>
+Turn off Diagnostic settings in microsoft sentinel in searchbar type microsoft sentinel since we changed our password we might have to sign in again.
 <br/>
 In left side bar:
 <br/>
@@ -1347,12 +1350,15 @@ Click > Create
 <br/>
 After all that I found out I don’t have authorization to perform this action. 
 <br/>
+<br/>
 However after I changed to Adminstrator Authentication with username and password when setting up the VM, validation passed and I could create our VM!
+<br/>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="84" border="0" /></a>
 <br/>
 <br/>
 Our VM has been created! Now the VM is created lets try running Cloud Shells as an attacker.
+<br/>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="85" border="0" /></a>
 <br/>
@@ -1361,18 +1367,18 @@ Click on the Cloud Shell button next to the bell Icon top right, then select Pow
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="86" border="0" /></a>
 <br/>
+<br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="87" border="0" /></a>
 <br/>
 
 ```
 Click > Create Storage
 ```
-<br/>
-<br/>
 You might get a message saying: "You have no storage mounted".
 <br/>
 <br/>
 We need  to have a storage account which is used to store all users files and scripts as well as other data such as session history and environment settings and preferences.
+<br/>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="88" border="0" /></a>
 <br/>
@@ -1387,6 +1393,7 @@ This is because we don’t have privileges to create a new resource group.
 <br/>
 <br/>
 However there is another way.
+<br/>
 <br/>
 
 ```
@@ -1443,8 +1450,7 @@ Containers > first-container
 ```
 Click > Upload
 ```
-<br/>
-<br/>
+
 Technically if you were a real hacker you could upload anything. 
 <br/>
 <br/>
