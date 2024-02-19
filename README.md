@@ -489,6 +489,7 @@ The user and entity behavior analytics (UEBA) is an amazing feature that uses AI
 <br/>
 To turn this feature we have to go to:
 <br/>
+<br/>
 
 ```
 Configuration > Settings > Settings > Set UEBA
@@ -501,6 +502,7 @@ You will come to a new screen called Entity behavior Configuration.
 <br/>
 <br/>
 Turn on the UEBA feature.
+<br/>
 
 ```
 Click > On
@@ -529,6 +531,7 @@ As we are already configuring Sentinel, lets use some automation playbooks.
 <br/>
 To do this we need to give MS permissions.
 <br/>
+<br/>
 
 ```
 Configuration > Settings > Settings > Playbook permissions > Configure permissions
@@ -538,6 +541,7 @@ Configuration > Settings > Settings > Playbook permissions > Configure permissio
 <br/>
 <br/>
 The manage permissions panel will show up to the right.
+<br/>
 <br/>
 
 ```
@@ -855,7 +859,7 @@ This rule detects successful sign-ins from the Tor Network, which is a popular t
 The rule triggers when a successful sign-in event occurs on an account {{UserDisplayName}} that has a Tor Network IP Address. This could indicate a potential security threat, as legitimate users typically do not use the Tor Network to sign in to an organization's resources.
 <br />
 <br/>
-Alert Property
+Under Alert Property
 <br />
 <br/>
 
@@ -865,7 +869,7 @@ ConfidenceScore > RiskState
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="44" border="0" /></a>
 <br />
 <br />
-Query Scheduling
+Under Query Scheduling:
 <br/>
 Run query every 5 minutes.
 <br />
@@ -900,7 +904,7 @@ Group alerts triggered by this analytics rule into a single incident. Just leave
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="47" border="0" /></a>
 <br />
 <br />
-Under the Automated Response Tab.We can skip this.
+Under the Automated Response Tab. We can skip this.
 <br />
 <br />
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="48" border="0" /></a>
@@ -954,10 +958,10 @@ Security defaults also require strong passwords. To turn this feature off we wil
 <br/>
 <br/>
 
-In searchbar type Entra ID.
+In searchbar type "Entra ID".
 <br/>
 <br/>
-Default Directory look at side bar:
+Default Directory at side bar:
 <br/>
 
 ```
@@ -965,6 +969,7 @@ Manage > Properties
 ```
 <br/>
 At the very bottom:
+<br/>
 
 ```
 Click > Manage security defaults
@@ -976,7 +981,7 @@ Click > Manage security defaults
 ```
 Change security defaults --> Disabled
 ```
-
+<br/>
 Give a reason.
 
 ```
@@ -985,8 +990,8 @@ Other --> testing --> Save
 
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="52" border="0" /></a>
 <br />
+<br/>
 Now we can create a new account.
-<br />
 <br/>
 
 ```
@@ -1023,7 +1028,7 @@ Account Enabled > Select
 ```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="54" border="0" /></a>
 <br />
-In the Properties Tab
+In the Properties Tab, let's add the following information.
 
 ```
 Identity
@@ -1071,9 +1076,11 @@ Home > Default Directory  | Users
 <br/>
 Click on keyser soze user.
 <br />
+<br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="58" border="0" /></a>
 <br />
 Now keyser soze details will show up.
+<br/>
 
 ```
 Home > Default Directory  | Users > Users
@@ -1089,7 +1096,7 @@ Manage > Assigned roles > Add assignments
 <br />
 Add assignments window.
 <br/>
-Membership tab
+Under the Membership tab:
 <br/>
 
 ```
@@ -1098,9 +1105,10 @@ Scope type > Directory (automatic)
 ```
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="61" border="0" /></a>
 <br />
+Under Settings tab:
+<br/>
 
 ```
-Under Setting tab:
 Assignment type > Eligible
 Permanently eligible > selected
 Click > Assign
@@ -1147,11 +1155,13 @@ Overview > Access control (IAM) > Role assignments > Check Contributor [keyserso
 ```
 <br />
 <br/>
-If its all there, we can log into this account.
+If it's all there, we can log into this account.
 <br />
+<<br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="66" border="0" /></a>
 <br />
-Let's use a different browser for this use brave. Sign into Microsoft Azure.
+<br/>
+Let's use a different browser for this use. Let's use Brave. Sign into Microsoft Azure.
 <br />
 <br/>
 Enter the username and password we created for keyser soze.
@@ -1161,10 +1171,10 @@ keysersoze@acloudcallednimbushotmail.onmicrosoft.com
 <br />
 <br/>
 Before we login with the correct credentials we need to create a new password as Microsoft will ask you to change it.
-Try to use a password that’s been used for brute force attackes like password. You will notice Microsoft trying to prevent us from using commonly used passwords. 
+Try to use a password that’s been used for brute force attackes like password. You will notice Microsoft trying to prevent us from using commonly used passwords. Nice.
 <br />
 <br/>
-Next try an alphanumeric combination and login:
+Next, try an alphanumeric combination and login:
 <br />
 <br/>
 keysersoze@acloudcallednimbushotmail.onmicrosoft.com
@@ -1192,7 +1202,7 @@ Search resource group in search bar. Click on our resource group to confirm.
 Okay we are in the portal and it looks like everything is in order.
 <br />
 <br/>
-MFA is disabled for this account,  lets see if MS will catch this. Lets have some fun!
+MFA is disabled for this account,  lets see if Sentinel will catch this.
 <br />
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="69" border="0" /></a>
 <br />
@@ -1206,10 +1216,13 @@ MFA is disabled for this account,  lets see if MS will catch this. Lets have som
 <br>
 </br>
 <h3>Step 9 - Generating an Incident from the Compromised Account </h3>
-I found this video and the next video to be the most challenging use Brave browser and Tor network right side menu view brave browser in private window with TOR.
+I found this section to be the most challenging. 
 <br/>
 <br/>
-Time to put on our red hat.
+Time to use Brave browser and Tor network. In the right side menu we can view brave browser in private window with TOR. Click on it.
+<br/>
+<br/>
+Now it's time to put on our red hat.
 <br />
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="70" border="0" /></a>
@@ -1233,15 +1246,15 @@ We are logged in with the TOR Relay in Brave Browser.
 Once we are logged in, the very first thing a hacker would most likely do is establish persistence.
 <br/>
 <br/>
-Change Account Password.
+So let's change the Account Password.
 <br/>
 <br/>
-Top right click your account details and change your password from Overview.
+In the Top right click your account details and change your password from Overview.
 <br/>
 <br/>
 
 ```
-old password >  new password -->  make the new password really long and complex
+old password >  new password >  make the new password really long and complex
 ```
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="72" border="0" /></a>
@@ -1260,7 +1273,7 @@ Go to our resource group > Monitoring > Diagnostic settings
 
 
 ```
-Click on the resource group log analytics workspace name.
+Click > resource group log analytics workspace name.
 ```
 
 
@@ -1269,6 +1282,7 @@ Click > Edit setting.
 ```
 
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="73" border="0" /></a>
+<br/>
 <br/>
 
 ```
@@ -1288,7 +1302,6 @@ Turn off Diagnostic settings in microsoft sentinel in searchbar type microsoft s
 <br/>
 In left side bar:
 <br/>
-<br/>
 
 ```
 Configuration > Settings > Settings > Auditing and health monitoring > Configure Diagnostic settings > Edit settings > Delete
@@ -1300,6 +1313,7 @@ Configuration > Settings > Settings > Auditing and health monitoring > Configure
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="78" border="0" /></a>
 <br/>
+<br/>
 Confirm there is no diagnostic settings.
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="79" border="0" /></a>
@@ -1308,11 +1322,13 @@ Confirm there is no diagnostic settings.
 An attacker might also escalate privileges and gain additional access to the environment by using Azure Portals Web shell interface to run scripts and different tools like Microburst or Azure Hound to search for sensitive information.
 <br/>
 <br/>
-Attackers might also perform crypto mining they will spin up expensive resources resulting in a large bill
+Attackers might also perform crypto mining like mining for Bitcoin or Ethereum. What they will do is sometimes spin up expensive resources resulting in a large bill.
+<br/>
+<br/>
 We can follow along with the tutorial or not Lets create a VM within the same resource group. This is very sneaky. 
 <br/>
 <br/>
-Lets give the VM a very generic name.
+Lets give the VM a very generic name so it can blend very well. 
 <br/>
 
 ```
@@ -1347,9 +1363,11 @@ Inbound port rules > Allow selected ports > SSH (22)
 <br/>
 Leave everything as is with Disks.
 <br/>
+<br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="82" border="0" /></a>
 <br/>
 Networking credentials.
+<br/>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="83" border="0" /></a>
 <br/>
@@ -1363,23 +1381,26 @@ Click > Review + Create
 Click > Create
 ```
 <br/>
+After all that, I found out I don’t have authorization to perform this action. Hmm...
 <br/>
-After all that I found out I don’t have authorization to perform this action. 
 <br/>
-<br/>
-However after I changed to Adminstrator Authentication with username and password when setting up the VM, validation passed and I could create our VM!
+However, after some thinking, I changed to Adminstrator Authentication with username and password when setting up the VM, validation passed and I could create our VM!
 <br/>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="84" border="0" /></a>
 <br/>
 <br/>
-Our VM has been created! Now the VM is created lets try running Cloud Shells as an attacker.
+Our VM has been created! 
+<br/>
+<br/>
+Now the VM is created let's try running Cloud Shells as an attacker.
 <br/>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="85" border="0" /></a>
 <br/>
 <br/>
 Click on the Cloud Shell button next to the bell Icon top right, then select Powershell.
+<br/>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="86" border="0" /></a>
 <br/>
@@ -1390,7 +1411,7 @@ Click on the Cloud Shell button next to the bell Icon top right, then select Pow
 ```
 Click > Create Storage
 ```
-You might get a message saying: "You have no storage mounted".
+You might get an error message saying: "You have no storage mounted".
 <br/>
 <br/>
 We need  to have a storage account which is used to store all users files and scripts as well as other data such as session history and environment settings and preferences.
@@ -1408,9 +1429,9 @@ If we click Create Storage we will get a failure "Storage creation failed".
 This is because we don’t have privileges to create a new resource group.
 <br/>
 <br/>
-However there is another way.
+However there is another work around way.
 <br/>
-<br/>
+
 
 ```
 Click > Show advanced settings.
@@ -1444,6 +1465,7 @@ After a minute or so the terminal window will load up. We have succesfully launc
 <br/>
 Now we have to wait for MS to detect threats.
 <br/>
+<br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="90" border="0" /></a>
 <br/>
 <br/>
@@ -1466,14 +1488,14 @@ Containers > first-container
 ```
 Click > Upload
 ```
-
+<br/>
 Technically if you were a real hacker you could upload anything. 
 <br/>
 <br/>
 Like a bad script, jpg, malware I suppose etc..
 <br/>
 <br/>
-I made two text files: log5j.txt and wannasleep.txt.
+I made two text files: log5j.txt and wannasleep.txt. No pun intended.
 <br/>
 <br/>
 <a href="https://ibb.co/LR3MgW2"><img src="https://i.ibb.co/fFsbN5P/53.png" alt="91" border="0" /></a>
@@ -1495,7 +1517,7 @@ Lets see if sentinel picked up on these actions. We will wait 24 hours.
 
 <br></br>
 <h3>Step 10 - Analysing the Security Incident in Sentinel </h3>
-Okay now go back to your original Azure account.
+So, it's been over 24 hours. Okay now go back to your original Azure account.
 <br />
 <br/>
 Go to the Microsoft Sentinel Dashboard. Look at the incidents.
