@@ -61,7 +61,6 @@ Basic Tab and choose:
 ```
 Subscription --> Azure 1
 ```
-<br/>
 
 ```
 Location --> East US
@@ -72,17 +71,17 @@ Usually East US is the cheapest. However for this project, we will choose the cl
 ```
 Resource Group Name:  (pick a name to reflect what the solution is about) --> Security-Monitoring-rg
 ```
-<br/>
+
 
 ```
 Workspace Name --> same as resource group name
 ```
-<br/>
+
 
 ```
 Daily ingestion limit in GBs. --> 10
 ```
-<br/>
+
 
 ```
 Number of days of retention --> 90
@@ -93,7 +92,7 @@ This means it's free for the first 90 days. After that we have to pay for every 
 ```
 Select pricing tier for Log Analytics --> Pay-as-you-go (leave it as is)
 ```
-<br/>
+
 
 ```
 Select pricing tier for Sentinel --> Pay-as-you-go (leave it as is)
@@ -109,6 +108,7 @@ Enable Sentinel Health Diagnostics --> Select
 ```
 <br/>
 We will Enable User Entity Behavior Analytics (UEBA) later together.
+<br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="4" border="0" /></a>
 <br/>
 <br/>
@@ -121,12 +121,12 @@ There are three content categories for solutions.
 ```
 Select Microsoft Content Hub Solutions --> Select All
 ```
-<br/>
+
 
 ```
 Select Essential Content Hub Solutions --> Select All
 ```
-<br/>
+
 
 ```
 Select Training and Tutorials Content Hub Solutions --> Select All
@@ -138,14 +138,15 @@ In the Data Connectors Tab:
 <br/>
 
 ```
-Select data connectors to onboard --> select all
+Select data connectors to onboard > select all
 ```
 <br/>
-If we don’t have permissions for some data connectors, it will simply fail, so don’t worry.
+If we don’t have permissions for some data connectors, it will simply fail, so we don’t need to worry.
+<br/>
 <br/>
 
 ```
-Select Azure Active Directory log types to enable --> Select all
+Select Azure Active Directory log types to enable > Select all
 ```
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="6" border="0" /></a>
@@ -153,26 +154,29 @@ Select Azure Active Directory log types to enable --> Select all
 <br/>
 In the Analytics Rules Tab:
 <br/>
-
-```
-Enable Scheduled alert rules for selected Content Hub solutions and Data Connectors --> Select
-```
-<br/>
-we don’t want to enable hundreds of scheduled alert from the content hub manually.
 <br/>
 
 ```
-Select the severity of the rules to enable --> Select all
+Enable Scheduled alert rules for selected Content Hub solutions and Data Connectors > Select
 ```
+<br/>
+We don’t want to enable hundreds of scheduled alert from the content hub manually.
+<br/>
+
+```
+Select the severity of the rules to enable > Select all
+```
+<br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="7" border="0" /></a>
 <br/>
-<br/>
+
 
 ```
 Review + create Tab
 ```
-<br/>
+
 Check all the details.
+<br/>
 <br/>
 
 ```
@@ -181,18 +185,23 @@ Click > Create
 <br/>
 This will take 10-15 minutes to deploy, so grab a cup of coffee.
 <br/>
-During this process you may encounter some failures because you wont have the license for some.
+<br/>
+During this process you may encounter some failures because we won't have the license for some.
+<br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="8" border="0" /></a>
 <br/>
 <br/>
 We are getting an authentication error.
+<br/>
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="9" border="0" /></a>
 <br/>
 <br/>
 It's stating, we need to change user write permissions to enable this deployment.
 <br/>
+<br/>
 In the Azure All in One readme file in Github, it states:
+<br/>
 <br/>
 
 ```
@@ -201,7 +210,7 @@ Azure user account with enough permissions to enable the desired connectors. See
 
 Write permissions to the workspace are always needed.
 <br/>
-After a while of researching,  I created the resource group siem-training and gave owner privileges.
+After a bit of researching,  I created the resource group siem-training and gave owner privileges.
 <br/>
 
 ```
@@ -211,7 +220,9 @@ Click Role Assignment >  Add > Add role assignment.
 <br/>
 <br/>
 In the Role Tab:
+<br/>
 Select role by clicking on View. We chose the Privileged Admin role.
+<br/>
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="11" border="0" /></a>
 <br/>
@@ -232,13 +243,16 @@ Select role assignments and members.
 <br/>
 The role assignment we set is constrained to the owner.
 <br/>
+<br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="14" border="0" /></a>
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="15" border="0" /></a>
 <br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="16" border="0" /></a>
 <br/>
-Good seems like it all worked now. Issue solved. Yes!
+<br/>
+Good seems like it all worked now. Issue solved. Yes!]
+<br/>
 <a href="https://ibb.co/M75HdHK"><img src="https://i.ibb.co/6FJSQSG/2.png" alt="17" border="0" /></a>
 <br/>
 <br/>
@@ -303,7 +317,7 @@ siem-training2 (type Log Analytics workspace) > Click
 On the Monitoring blade:
 
 ```
-Click Diagnostic settings --> Add diagnostic setting
+Click Diagnostic settings > Add diagnostic setting
 ```
 <a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="20" border="0" /></a>
 <br/>
@@ -318,21 +332,21 @@ You may create up to five different diagnostic settings to send different logs a
 <br/>
 
 ```
-Diagnostic setting name -->  Sentinel
+Diagnostic setting name >  Sentinel
 ```
 
 ```
-Logs --> Category groups --> allLogs (select)
-```
-
-
-```
-Metrics --> AllMetrics (select)
+Logs > Category groups > allLogs (select)
 ```
 
 
 ```
-Destination details --> Send to Log Analytics workspace --> Subscription (choose) --> Log Analytics workspace --> security-monitoring (japanwest)
+Metrics > AllMetrics (select)
+```
+
+
+```
+Destination details > Send to Log Analytics workspace > Subscription (choose) > Log Analytics workspace > security-monitoring (japanwest)
 ```
 
 
@@ -342,7 +356,7 @@ Click > Save
 <a href="https://ibb.co/348nntQ"><img src="https://i.ibb.co/gmXxxsh/13.png" alt="21" border="0" /></a>
 <br/>
 <br/>
-Now we are all setup! We can move on to Sentinel itself.
+Now we're all setup! We can move on to Sentinel itself.
 
 
 <br>
@@ -352,7 +366,7 @@ Okay, let's start exploring Microsoft Sentinel.
 Search for Sentinel in the search bar. 
 <br/>
 <br/>
-Choose your resource group > siem-training2
+Choose your resource group which is siem-training2.
 <br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="22" border="0" /></a>
@@ -364,7 +378,7 @@ Click > Microsoft Sentinel (MS)
 ```
 Overview gives you a dashboard overview. On the left side MS is divided into 4 sections.
 <br/>
-<br/>
+
 ```
 General
 ```
@@ -382,7 +396,7 @@ Content Management
 ```
 Configuration
 ```
-
+<br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="23" border="0" /></a>
 <br/>
 <br/>
@@ -392,8 +406,8 @@ Lets focus on some of the most interesting tabs in Sentinel.
 ```
 Click General > Logs
 ```
-Here we can search for you data using Kusto Query Language or KQL
-You can see all the tables by click on the all the triangle icons.
+Here we can search for data using Kusto Query Language or KQL.
+We can see all the tables by clicking on all the triangle icons.
 <br/>
 e.g   LogManagement, Microsoft Sentinel, Custom Logs
 <br/>
@@ -414,12 +428,12 @@ location details will be particulary useful for us.
 <br/>
 Lets have a look at the Configuration Section.
 <br/>
-<br/>
 
 ```
-Configuration --> Data Connectors.
+Configuration > Data Connectors.
 ```
 We should have around 9-10 Connected. We can filter by Status: Connected.
+<br/>
 <br/>
 This lets us see the type of data being collected, number of logs received and tables that are being populated.
 <br/>
@@ -431,14 +445,14 @@ This lets us see the type of data being collected, number of logs received and t
 ```
 Configuration --> Analytics
 ```
-Do you remember the hundreds of templates inside your resource group?
+Do you remember the hundreds of templates inside our resource group?
 <br/>
 <br/>
-Most of them were for analytics rules that were automatically deployed and enabled for you.
-There are already roughly around a staggering detection rules already built and provided by Microsoft, this is great to get started with monitoring threats.
+Most of them were for analytics rules that were automatically deployed and enabled for us.
+There are already a staggering amount of detection rules already built-in and provided by Microsoft, so this is great to get started with monitoring threats.
 <br/>
 <br/>
-Lets have a look at some  high severity just to see what rules have been broken?
+Lets have a look at some high severity just to see what rules have been broken?
 <br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="26" border="0" /></a>
@@ -447,17 +461,17 @@ Lets have a look at some  high severity just to see what rules have been broken?
 Lets also have a look at Anomalies.
 <br/>
 <br/>
-There are anomalies templates developed to be robust by using thousands of data sources and millions of events.
+There are anomalies templates developed by Microsoft. These are considered to be robust as they are used by thousands of data sources and millions of events.
 <br/>
 <br/>
 Microsoft allows you to change the thresholds for them in case they generate a lot of false positives.
-Right now I don’t even know what a false positive looks like! 
+Right now, we don’t even know what a false positive looks like, so we don't have to worry about it for now. 
 <br/>
 <br/>
 Note that the  Anomalies template works with the User and Entity Behavior Analytics which is currently not working
 <br/>
 <br/>
-In the next step, our very first task in Microsoft Sentinel will be to fix this very issue!
+In the next step, our very first task in Microsoft Sentinel will be to fix this very issue.
 <br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="27" border="0" /></a>
@@ -477,8 +491,9 @@ To turn this feature we have to go to:
 <br/>
 
 ```
-Configuration --> Settings --> Settings --> Set UEBA
+Configuration > Settings > Settings > Set UEBA
 ```
+<br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="28" border="0" /></a>
 <br/>
 <br/>
@@ -502,40 +517,39 @@ Select existing data sources you want to enable for entity behavior analytics.
 ```
 Select Audit Logs, Azure Activity , Signin Logs > Apply
 ```
-
-Now we have enabled AI Machine Learning in Microsoft Sentinel.
+<br/>
+Now, we have enabled AI Machine Learning in Microsoft Sentinel.
 <br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="29" border="0" /></a>
 <br/>
 <br/>
-As we are already in Sentinel  configuring lets use automation playbooks.
+As we are already configuring Sentinel, lets use some automation playbooks.
+<br/>
 <br/>
 To do this we need to give MS permissions.
-<br/>
 <br/>
 
 ```
 Configuration > Settings > Settings > Playbook permissions > Configure permissions
 ```
-
+<br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="30" border="0" /></a>
 <br/>
 <br/>
-Manage permissions panel will show up to the right.
-<br/>
+The manage permissions panel will show up to the right.
 <br/>
 
 ```
 Select resource group siem-training2 > Apply
 ```
-Now we are all set up and ready to create some amazing artifacts within Microsoft Sentinel.
+Now, we are all set up and ready to create some amazing artifacts within Microsoft Sentinel.
 <br/>
 <br/>
-In the next step let's dive into watchlists.
+In the next step let's dive into Sentinel watchlists.
 <br/>
 <br/>
-We will learn to create our own watchlist and how to leverage powerful capabilities to enhance security operations.
+We'll learn to create our own watchlist and how to leverage powerful capabilities to enhance security operations.
 <br/>
 <br/>
 <a href="https://ibb.co/ZTJHTrJ"><img src="https://i.ibb.co/bd3HdV3/14.png" alt="30" border="0" /></a>
@@ -571,7 +585,6 @@ There are three tabs, General, Source, Review and Create.
 <br/>
 <br />
 In the General tab:
-<br />
 <br/>
 
 ```
@@ -588,14 +601,13 @@ Alias > Tor-IP-Addresses
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="33" border="0" /></a>
 <br />
 <br />
-We can create watchlists from a local file or from Azure storage.
+We can create watchlists from a local file or from a Azure storage. (Maybe that should be my next project!)
 <br />
 <br/>
 Source tab (is it from a local file or from Azure storage).
 <br />
 <br/>
 Fill in the below fields:
-<br />
 <br/>
 
 ```
@@ -615,16 +627,18 @@ Upload file > Tor+Exit+Nodes.csv
 ```
 <br />
 File preview on right side to check for your validation.
+<br/>
+<br/>
 
 ```
-SearchKey --> IpAddress
+SearchKey > IpAddress
 ```
-<br />
+
 
 ```
 Review and Create  tab > Create
 ```
-<br />
+
 <br />
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="34" border="0" /></a>
 <br />
@@ -636,13 +650,14 @@ Our newly created watchlist.
 <br />
 <br />
 Select the watchlist.
+<br/>
 <br />
 
 ```
 On the right side panel > Click View in Logs
 ```
 <br />
-This is what the watchlist looks when you call it with KQL and Sentinel will present you with the results.
+This is what the watchlist looks like when you call it with KQL and Sentinel will present you with the results.
 <br />
 <br/>
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="36" border="0" /></a>
@@ -672,8 +687,8 @@ Click Update watchlist > Edit watchlist items
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="38" border="0" /></a>
 <br />
 <br />
-This is particularly useful if you have multiple analytics rules that use the same information
-Its easier to upodate the watch list in one place rather than going into each analytics rule and making changes there.
+This is particularly useful if you have multiple analytics rules that use the same information.
+It's easier to update the watch list in one place rather than going into each analytics rule and making changes individually.
 <br />
 <br />
 <a href="https://ibb.co/hHPqB1y"><img src="https://i.ibb.co/Y8zrcT3/41.png" alt="39" border="0" /></a>
@@ -695,7 +710,7 @@ In Microsoft Sentinel side bar:
 <br/>
 
 ```
-Configuration > Analytics > Create > Scheduled Query rule
+Click > Configuration > Analytics > Create > Scheduled Query rule
 ```
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="40" border="0" /></a>
 <br />
@@ -719,7 +734,7 @@ This could indicate a potential security threat, as legitimate users typically d
 to sign in to an organization's resources.
 ```
 <br />
-Under Tactics and Techniques: 
+Under Tactics and Techniques (based off Mitre Attack Framework): 
 <br />
 <br/>
 
@@ -769,7 +784,7 @@ Click > Test with current data (top right)
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="42" border="0" /></a>
 <br />
 <br />
-Alert enrichment Entity in Sentinel are objects that represent important information about the environment such as host, users, IP addresses and many more. Lets add two different entities.
+Alert enrichment Entity in Sentinel are objects that represent important information about the environment such as host, users, IP addresses and many more. Let's add two different entities.
 <br />
 <br/>
 You can select an entity then you add key value pairs to it.
@@ -806,7 +821,7 @@ IP (2nd Entity)
 Address > Ipaddress
 ```
 <br/>
-Custom details (we can surface any particular event parameters). We have to add key value pairs.
+Under Custom details (we can surface any particular event parameters). We have to add key value pairs.
 <br />
 <br/>
 
@@ -842,6 +857,7 @@ The rule triggers when a successful sign-in event occurs on an account {{UserDis
 <br/>
 Alert Property
 <br />
+<br/>
 
 ```
 ConfidenceScore > RiskState
@@ -850,8 +866,8 @@ ConfidenceScore > RiskState
 <br />
 <br />
 Query Scheduling
-Run query every
-5 minutes
+<br/>
+Run query every 5 minutes.
 <br />
 Lookup data from the last 5 minutes.
 <br />
@@ -878,13 +894,13 @@ Alert grouping > Enabled
 Limit the group to alerts created within the selected time frame leave as > 5 hours
 ```
 <br />
-Group alerts triggered by this analytics rule into a single incident by leave as (recommended).
+Group alerts triggered by this analytics rule into a single incident. Just leave as is. (recommended).
 <br />
 <br/>
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="47" border="0" /></a>
 <br />
 <br />
-In the Automated Response Tab. None here so we will move on.
+Under the Automated Response Tab.We can skip this.
 <br />
 <br />
 <a href="https://ibb.co/xsLQ5f7"><img src="https://i.ibb.co/JdtPkys/50.png" alt="48" border="0" /></a>
