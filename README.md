@@ -1530,7 +1530,6 @@ Okay so how do we get started?
 ```
 Go to Threat management > Incidents  > Manage Incidents
 ```
-<br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="92" border="0" /></a>
 <br />
 <br/>
@@ -1543,7 +1542,7 @@ How would we prioritize incidents that are currently open and present?
 The answer is a little complicated…
 <br />
 <br/>
-Well it depends on the situation but most of the time we would prioritize incidents based on the highest severity.
+Well, it depends on the situation but most of the time, we would prioritize incidents based on the highest severity.
 <br/>
 <br />
 For us the highest severity would be successful Sign-in from Tor Network. Look at all the IP addresses. We can see it because of the analytics rule we specified. One thing we are noticing is that a certain IP address is showing up twice and within close time proximity.
@@ -1558,7 +1557,6 @@ This could already indicate a flaw in our analytic rule that we created. Below i
 ```
 Click > View Full Details (bottom right) to get more detailed information.
 ```
-<br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="94" border="0" /></a>
 <br />
 <br/>
@@ -1575,41 +1573,40 @@ We should probably have to fix that later.
 Lets check the other incidents quickly before jumping into the high severity cases. You can sort incidents by Incident ID or Created time.
 <br />
 <br/>
-** Below can probably be seen from siem-training3 not siem-training2 **
+** Below can be seen from siem-training3 not siem-training2 **
 <br />
 <br/>
 Some of incidents are:
 <br />
 <br/>
+
+```
 Under low severity there was a title: User account created without expected attributes defined
 <br />
-<br/>
 Under low severity there was a title: Anomolous Single Factor Signin
-<br />
 <br/>
 Under medium there was a title: Service Principal Authentication Attempt from New Country
-<br />
 <br/>
 Under medium there was a title: Insider Risk Risky User Access by Application
-<br />
 <br/>
 Under medium there was a title: Anomalous Sign-in location by user account and authenticating application
 <br />
-<br/>
 Under high there was a title: Successful Sign-Ins from Tor Network [ip address]
-<br />
+<br/>
+```
+
 <br/>
 ** Below is shown in siem-training2 ** 
+<br/>
 Another incident is:
 <br />
 <br/>
 Under low there is a title: Suspicious Resource Deployment.
 <br />
-<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="96" border="0" /></a>
 <br />
 <br/>
-So if we looked at all these incidents it could mean all the incidents are related together right? Why do we have so many?
+So, if we looked at all these incidents it could mean all the incidents are related together right? Why do we have so many?
 <br />
 <br/>
 Why doesn’t Sentinel take them all and create one with all of the information presented?
@@ -1653,12 +1650,12 @@ Click > all high severity incidents
 ```
 At the very top middle > click Actions
 ```
-<br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="98" border="0" /></a>
 <br />
 <br/>
 Actions side panel to the right will show up. We have three boxes.
 <br />
+<br/>
 
 ```
 Severity > High
@@ -1679,7 +1676,7 @@ Click > Apply
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="99" border="0" /></a>
 <br />
 <br/>
-Now if you go back to all the incidents, the owner of all the high incidents have been changed to me as well the status of the incident being changed to Active.
+If you go back to all the incidents, the owner of all the high incidents have been changed to me, as well the status of the incident being changed to Active.
 <br />
 <br/>
 This is very important step especially if you are part of security operations team. All team members are aware of who is handling the incident
@@ -1697,7 +1694,6 @@ The easiest way is to just click on any of the incidents. See the right side pan
 ```
 Click  >  View full details > This will show you more detailed information about the incident.
 ```
-<br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="101" border="0" /></a>
 <br />
 
@@ -1709,31 +1705,37 @@ Click  >  View full details > This will show you more detailed information about
 
 
 
-<br></br>
+<br>
+</br>
 <h3>Step 11 - Further Analysis and Investigation of the Security Incident </h3>
 Let's dive deeper into the analysis of the incident. You will get a full screen panel showing the security incdient.
 <br/>
 <br/>
 The incident window is divided into three parts:
+<br/>
 left, middle, right.
 
 <br/>
 <br/>
 Left side -- shows essential details about the incident like username, Ipaddress, evidence (events), alerts, bookmarks
+<br/>
 
 ```
-Click on events > a new Logs > a window will pop out
+Click on events > a new Logs > window will pop out
 ```
 
 If the above doesn’t work, there is a new button called Logs on the Top left which you can click.
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="102" border="0" /></a>
 <br />
 <br/>
-In Logs window > Results tab > we can get a lot of information.
 
-<br/>
-<br/>
+```
+In Logs window > Results tab > we can get a lot of information.
+```
+
 Run this Kusto Query in the Logs:
+<br/>
 
 ```
 let TorNodes = (_GetWatchlist('Tor-IP-Addresses')
@@ -1760,6 +1762,7 @@ SigninLogs
 <br/>
 Click on any file/line to see for more information
 <br/>
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="104" border="0" /></a>
 <br />
 <br/>
@@ -1784,13 +1787,14 @@ Go back to Logs window > result
 There is no indication in our logs that this log was a successful login. Where does it show it?
 This is because we forgot to include the result type column name in our query for project argument.
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="107" border="0" /></a>
 <br />
 <br/>
 What do we have to do? In the KQL just remove the project argument and the column names + uncomment the ResultType.
 Run the below query again: 
 <br/>
-<br/>
+
 ```
 let TorNodes = (_GetWatchlist('Tor-IP-Addresses')
     | project TorIP = IpAddress);
@@ -1798,11 +1802,10 @@ SigninLogs
  | where IPAddress in (TorNodes)
  | where ResultType != 50126
 ```
-<br/>
+
 Now we can see the ResultType = 0.
 This means the login was successful.
 We can make it easier by replacing the fieldvalue of 0 to successful.
-
 <br />
 <br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="108" border="0" /></a>
@@ -1817,6 +1820,7 @@ If you check the user department or country details, we can corroborate if the u
 <br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="109" border="0" /></a>
 <br />
+<br/>
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="110" border="0" /></a>
 <br />
 <br/>
@@ -1828,21 +1832,23 @@ First, we will find the UserPrincipalName and use it in our next query.
 <br/>
 If we right click on the UserPrincipalName we can include it in our query from a little drop down menu.
 You will see this populate in the KQL.
-
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="111" border="0" /></a>
 <br />
 <br/>
 Next remove all query lines except:
 <br/>
+
+```
 SigninLogs and UserPrincipleName.
+```
 <br/>
 
 ```
 Specify the time range > Last 3 days  > Run
 ```
-<br/>
-<br/>
+
 We will provided with a sign in history for the past 3 days.
 This will be sorted by TimeGenerated
 <br/>
@@ -1877,12 +1883,12 @@ We can stay on the investigation page then open a new window with MS.
 <br/>
 Go to main MS page.
 Then go to:
+<br/>
 
 ```
 Threat management > Entity Behavior
 ```
-<br/>
-<br/>
+
 This gives us the option to search and select the user.
 We can see all of the user activities in one place.
 This can help us identify and pattern or anomalies that could be relevant to our investigation.
@@ -1902,7 +1908,7 @@ We also see keyser and d26369b24. This got me really confused.
 <br/>
 This is because an analytics rule wrongly linked an entity.
 This is a perfect example of why need to correctly setup the functionality.
-I am still confused here.
+Still confused here.
 <br/>
 <br/>
 
@@ -1953,7 +1959,6 @@ Click on the below keysersoze
 Then we will see a lot of Azure Activity logs
 Yes! Now we are getting somewhere.
 Click on it and run the KQL query again.
-
 <br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="119" border="0" /></a>
@@ -1964,7 +1969,6 @@ As you can see there are a lot of Azure Activity logs.
 <br/>
 The query combines different queries together. It is super complicated to create on my own.
 The result of this query are sorted from oldest to newest.
-
 <br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="120" border="0" /></a>
@@ -1980,6 +1984,8 @@ ActivitySubstatus = OK (status code: 200)
 
 This means means it succeeded. Lets check the first log from Azure activity.
 The OperationName field tells us about an attempt to delete resource diagnostic settings.
+<br/>
+<br/>
 ![image](https://github.com/chun-eric/sentinel-siem-chatgpt/assets/102393871/9a99b380-1b21-44e1-a921-e64f6a03bce5)
 
 
@@ -1991,10 +1997,13 @@ The OperationName field tells us about an attempt to delete resource diagnostic 
 <br/>
 Check out the other Azure activity logs.
 <br/>
+
+```
 ResourceProvider column
 <br/>
 Resource column
 <br/>
+```
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="122" border="0" /></a>
 <br />
@@ -2055,6 +2064,7 @@ We will need to take quick and effective actions to secure your Azure environmen
 <br/>
 <br/>
 In our Logs Window, the first thing to do is:
+<br/>
 
 ```
 Disable the compromised account
@@ -2065,24 +2075,31 @@ How do we do this?
 
 Go to Entra ID (put it in the search bar)
 Once inside Entra ID
-left side panel
-Manage --> Users
-Select our user keyser --> click
-Bottom left Account status --> Edit --> uncheck Account enabled --> Save
-Now the Account status --> Disabled
+left side panel:
 
+```
+Manage > Users
+Select our user keyser > click
+Bottom left Account status > Edit > uncheck Account enabled > Save
+Now the Account status > Disabled
+```
 
 A quick question. Does disabling the user, disable all the resources this user provisioned as well?
-
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="126" border="0" /></a>
 <br />
-Delete the Virtual Machine associated with keyser
-in search box type virtual machines
-select the vm associated with keyser
-delete the resources
-I would delete all resources associated with this vm
-check --> Apply force delete --> Delete
+Delete the Virtual Machine associated with keyser in search box type virtual machines.
+<br/>
+Select the VM associated with keyser.
+<br/>
+Delete all associated resources.
+<br/>
+Personally, I would delete all resources associated with this VM.
+<br/>
+
+```
+check > Apply force delete > Delete
+```
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="127" border="0" /></a>
 <br />
@@ -2091,44 +2108,59 @@ check --> Apply force delete --> Delete
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="128" border="0" /></a>
 <br />
-Turn on Diagnostic settings for Log Analytics workspace. Why? Helps us log all movements in the resource group
-type in Log analytics workspace in search bar
-click on the correct resource group instance
-On left side bar
-Monitoring --> Diagnostic settings --> Add diagnostic setting
+Turn on Diagnostic settings for Log Analytics workspace. Why? It helps us log all movements in the resource group.
+Type in Log analytics workspace in the search bar then click on the correct resource group instance.
+<br/>
+<br/>
+On the left side bar.
+<br/>
 
-<br />
+```
+Monitoring > Diagnostic settings > Add diagnostic setting
+```
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="129" border="0" /></a>
 <br />
-In Diagnostic setting window
-check Logs --> both audit and allLogs
-check Metrics --> AllMetrics
-Add Diagnostic setting name --> Microsoft Sentinel
-Destination details --> check Send to Log Analytics workspace
-Log Analytics workspace --> choose correct resource group
-Click > Save
+<br/>
+In Diagnostic setting window:
+<br/>
 
-<br />
+```
+check Logs > both audit and allLogs
+check Metrics > AllMetrics
+Add Diagnostic setting name > Microsoft Sentinel
+Destination details > check Send to Log Analytics workspace
+Log Analytics workspace > choose correct resource group
+Click > Save
+```
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="130" border="0" /></a>
 <br />
+<br/>
 Turn on Diagnostic settings for Microsoft Sentinel. Why? We want to track all logs in Microsoft Sentinel.
-type in ms in search bar
-choose the correct resource group
-Left side bar
-Configuration --> Settings
+Type in "ms" in search bar then choose the correct resource group.
+<br/>
+In the Left side bar:
+<br/>
 
-In Settings window
-settings tab --> Auditing and health monitoring --> click enable
-click Configure diagnostic settings
+```
+Configuration > Settings
+```
 
-<br />
+In Settings window:
+<br/>
+
+```
+Settings tab > Auditing and health monitoring > click enable
+Click Configure diagnostic settings
+```
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="131" border="0" /></a>
 <br />
+<br/>
 Diagnostic settings have been enabled
-
+<br/>
 <br />
 <a href="https://ibb.co/sj8VQnP"><img src="https://i.ibb.co/SNF30bx/60.png" alt="132" border="0" /></a>
 <br />
+<br/>
 We have now remediated all the issues, we can close all other windows and move back to our incident investigation window 
 
 One more thing throughout investigations, its essential to add comments to your incidents
