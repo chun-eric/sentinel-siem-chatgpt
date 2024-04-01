@@ -354,12 +354,10 @@ Destination details > Send to Log Analytics workspace > Subscription (choose) > 
 Click > Save
 ```
 <a href="https://ibb.co/vvvnwYD"><img src="https://i.ibb.co/0VVbDtQ/21.png" alt="21" border="0"></a>
-<br/>
-<br/>
+
 Now we're all setup! We can move on to Sentinel itself.
 
 
-<br>
 </br>
 <h3>Step 4 - Exploring Sentinel </h3>
 Okay, let's start exploring Microsoft Sentinel.
