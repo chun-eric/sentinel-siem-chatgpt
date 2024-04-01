@@ -39,7 +39,7 @@ Whenever we want to spin up a fresh new Sentinel just Deploy to Azure the Sentin
 (https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One#readme
 )
 <br/>
-<a href="https://ibb.co/KwrZLwr"><img src="https://i.ibb.co/vYj5QYj/1.png" alt="1" border="0" /></a>
+<a href="https://ibb.co/3m55MXF"><img src="https://i.ibb.co/TMDDbX0/1.png" alt="1" border="0"></a>
 <br/>
 <br/>
 
